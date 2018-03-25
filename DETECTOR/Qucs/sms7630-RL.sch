@@ -1,6 +1,6 @@
 <Qucs Schematic 0.0.19>
 <Properties>
-  <View=-278,-584,1458,1303,1.10001,85,760>
+  <View=-278,-584,1458,1304,1.10001,282,1279>
   <Grid=10,10,1>
   <DataSet=sms7630-RL.dat>
   <DataDisplay=sms7630-RL.dpl>
@@ -28,7 +28,7 @@
   <MVIA MS6 1 130 360 20 0 0 0 "FR4" 1 "0.8 mm" 1 "26.85" 0>
   <MTEE MS7 1 110 160 -26 -110 0 0 "FR4" 1 "Sw" 1 "SSw" 1 "Gw" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0 "showNumbers" 0>
   <MLIN SMA50R2 2 -60 270 -94 -26 0 3 "FR4" 1 "1.55 mm" 1 "L" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0>
-  <Eqn OptValues1 1 230 810 -28 15 0 0 "Sw=1.55e-3" 1 "Sl=13.3e-3" 1 "Gw=1.55e-3" 1 "Gl=17.5e-3" 1 "SSw=1.55e-3" 1 "SSl=0.1e-3" 1 "yes" 0>
+  <Eqn OptValues1 1 230 810 -28 15 0 0 "Sw=1.55e-3" 1 "Sl=13.3e-3" 1 "Gw=1.55e-3" 1 "Gl=17.7e-3" 1 "SSw=1.55e-3" 1 "SSl=14.5e-3" 1 "yes" 0>
   <Eqn Eqn3 0 540 1230 -28 15 0 0 "SWR_vs_L=PlotVs(SWR,L)" 1 "yes" 0>
   <SPfile X8 0 800 -90 -26 -41 0 0 "C:/usr/seo-soft/!!HW-PROJECTS/RF/DETECTOR/Qucs/S2P/SERIES.s2p" 0 "rectangular" 0 "linear" 0 "open" 0 "2" 0>
   <SPfile X7 1 400 160 -26 -41 0 0 "C:/usr/seo-soft/!!HW-PROJECTS/RF/DETECTOR/Qucs/S2P/ONEPORT.s1p" 0 "rectangular" 0 "linear" 0 "open" 0 "1" 0>

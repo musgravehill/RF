@@ -1,6 +1,6 @@
 <Qucs Schematic 0.0.19>
 <Properties>
-  <View=-278,-584,1458,1303,1.10001,304,700>
+  <View=-278,-584,1458,1303,1.10001,85,760>
   <Grid=10,10,1>
   <DataSet=sms7630-RL.dat>
   <DataDisplay=sms7630-RL.dpl>

@@ -1,6 +1,6 @@
 <Qucs Schematic 0.0.19>
 <Properties>
-  <View=-278,-584,1458,1302,1.00001,155,521>
+  <View=-278,-584,1458,1302,1.00001,155,1181>
   <Grid=10,10,1>
   <DataSet=sms7630-RL.dat>
   <DataDisplay=sms7630-RL.dpl>
@@ -28,20 +28,18 @@
   <MVIA MS6 1 130 360 20 0 0 0 "FR4" 1 "0.8 mm" 1 "26.85" 0>
   <MTEE MS7 1 110 160 -26 -110 0 0 "FR4" 1 "Sw" 1 "SSw" 1 "Gw" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0 "showNumbers" 0>
   <MLIN SMA50R2 2 -60 270 -94 -26 0 3 "FR4" 1 "1.55 mm" 1 "100mm" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0>
-  <Eqn OptValues1 1 230 810 -28 15 0 0 "Sw=1.55e-3" 1 "Sl=13.3e-3" 1 "Gw=1.55e-3" 1 "Gl=17.7e-3" 1 "SSw=1.55e-3" 1 "SSl=14.5e-3" 1 "yes" 0>
+  <Eqn OptValues1 0 230 810 -28 15 0 0 "Sw=1.55e-3" 1 "Sl=13.3e-3" 1 "Gw=1.55e-3" 1 "Gl=17.7e-3" 1 "SSw=1.55e-3" 1 "SSl=14.5e-3" 1 "yes" 0>
   <Eqn Eqn3 0 540 1230 -28 15 0 0 "SWR_vs_L=PlotVs(SWR,L)" 1 "yes" 0>
   <SPfile X8 0 800 -90 -26 -41 0 0 "C:/usr/seo-soft/!!HW-PROJECTS/RF/DETECTOR/Qucs/S2P/SERIES.s2p" 0 "rectangular" 0 "linear" 0 "open" 0 "2" 0>
-  <Eqn Eqn2 1 150 -290 -38 16 0 0 "SWR=rtoswr(S[1,1])" 1 "yes" 0>
   <MRSTUB MS3 0 670 -80 -93 -18 0 3 "FR4" 1 "0.3 mm" 0 "7mm" 1 "90" 1>
   <Eqn Eqn1 1 -40 -290 -28 15 0 0 "dBS11=dB(S[1,1])" 1 "ZofS11=rtoz(S[1,1])" 1 "yes" 0>
-  <MLIN SMA50R1 1 220 160 -26 -91 0 2 "FR4" 1 "SSw" 1 "SSl" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0>
   <.SW SW1 0 -80 790 0 69 0 0 "SPTC1" 1 "lin" 1 "W" 1 "0.2e-3" 1 "4e-3" 1 "50" 0>
   <.SW SW2 0 60 790 0 69 0 0 "SPTC1" 1 "lin" 1 "L" 1 "1e-3" 1 "200e-3" 1 "100" 0>
-  <MSTEP MS8 1 300 160 -26 17 0 0 "FR4" 1 "1.55mm" 1 "0.56 mm" 1 "Hammerstad" 0 "Kirschning" 0>
-  <MLIN SMA50R3 1 380 160 -26 -91 0 2 "FR4" 1 "0.56mm" 1 "0.1mm" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0>
   <GND * 1 700 230 0 0 0 0>
-  <R R3 1 450 160 -26 15 0 0 "22 Ohm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "european" 0>
   <SPfile X7 1 650 160 -26 -41 0 0 "C:/usr/seo-soft/!!HW-PROJECTS/RF/DETECTOR/Qucs/S2P/ONEPORT.s1p" 0 "rectangular" 0 "linear" 0 "open" 0 "1" 0>
+  <R R3 1 550 160 -26 15 0 0 "22 Ohm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "european" 0>
+  <MLIN SMA50R1 1 280 160 -26 -91 0 2 "FR4" 1 "SSw" 1 "SSl" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0>
+  <Eqn Eqn4 1 140 -290 -38 16 0 0 "SWR=rtoswr(S[1,1])" 1 "SWR_band=max(SWR)" 1 "yes" 0>
 </Components>
 <Wires>
   <-60 160 -20 160 "" 0 0 0 "">
@@ -51,13 +49,11 @@
   <40 160 80 160 "" 0 0 0 "">
   <110 190 110 260 "" 0 0 0 "">
   <-60 300 -60 390 "" 0 0 0 "">
-  <140 160 190 160 "" 0 0 0 "">
-  <250 160 270 160 "" 0 0 0 "">
-  <330 160 350 160 "" 0 0 0 "">
-  <410 160 420 160 "" 0 0 0 "">
   <650 230 700 230 "" 0 0 0 "">
   <650 190 650 230 "" 0 0 0 "">
-  <480 160 620 160 "" 0 0 0 "">
+  <580 160 620 160 "" 0 0 0 "">
+  <140 160 250 160 "" 0 0 0 "">
+  <310 160 520 160 "" 0 0 0 "">
 </Wires>
 <Diagrams>
   <Tab -97 754 414 225 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 0 1 1000 315 0 225 "" "" "">

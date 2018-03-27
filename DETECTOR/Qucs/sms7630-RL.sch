@@ -1,6 +1,6 @@
 <Qucs Schematic 0.0.19>
 <Properties>
-  <View=-278,-584,1458,1302,1.00001,191,761>
+  <View=-278,-584,1458,1302,1.00001,191,581>
   <Grid=10,10,1>
   <DataSet=sms7630-RL.dat>
   <DataDisplay=sms7630-RL.dpl>
@@ -40,7 +40,7 @@
   <MLIN SMA50R1 1 280 160 -26 -91 0 2 "FR4" 1 "SSw" 1 "SSl" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0>
   <Eqn Eqn4 1 140 -290 -38 16 0 0 "SWR=rtoswr(S[1,1])" 1 "SWR_band=max(SWR)" 1 "yes" 0>
   <.Opt Opt1 0 270 230 0 38 0 0 "Sim=SPTC1" 0 "DE=3|50|2|20|0.85|1|3|1e-6|10|100" 0 "Var=Gl|yes|0.00889|0.1e-3|44e-3|LIN_DOUBLE" 0 "Var=Sl|yes|0.00723|0.1e-3|44e-3|LIN_DOUBLE" 0 "Var=SSl|yes|0.00181|0.1e-3|44e-3|LIN_DOUBLE" 0 "Var=Sw|yes|0.00391|0.1e-3|6e-3|LIN_DOUBLE" 0 "Var=SSw|yes|0.00125|0.1e-3|6e-3|LIN_DOUBLE" 0 "Var=Gw|yes|0.00218|0.1e-3|6e-3|LIN_DOUBLE" 0 "Goal=SWR_band|MIN|0.000000000001" 0>
-  <Eqn OptValues1 1 300 310 -28 15 0 0 "Gl=8.887036E-003" 1 "Sl=7.228212E-003" 1 "SSl=1.813179E-003" 1 "Sw=3.910050E-003" 1 "SSw=1.252368E-003" 1 "Gw=2.178128E-003" 1 "yes" 0>
+  <Eqn OptValues1 1 300 310 -28 15 0 0 "Gl=8.89e-3" 1 "Sl=7.23e-3" 1 "SSl=1.81e-3" 1 "Sw=3.91e-3" 1 "SSw=1.25e-3" 1 "Gw=2.18e-3" 1 "yes" 0>
 </Components>
 <Wires>
   <-60 160 -20 160 "" 0 0 0 "">
@@ -63,7 +63,7 @@
 	<"SWR" #0000ff 0 3 0 0 0>
 	<"dBS21" #0000ff 0 3 1 0 0>
   </Tab>
-  <Smith 379 958 608 608 3 #c0c0c0 1 00 1 0 1 1 1 0 4 1 1 0 1 1 315 0 225 "" "" "">
+  <Smith 482 748 435 435 3 #c0c0c0 1 00 1 0 1 1 1 0 4 1 1 0 1 1 315 0 225 "" "" "">
 	<"S[1,1]" #ff0000 4 3 0 0 0>
   </Smith>
 </Diagrams>

@@ -1,6 +1,6 @@
 <Qucs Schematic 0.0.19>
 <Properties>
-  <View=-278,-584,1458,1302,1.00001,155,1181>
+  <View=-278,-584,1458,1302,1.00001,191,761>
   <Grid=10,10,1>
   <DataSet=sms7630-RL.dat>
   <DataDisplay=sms7630-RL.dpl>
@@ -28,7 +28,6 @@
   <MVIA MS6 1 130 360 20 0 0 0 "FR4" 1 "0.8 mm" 1 "26.85" 0>
   <MTEE MS7 1 110 160 -26 -110 0 0 "FR4" 1 "Sw" 1 "SSw" 1 "Gw" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0 "showNumbers" 0>
   <MLIN SMA50R2 2 -60 270 -94 -26 0 3 "FR4" 1 "1.55 mm" 1 "100mm" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0>
-  <Eqn OptValues1 0 230 810 -28 15 0 0 "Sw=1.55e-3" 1 "Sl=13.3e-3" 1 "Gw=1.55e-3" 1 "Gl=17.7e-3" 1 "SSw=1.55e-3" 1 "SSl=14.5e-3" 1 "yes" 0>
   <Eqn Eqn3 0 540 1230 -28 15 0 0 "SWR_vs_L=PlotVs(SWR,L)" 1 "yes" 0>
   <SPfile X8 0 800 -90 -26 -41 0 0 "C:/usr/seo-soft/!!HW-PROJECTS/RF/DETECTOR/Qucs/S2P/SERIES.s2p" 0 "rectangular" 0 "linear" 0 "open" 0 "2" 0>
   <MRSTUB MS3 0 670 -80 -93 -18 0 3 "FR4" 1 "0.3 mm" 0 "7mm" 1 "90" 1>
@@ -40,6 +39,8 @@
   <R R3 1 550 160 -26 15 0 0 "22 Ohm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "european" 0>
   <MLIN SMA50R1 1 280 160 -26 -91 0 2 "FR4" 1 "SSw" 1 "SSl" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0>
   <Eqn Eqn4 1 140 -290 -38 16 0 0 "SWR=rtoswr(S[1,1])" 1 "SWR_band=max(SWR)" 1 "yes" 0>
+  <.Opt Opt1 0 270 230 0 38 0 0 "Sim=SPTC1" 0 "DE=3|50|2|20|0.85|1|3|1e-6|10|100" 0 "Var=Gl|yes|0.00889|0.1e-3|44e-3|LIN_DOUBLE" 0 "Var=Sl|yes|0.00723|0.1e-3|44e-3|LIN_DOUBLE" 0 "Var=SSl|yes|0.00181|0.1e-3|44e-3|LIN_DOUBLE" 0 "Var=Sw|yes|0.00391|0.1e-3|6e-3|LIN_DOUBLE" 0 "Var=SSw|yes|0.00125|0.1e-3|6e-3|LIN_DOUBLE" 0 "Var=Gw|yes|0.00218|0.1e-3|6e-3|LIN_DOUBLE" 0 "Goal=SWR_band|MIN|0.000000000001" 0>
+  <Eqn OptValues1 1 300 310 -28 15 0 0 "Gl=8.887036E-003" 1 "Sl=7.228212E-003" 1 "SSl=1.813179E-003" 1 "Sw=3.910050E-003" 1 "SSw=1.252368E-003" 1 "Gw=2.178128E-003" 1 "yes" 0>
 </Components>
 <Wires>
   <-60 160 -20 160 "" 0 0 0 "">

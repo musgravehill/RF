@@ -1,6 +1,6 @@
 SimValueCacheVersionID=1
 $begin 'SimValueInfos'
-	NextUniqueID=10
+	NextUniqueID=13
 	MoveBackwards=false
 	$begin 'SimValue'
 		ID=0
@@ -72,6 +72,27 @@ $begin 'SimValueInfos'
 			ValueState(90, 15, 1, 2)
 		$end 'SimValueParams'
 	$end 'SimValue'
+	$begin 'SimValue'
+		ID=10
+		$begin 'SimValueParams'
+			QuantityName='Volume(FR4)'
+			ValueState(787, 14, 1, 1)
+		$end 'SimValueParams'
+	$end 'SimValue'
+	$begin 'SimValue'
+		ID=11
+		$begin 'SimValueParams'
+			QuantityName='Gamma(1)'
+			ValueState(90, 15, 1, 2)
+		$end 'SimValueParams'
+	$end 'SimValue'
+	$begin 'SimValue'
+		ID=12
+		$begin 'SimValueParams'
+			QuantityName='Zo(1)'
+			ValueState(90, 15, 1, 2)
+		$end 'SimValueParams'
+	$end 'SimValue'
 $end 'SimValueInfos'
 $begin 'SimValueCache'
 	$begin 'DesignMap'
@@ -82,13 +103,39 @@ $begin 'SimValueCache'
 				$begin 'VersionMap'
 					$begin 'ReportTypeSolnDef'
 						ReportType=1
+						SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+					$end 'ReportTypeSolnDef'
+					$begin 'MajorVVMap'
+						VersionID=5361
+						$begin 'MinorVVMap'
+							MajorVariation=''
+							MinorCacheFile='min6AEE632415222409668.tmp'
+						$end 'MinorVVMap'
+					$end 'MajorVVMap'
+				$end 'VersionMap'
+				$begin 'VersionMap'
+					$begin 'ReportTypeSolnDef'
+						ReportType=1
 						SimValueContext(0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 					$end 'ReportTypeSolnDef'
 					$begin 'MajorVVMap'
-						VersionID=5270
+						VersionID=5361
 						$begin 'MinorVVMap'
 							MajorVariation=''
-							MinorCacheFile='min411F1108152222765449.tmp'
+							MinorCacheFile='min6AF1632415222409679.tmp'
+						$end 'MinorVVMap'
+					$end 'MajorVVMap'
+				$end 'VersionMap'
+				$begin 'VersionMap'
+					$begin 'ReportTypeSolnDef'
+						ReportType=0
+						SimValueContext(0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+					$end 'ReportTypeSolnDef'
+					$begin 'MajorVVMap'
+						VersionID=5361
+						$begin 'MinorVVMap'
+							MajorVariation=''
+							MinorCacheFile='min6AF16324152224096710.tmp'
 						$end 'MinorVVMap'
 					$end 'MajorVVMap'
 				$end 'VersionMap'
@@ -114,6 +161,19 @@ $begin 'SimValueCache'
 			$end 'ContextMap'
 			$begin 'ContextMap'
 				SolutionID=2917
+				$begin 'VersionMap'
+					$begin 'ReportTypeSolnDef'
+						ReportType=3
+						SimValueContext(0, 0, 2, 0, false, false, 0, 1, 0, 1, 1, '', 0, 0)
+					$end 'ReportTypeSolnDef'
+					$begin 'MajorVVMap'
+						VersionID=5361
+						$begin 'MinorVVMap'
+							MajorVariation='Freq=\'6GHz\''
+							MinorCacheFile='min6AF16324152224096711.tmp'
+						$end 'MinorVVMap'
+					$end 'MajorVVMap'
+				$end 'VersionMap'
 			$end 'ContextMap'
 		$end 'SolutionMap'
 	$end 'DesignMap'

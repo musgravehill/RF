@@ -1,6 +1,6 @@
 <Qucs Schematic 0.0.19>
 <Properties>
-  <View=-278,-584,1458,1302,1.00001,191,581>
+  <View=-278,-584,1458,1302,1.00001,191,641>
   <Grid=10,10,1>
   <DataSet=sms7630-RL.dat>
   <DataDisplay=sms7630-RL.dpl>
@@ -35,12 +35,13 @@
   <.SW SW1 0 -80 790 0 69 0 0 "SPTC1" 1 "lin" 1 "W" 1 "0.2e-3" 1 "4e-3" 1 "50" 0>
   <.SW SW2 0 60 790 0 69 0 0 "SPTC1" 1 "lin" 1 "L" 1 "1e-3" 1 "200e-3" 1 "100" 0>
   <GND * 1 700 230 0 0 0 0>
-  <SPfile X7 1 650 160 -26 -41 0 0 "C:/usr/seo-soft/!!HW-PROJECTS/RF/DETECTOR/Qucs/S2P/ONEPORT.s1p" 0 "rectangular" 0 "linear" 0 "open" 0 "1" 0>
   <R R3 1 550 160 -26 15 0 0 "22 Ohm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "european" 0>
   <MLIN SMA50R1 1 280 160 -26 -91 0 2 "FR4" 1 "SSw" 1 "SSl" 1 "Hammerstad" 0 "Kirschning" 0 "26.85" 0>
   <Eqn Eqn4 1 140 -290 -38 16 0 0 "SWR=rtoswr(S[1,1])" 1 "SWR_band=max(SWR)" 1 "yes" 0>
   <.Opt Opt1 0 270 230 0 38 0 0 "Sim=SPTC1" 0 "DE=3|50|2|20|0.85|1|3|1e-6|10|100" 0 "Var=Gl|yes|0.00889|0.1e-3|44e-3|LIN_DOUBLE" 0 "Var=Sl|yes|0.00723|0.1e-3|44e-3|LIN_DOUBLE" 0 "Var=SSl|yes|0.00181|0.1e-3|44e-3|LIN_DOUBLE" 0 "Var=Sw|yes|0.00391|0.1e-3|6e-3|LIN_DOUBLE" 0 "Var=SSw|yes|0.00125|0.1e-3|6e-3|LIN_DOUBLE" 0 "Var=Gw|yes|0.00218|0.1e-3|6e-3|LIN_DOUBLE" 0 "Goal=SWR_band|MIN|0.000000000001" 0>
   <Eqn OptValues1 1 300 310 -28 15 0 0 "Gl=8.89e-3" 1 "Sl=7.23e-3" 1 "SSl=1.81e-3" 1 "Sw=3.91e-3" 1 "SSw=1.25e-3" 1 "Gw=2.18e-3" 1 "yes" 0>
+  <GND * 1 600 160 0 0 0 0>
+  <SPfile X7 1 690 160 -26 -41 0 0 "C:/usr/seo-soft/!!HW-PROJECTS/RF/DETECTOR/Qucs/S2P/ONEPORT.s1p" 0 "rectangular" 0 "linear" 0 "open" 0 "1" 0>
 </Components>
 <Wires>
   <-60 160 -20 160 "" 0 0 0 "">
@@ -50,11 +51,11 @@
   <40 160 80 160 "" 0 0 0 "">
   <110 190 110 260 "" 0 0 0 "">
   <-60 300 -60 390 "" 0 0 0 "">
-  <650 230 700 230 "" 0 0 0 "">
-  <650 190 650 230 "" 0 0 0 "">
-  <580 160 620 160 "" 0 0 0 "">
+  <580 160 600 160 "" 0 0 0 "">
   <140 160 250 160 "" 0 0 0 "">
   <310 160 520 160 "" 0 0 0 "">
+  <690 230 700 230 "" 0 0 0 "">
+  <690 190 690 230 "" 0 0 0 "">
 </Wires>
 <Diagrams>
   <Tab -97 754 414 225 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 0 1 1000 315 0 225 "" "" "">

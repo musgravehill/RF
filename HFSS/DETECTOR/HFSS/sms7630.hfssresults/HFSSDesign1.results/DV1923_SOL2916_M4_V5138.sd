@@ -1,0 +1,88 @@
+$begin 'soln'
+	ObjectType='HfssModal'
+	SolutionType='Adaptive'
+	Name='Adaptive_4'
+	AdaptivePass=4
+	EnergyError=475667.1864145849
+	$begin 'Frequencies'
+		$begin 'DataPoint'
+			Frequency=6000000000
+			DataType='None'
+			$begin 'SMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(0.2509606934850888, 0.3660456039280099)
+					c(-0.5943094164407907, -0.1529112718648411)
+				$end 'r0'
+				$begin 'r1'
+					c(-0.5943094164415974, -0.1529112718648755)
+					c(-0.3021461057414705, 0.5247851075464937)
+				$end 'r1'
+			$end 'SMatrix'
+			$begin 'Gamma'
+				n=2
+				$begin 'r0'
+					c(0, 0)
+					c(0, 0)
+				$end 'r0'
+			$end 'Gamma'
+			$begin 'Zpi'
+				n=2
+				$begin 'r0'
+					c(50, 0)
+					c(50, 0)
+				$end 'r0'
+			$end 'Zpi'
+			$begin 'TerminalTMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(10, -1.387778780781446e-017)
+					c(0, 0)
+				$end 'r0'
+				$begin 'r1'
+					c(0, 0)
+					c(9.999999999999998, -2.081668171172169e-017)
+				$end 'r1'
+			$end 'TerminalTMatrix'
+			$begin 'TerminalPMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(2.000000000000001, -1.284042316918033e-014)
+					c(0, 0)
+				$end 'r0'
+				$begin 'r1'
+					c(0, 0)
+					c(1.999999999999998, 3.771288836773579e-015)
+				$end 'r1'
+			$end 'TerminalPMatrix'
+			$begin 'TerminalRMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(1, 0)
+					c(0, 0)
+				$end 'r0'
+				$begin 'r1'
+					c(0, 0)
+					c(1, 0)
+				$end 'r1'
+			$end 'TerminalRMatrix'
+			ConvertedFromUnmatchedTerminalMatrices=false
+		$end 'DataPoint'
+	$end 'Frequencies'
+	$begin 'Ports'
+		Port(ModalEntryName='2', TerminalEntryName='2', PortName='2', Mode=1, ModeName='', TerminalName='pad_T1', ParameterName='', MatrixIndex=0)
+		Port(ModalEntryName='1', TerminalEntryName='1', PortName='1', Mode=1, ModeName='', TerminalName='stripIn_T1', ParameterName='', MatrixIndex=1)
+	$end 'Ports'
+	HigherOrderMode=false
+	PortNames('2', '1')
+	PortModes(1, 1)
+	PortTerminals('pad_T1', 'stripIn_T1')
+	ModalData=true
+	LastSolvedFreq=0
+	IeEnergyError=0
+	PreferredImpedance='Zpi'
+$end 'soln'

@@ -1,0 +1,88 @@
+$begin 'soln'
+	ObjectType='HfssModal'
+	SolutionType='Adaptive'
+	Name='Adaptive_1'
+	AdaptivePass=1
+	EnergyError=503856.6145663816
+	$begin 'Frequencies'
+		$begin 'DataPoint'
+			Frequency=6000000000
+			DataType='None'
+			$begin 'SMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(0.1511084549184569, 0.1814260721913224)
+					c(-0.597120968303576, -0.04526199550556198)
+				$end 'r0'
+				$begin 'r1'
+					c(-0.5971209683039442, -0.04526199550547645)
+					c(-0.09238602662113071, 0.5572727871044093)
+				$end 'r1'
+			$end 'SMatrix'
+			$begin 'Gamma'
+				n=2
+				$begin 'r0'
+					c(0, 0)
+					c(0, 0)
+				$end 'r0'
+			$end 'Gamma'
+			$begin 'Zpi'
+				n=2
+				$begin 'r0'
+					c(50, 0)
+					c(50, 0)
+				$end 'r0'
+			$end 'Zpi'
+			$begin 'TerminalTMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(10, 1.387778780781446e-017)
+					c(0, 0)
+				$end 'r0'
+				$begin 'r1'
+					c(0, 0)
+					c(10, 0)
+				$end 'r1'
+			$end 'TerminalTMatrix'
+			$begin 'TerminalPMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(1.999999999999998, 3.564550390966481e-011)
+					c(0, 0)
+				$end 'r0'
+				$begin 'r1'
+					c(0, 0)
+					c(2.000000000000001, 1.280752438131971e-009)
+				$end 'r1'
+			$end 'TerminalPMatrix'
+			$begin 'TerminalRMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(1, 0)
+					c(0, 0)
+				$end 'r0'
+				$begin 'r1'
+					c(0, 0)
+					c(1, 0)
+				$end 'r1'
+			$end 'TerminalRMatrix'
+			ConvertedFromUnmatchedTerminalMatrices=false
+		$end 'DataPoint'
+	$end 'Frequencies'
+	$begin 'Ports'
+		Port(ModalEntryName='2', TerminalEntryName='2', PortName='2', Mode=1, ModeName='', TerminalName='pad_T1', ParameterName='', MatrixIndex=0)
+		Port(ModalEntryName='1', TerminalEntryName='1', PortName='1', Mode=1, ModeName='', TerminalName='stripIn_T1', ParameterName='', MatrixIndex=1)
+	$end 'Ports'
+	HigherOrderMode=false
+	PortNames('2', '1')
+	PortModes(1, 1)
+	PortTerminals('pad_T1', 'stripIn_T1')
+	ModalData=true
+	LastSolvedFreq=0
+	IeEnergyError=0
+	PreferredImpedance='Zpi'
+$end 'soln'

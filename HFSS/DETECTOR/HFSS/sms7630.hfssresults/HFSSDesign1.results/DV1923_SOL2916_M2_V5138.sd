@@ -1,0 +1,88 @@
+$begin 'soln'
+	ObjectType='HfssModal'
+	SolutionType='Adaptive'
+	Name='Adaptive_2'
+	AdaptivePass=2
+	EnergyError=475724.3835348953
+	$begin 'Frequencies'
+		$begin 'DataPoint'
+			Frequency=6000000000
+			DataType='None'
+			$begin 'SMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(0.2218895746621992, 0.3172264261585264)
+					c(-0.595432529899797, -0.1514809053615998)
+				$end 'r0'
+				$begin 'r1'
+					c(-0.5954325299000485, -0.1514809053616645)
+					c(-0.2772392849155539, 0.5249535343559367)
+				$end 'r1'
+			$end 'SMatrix'
+			$begin 'Gamma'
+				n=2
+				$begin 'r0'
+					c(0, 0)
+					c(0, 0)
+				$end 'r0'
+			$end 'Gamma'
+			$begin 'Zpi'
+				n=2
+				$begin 'r0'
+					c(50, 0)
+					c(50, 0)
+				$end 'r0'
+			$end 'Zpi'
+			$begin 'TerminalTMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(10, -6.938893903907228e-018)
+					c(0, 0)
+				$end 'r0'
+				$begin 'r1'
+					c(0, 0)
+					c(10, -3.469446951953614e-017)
+				$end 'r1'
+			$end 'TerminalTMatrix'
+			$begin 'TerminalPMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(1.999999999999999, -1.043141267809133e-012)
+					c(0, 0)
+				$end 'r0'
+				$begin 'r1'
+					c(0, 0)
+					c(2, 1.392455595272679e-012)
+				$end 'r1'
+			$end 'TerminalPMatrix'
+			$begin 'TerminalRMatrix'
+				m=2
+				n=2
+				$begin 'r0'
+					c(1, 0)
+					c(0, 0)
+				$end 'r0'
+				$begin 'r1'
+					c(0, 0)
+					c(1, 0)
+				$end 'r1'
+			$end 'TerminalRMatrix'
+			ConvertedFromUnmatchedTerminalMatrices=false
+		$end 'DataPoint'
+	$end 'Frequencies'
+	$begin 'Ports'
+		Port(ModalEntryName='2', TerminalEntryName='2', PortName='2', Mode=1, ModeName='', TerminalName='pad_T1', ParameterName='', MatrixIndex=0)
+		Port(ModalEntryName='1', TerminalEntryName='1', PortName='1', Mode=1, ModeName='', TerminalName='stripIn_T1', ParameterName='', MatrixIndex=1)
+	$end 'Ports'
+	HigherOrderMode=false
+	PortNames('2', '1')
+	PortModes(1, 1)
+	PortTerminals('pad_T1', 'stripIn_T1')
+	ModalData=true
+	LastSolvedFreq=0
+	IeEnergyError=0
+	PreferredImpedance='Zpi'
+$end 'soln'

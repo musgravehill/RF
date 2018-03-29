@@ -2694,13 +2694,6 @@ $begin 'AnsoftProject'
 					ParentBndID=76
 					TerminalResistance='50ohm'
 				$end 'p1_T1'
-				$begin 'p2_T1'
-					ID=79
-					BoundType='Terminal'
-					Edges(305)
-					ParentBndID=78
-					TerminalResistance='50ohm'
-				$end 'p2_T1'
 				$begin 'p1'
 					ID=76
 					BoundType='Lumped Port'
@@ -2713,18 +2706,6 @@ $begin 'AnsoftProject'
 					FullResistance='50ohm'
 					FullReactance='0ohm'
 				$end 'p1'
-				$begin 'p2'
-					ID=78
-					BoundType='Lumped Port'
-					Faces(6413)
-					ParentBndID=-1
-					RenormalizeAllTerminals=true
-					DoDeembed=false
-					TerminalIDList(79)
-					ShowReporterFilter=false
-					FullResistance='50ohm'
-					FullReactance='0ohm'
-				$end 'p2'
 			$end 'Boundaries'
 			$begin 'ProductSpecificData'
 				TerminalReferenceConductors(46)
@@ -2837,9 +2818,7 @@ $begin 'AnsoftProject'
 			UseIncidentVoltage=true
 			IncludePortPostProcessing=false
 			SourceEntry(ID=76, Index=0, Terminal=false, Terminated=false, Magnitude='1V', Phase='0deg')
-			SourceEntry(ID=78, Index=0, Terminal=false, Terminated=false, Magnitude='0V', Phase='0deg')
 			SourceEntry(ID=76, Index=0, Terminal=true, Terminated=false, Resistance='50ohm', Reactance='0ohm')
-			SourceEntry(ID=78, Index=0, Terminal=true, Terminated=false, Resistance='50ohm', Reactance='0ohm')
 			$begin 'Contexts'
 				NextUniqueID=1
 				MoveBackwards=false
@@ -2878,11 +2857,11 @@ $begin 'AnsoftProject'
 					$begin 'Scale3DSettings'
 						unit=154
 						m_nLevels=15
-						minvalue=2.70537439064356e-005
-						maxvalue=4210.84521484375
+						minvalue=6.32793962722644e-005
+						maxvalue=6032.83935546875
 						log=false
-						IntrinsicMin=2.70537439064356e-005
-						IntrinsicMax=4210.84521484375
+						IntrinsicMin=6.32793962722644e-005
+						IntrinsicMax=6032.83935546875
 						LimitFieldValuePrecision=false
 						FieldValuePrecisionDigits=4
 						ScaleType=0
@@ -2912,7 +2891,7 @@ $begin 'AnsoftProject'
 				$begin 'PlotDefinition_1'
 					PlotName='Mag_E1'
 					PlotDefinitionId=7
-					VersionID=512
+					VersionID=523
 					SolutionId=2917
 					QuantityId=2
 					PlotFolder='E Field'
@@ -2942,7 +2921,7 @@ $begin 'AnsoftProject'
 				$begin 'PlotDefinition_2'
 					PlotName='Mag_E3'
 					PlotDefinitionId=13
-					VersionID=189
+					VersionID=200
 					SolutionId=2917
 					QuantityId=2
 					PlotFolder='E Field'
@@ -2972,7 +2951,7 @@ $begin 'AnsoftProject'
 				$begin 'PlotDefinition_3'
 					PlotName='Mag_E2'
 					PlotDefinitionId=16
-					VersionID=22
+					VersionID=33
 					SolutionId=2917
 					QuantityId=2
 					PlotFolder='E Field'
@@ -3006,12 +2985,12 @@ $begin 'AnsoftProject'
 		$end 'FieldsReporter'
 		$begin 'RadField'
 			$begin 'FarFieldSetups'
-				NextUniqueID=67
+				NextUniqueID=68
 				MoveBackwards=false
 				$begin 'Infinite Sphere1'
 					Type='Infinite Sphere'
 					ID=0
-					VersionID=66
+					VersionID=67
 					UseCustomRadiationSurface=false
 					ThetaStart='-180deg'
 					ThetaStop='180deg'
@@ -3051,7 +3030,7 @@ $begin 'AnsoftProject'
 				$end 'CustomArray'
 			$end 'ArraySetup'
 			$begin 'NearFieldSetups'
-				NextUniqueID=67
+				NextUniqueID=68
 				MoveBackwards=false
 			$end 'NearFieldSetups'
 			RadFieldComputationVersion=1.4
@@ -3254,14 +3233,14 @@ $begin 'AnsoftProject'
 				V=6664
 				$begin 'Setup'
 					N='6G'
-					V=6664
-					Soln(N='Sweep', V=6664)
-					Soln(N='AdaptivePass', V=6664)
-					Soln(N='LastAdaptive', V=6664)
+					V=6730
+					Soln(N='Sweep', V=6730)
+					Soln(N='AdaptivePass', V=6730)
+					Soln(N='LastAdaptive', V=6730)
 				$end 'Setup'
 				$begin 'Setup'
 					N='Import1'
-					V=6664
+					V=6730
 					Soln(N='SERIES', V=0)
 				$end 'Setup'
 			$end 'Version ID Map'
@@ -3300,7 +3279,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -8, -31, 0, 0, 1075, 284), OrientationMatrix(0.0124536268413067, -1.46933841705322, -0.300112366676331, 0, 1.49876606464386, 0.00148379150778055, 0.0546257421374321, 0, -0.0532976761460304, -0.30042627453804, 1.46808195114136, 0, 7.92974853515625, 22.6509742736816, 284.986267089844, 1, 0, -31.8970680236816, 60.7548561096191, 0.674346923828125, 29.5980682373047, -516.331298828125, -66.4134826660156), Drawings[11: 'FR4', 'gndcopper', 'Box1', 'VIA', 'stripIn', 'smaPin', 'smaTeflon', 'smaSquare', 'p1', 'p2', 'Mag_E2'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -8, -31, 0, 0, 1075, 284), OrientationMatrix(0.0124536268413067, -1.46933841705322, -0.300112366676331, 0, 1.49876606464386, 0.00148379150778055, 0.0546257421374321, 0, -0.0532976761460304, -0.30042627453804, 1.46808195114136, 0, 7.92974948883057, 22.6509742736816, 284.986328125, 1, 0, -20.4920978546143, 58.7104034423828, 2.32633590698242, 27.0514678955078, -516.331298828125, -66.4134826660156), Drawings[11: 'FR4', 'gndcopper', 'Box1', 'VIA', 'stripIn', 'smaPin', 'smaTeflon', 'smaSquare', 'p1', 'p2', 'Mag_E2'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -3377,7 +3356,7 @@ $begin 'AnsoftProject'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
 									ID=64
-									VersionID=519
+									VersionID=520
 									Name='rETotal'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -3436,10 +3415,10 @@ $begin 'AnsoftProject'
 								$end 'TraceDef'
 							$end '3D Rectangular Plot 1'
 						$end 'Reports'
-						NextUniqueID=67
+						NextUniqueID=69
 						MoveBackwards=false
 						$begin 'NextVersID'
-							NextUniqueID=520
+							NextUniqueID=523
 							MoveBackwards=false
 						$end 'NextVersID'
 					$end 'ReportManager'
@@ -4275,11 +4254,11 @@ $begin 'AnsoftProject'
 									$begin 'Scale3DSettings'
 										unit=67
 										m_nLevels=15
-										minvalue=0.0541689281232694
-										maxvalue=0.294374955274697
+										minvalue=0.0844852383946376
+										maxvalue=0.446250014650689
 										log=false
-										IntrinsicMin=0.0541689281232694
-										IntrinsicMax=0.294374955274697
+										IntrinsicMin=0.0844852383946376
+										IntrinsicMax=0.446250014650689
 										LimitFieldValuePrecision=false
 										FieldValuePrecisionDigits=4
 										ScaleType=0
@@ -4350,7 +4329,7 @@ $begin 'AnsoftProject'
 													$begin 'MedCamera'
 														$begin 'svrc'
 															svid=1
-															view(89, cam(PolCam(-0.893866539001465, 1.28424334526062, -1.11568260192871, 1.06242728233337, 43484676096, 0)))
+															view(89, cam(PolCam(-0.94986879825592, 1.35153090953827, -1.20315432548523, 1.09824550151825, 43484676096, 0)))
 														$end 'svrc'
 													$end 'MedCamera'
 												$end 'CurveMed'
@@ -4364,7 +4343,7 @@ $begin 'AnsoftProject'
 						$begin '3D Rectangular Plot 1'
 							ReportID=65
 							$begin 'WindowInfoList'
-								R3DWindowPos(Editor3d(View(WindowPos(5, -1, -1, -8, -31, 182, 182, 1565, 678), OrientationMatrix(-0.919594943523407, -0.557980537414551, 0.00479067675769329, 0, 0.521823346614838, -0.856652021408081, 0.388412743806839, 0, -0.197669744491577, 0.334386110305786, 1.00305318832397, 0, 0.489670634269714, 0.542518198490143, -6.41191482543945, 1, 0, -4.30670738220215, 4.22946071624756, -1.52165293693542, 1.31538605690002, 0.520521640777588, 10.7674255371094), Drawings[1: 'rETotal'])))
+								R3DWindowPos(Editor3d(View(WindowPos(5, -1, -1, -8, -31, 182, 182, 1565, 678), OrientationMatrix(0.0156709495931864, -0.970866799354553, 0.462794154882431, 0, 1.07171487808228, 0.0530786626040936, 0.0750652104616165, 0, -0.0905881151556969, 0.460008829832077, 0.96808534860611, 0, -0.491777271032333, 0.380285531282425, -6.59147977828979, 1, 0, -4.30670738220215, 4.22946071624756, -1.52165293693542, 1.31538605690002, 0.639744758605957, 10.8866758346558), Drawings[1: 'rETotal'])))
 							$end 'WindowInfoList'
 						$end '3D Rectangular Plot 1'
 					$end 'ReportsWindowInfoList'

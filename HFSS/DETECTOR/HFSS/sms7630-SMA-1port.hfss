@@ -3194,7 +3194,7 @@ $begin 'AnsoftProject'
 				$begin 'PlotDefinition_1'
 					PlotName='Mag_E1'
 					PlotDefinitionId=7
-					VersionID=437
+					VersionID=438
 					SolutionId=2917
 					QuantityId=2
 					PlotFolder='E Field'
@@ -3223,7 +3223,14 @@ $begin 'AnsoftProject'
 				$end 'PlotDefinition_1'
 			$end 'FieldsPlotManagerID'
 			$begin 'Report3dInGeomWnd'
-				Report3dNum=0
+				Report3dNum=1
+				$begin 'Report3dPlot_1'
+					ReportID=57
+					Transparency=0
+					ScaleFactor=0.5
+					Visible=false
+					CoordSys=-1
+				$end 'Report3dPlot_1'
 			$end 'Report3dInGeomWnd'
 		$end 'FieldsReporter'
 		$begin 'RadField'
@@ -3288,7 +3295,7 @@ $begin 'AnsoftProject'
 					ID=498
 					Name='Sweep'
 					$begin 'SimDataExtractor'
-						SimValue('St(PIN1_T1,PIN1_T1)', 2, 90, false, SimValueID=6315, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('St(PIN1_T1,PIN1_T1)', 2, 90, false, SimValueID=6383, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'PostprocessSweep'
 								Variable='Freq'
@@ -3398,7 +3405,8 @@ $begin 'AnsoftProject'
 					ID=2917
 					Name='LastAdaptive'
 					$begin 'SimDataExtractor'
-						SimValue('Mag_E', 1, 154, false, SimValueID=6316, 3, 0, 2, 0, false, false, 300, 1, 0, 1, 1, '', 0, 0)
+						SimValue('rETotal', 1, 67, false, SimValueID=6384, 0, 0, 2, 0, false, false, 0, 1, 0, 1, 1, '', 0, 0)
+						SimValue('Mag_E', 1, 154, false, SimValueID=6385, 3, 0, 2, 0, false, false, 300, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Freq'
@@ -3515,7 +3523,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -8, -31, 0, 0, 1075, 284), OrientationMatrix(-1.36199116706848, -0.473605781793594, 0.412292987108231, 0, 0.627942979335785, -1.02511429786682, 0.896567583084106, 0, -0.00140650209505111, 0.987015902996063, 1.12897491455078, 0, -29.8439235687256, 11.9477367401123, 258.427490234375, 1, 0, -163.421661376953, 117.646148681641, -42.7295150756836, 28.7233810424805, -500.064880371094, -50.1340942382813), Drawings[10: 'FR4', 'gndcopper', 'Box1', 'VIA', 'stripIn', 'PIN1', 'smaTeflon', 'smaSqu', 'port1', 'toGND'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -8, -31, 0, 0, 1075, 284), OrientationMatrix(-1.06277501583099, -0.899277925491333, 0.557729840278625, 0, 1.02501881122589, -0.678360998630524, 0.859151899814606, 0, -0.263028025627136, 0.990193903446198, 1.09507465362549, 0, -36.3647422790527, 7.7431526184082, 258.665374755859, 1, 0, -112.677742004395, 66.8643112182617, -28.2684364318848, 17.3746376037598, -500.483612060547, -50.5581970214844), Drawings[10: 'FR4', 'gndcopper', 'Box1', 'VIA', 'stripIn', 'PIN1', 'smaTeflon', 'smaSqu', 'port1', 'toGND'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -3576,11 +3584,85 @@ $begin 'AnsoftProject'
 									DesignInstanceID=1
 								$end 'TraceDef'
 							$end 'Smith Chart 1'
+							$begin '3D Polar Plot 1'
+								ReportID=57
+								ReportName='3D Polar Plot 1'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=2917
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=3
+												SimValueContext(0, 0, 2, 0, false, false, 0, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=56
+									VersionID=430
+									Name='rETotal'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Phi'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='Theta'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='rETotal'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Phi'
+											$end '0'
+											$begin '1'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Theta'
+											$end '1'
+											$begin '2'
+												SubsweepType='Regular'
+												SubsweepChoiceType='Selected'
+												SweepVariableName='Freq'
+												ColumnValues(6000000000)
+												ParameterType='DoubleParam'
+												Units='GHz'
+											$end '2'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+							$end '3D Polar Plot 1'
 						$end 'Reports'
-						NextUniqueID=56
+						NextUniqueID=58
 						MoveBackwards=false
 						$begin 'NextVersID'
-							NextUniqueID=429
+							NextUniqueID=431
 							MoveBackwards=false
 						$end 'NextVersID'
 					$end 'ReportManager'
@@ -3602,7 +3684,7 @@ $begin 'AnsoftProject'
 									$end 'Graph2D'
 								$end 'Graph2DsV2'
 								$begin 'PlotDisplayDataManager'
-									NextUniqueID=78
+									NextUniqueID=79
 									MoveBackwards=false
 									$begin 'PlotHeaderDataSource'
 										CompanyName=''
@@ -4106,7 +4188,7 @@ $begin 'AnsoftProject'
 									$end 'DocDefaultAttributes'
 									$begin 'PerViewPlotAttributeStoreMap'
 										$begin 'MapItem'
-											ItemID=77
+											ItemID=78
 											$begin 'PlotAttributeStoreMap'
 												$begin 'MainMapItem'
 													$begin 'SubMapItem'
@@ -4177,15 +4259,15 @@ $begin 'AnsoftProject'
 																Right=377
 															$end 'PolarCircleRect'
 															$begin 'AxisRect'
-																Top=1564415624
+																Top=1554534992
 																Left=0
-																Bottom=783019931
-																Right=1047980060
+																Bottom=0
+																Right=0
 															$end 'AxisRect'
 															$begin 'AxisLabelRect'
-																Top=1
+																Top=0
 																Left=0
-																Bottom=1564389376
+																Bottom=1622213060
 																Right=0
 															$end 'AxisLabelRect'
 														$end 'PolarLayoutAttribute'
@@ -4200,15 +4282,15 @@ $begin 'AnsoftProject'
 																Right=377
 															$end 'PolarCircleRect'
 															$begin 'AxisRect'
-																Top=1564415624
+																Top=1554534992
 																Left=0
-																Bottom=783019931
-																Right=1047980060
+																Bottom=0
+																Right=0
 															$end 'AxisRect'
 															$begin 'AxisLabelRect'
-																Top=1
+																Top=0
 																Left=0
-																Bottom=1564389376
+																Bottom=1622213060
 																Right=0
 															$end 'AxisLabelRect'
 														$end 'PolarLayoutAttribute'
@@ -4223,15 +4305,15 @@ $begin 'AnsoftProject'
 																Right=377
 															$end 'PolarCircleRect'
 															$begin 'AxisRect'
-																Top=1564415624
+																Top=1554534992
 																Left=0
-																Bottom=783019931
-																Right=1047980060
+																Bottom=0
+																Right=0
 															$end 'AxisRect'
 															$begin 'AxisLabelRect'
-																Top=1
+																Top=0
 																Left=0
-																Bottom=1564389376
+																Bottom=1622213060
 																Right=0
 															$end 'AxisLabelRect'
 														$end 'PolarLayoutAttribute'
@@ -4269,6 +4351,80 @@ $begin 'AnsoftProject'
 								$end 'PlotDisplayDataManager'
 							$end 'Report2D'
 						$end 'Smith Chart 1'
+						$begin '3D Polar Plot 1'
+							ReportID=57
+							$begin 'Report3D'
+								name='3D Polar Plot 1'
+								ReportID=57
+								hasWindowBeenOpened=false
+								ReportType=3
+								DisplayType=7
+								$begin 'Graph3DsV2'
+									$begin 'Graph3DV2'
+										TraceDefID=56
+										GraphName='rETotal'
+										$begin 'Graph3DV2TraceSettings'
+											IsoValType='Tone'
+											TraceType='Surface'
+											SmoothShade=true
+											Filled=true
+											Transparency=0
+											AddGrid=false
+											MapColor=false
+											CurveLineStyle=4
+											CurveLineWidth=5
+											CurveMarkStyle=9
+											CurveMarkSize=5
+											GridColor(102, 102, 102)
+											$begin 'OutlineID'
+												AddOutLine=false
+												Width=4
+												Style='Solid'
+												'Outline color'(191, 191, 191)
+											$end 'OutlineID'
+										$end 'Graph3DV2TraceSettings'
+									$end 'Graph3DV2'
+								$end 'Graph3DsV2'
+								$begin 'PolarReport3DSettings'
+									'Real time mode'=true
+									$begin 'ColorMapSettings'
+										ColorMapType='Spectrum'
+										SpectrumType='Rainbow'
+										UniformColor(127, 255, 255)
+										RampColor(255, 127, 127)
+									$end 'ColorMapSettings'
+									$begin 'LabelsSettings'
+										ShowTitle=false
+										TitleText=''
+										ShowAxes=true
+										SpecifyTitle=false
+										SpecifyLabel=false
+										X_Label='X'
+										Y_Label='Y'
+										Z_Label='Z'
+									$end 'LabelsSettings'
+									$begin 'Scale3DSettings'
+										unit=67
+										m_nLevels=15
+										minvalue=0.0242593899687515
+										maxvalue=0.167830574284564
+										log=false
+										IntrinsicMin=0.0242593899687515
+										IntrinsicMax=0.167830574284564
+										LimitFieldValuePrecision=false
+										FieldValuePrecisionDigits=4
+										ScaleType=0
+										UserSpecifyValues(0)
+									$end 'Scale3DSettings'
+									$begin 'zAxes'
+										MajorTicksNum=11
+										MinorTicksNum=5
+										DisplayMajor=true
+										DisplayMinor=false
+									$end 'zAxes'
+								$end 'PolarReport3DSettings'
+							$end 'Report3D'
+						$end '3D Polar Plot 1'
 					$end 'Reports'
 					$begin 'ReportsWindowInfoList'
 						$begin 'Smith Chart 1'
@@ -4277,7 +4433,7 @@ $begin 'AnsoftProject'
 								$begin 'Report2D'
 									$begin 'ViewInfo'
 										$begin 'WrapperView'
-											ID(77)
+											ID(78)
 										$end 'WrapperView'
 										$begin 'WrapperDoc'
 											HiddenDrawings()
@@ -4287,7 +4443,7 @@ $begin 'AnsoftProject'
 													$begin 'MedCamera'
 														$begin 'svrc'
 															svid=1
-															view(77, cam(PolCam(-1, 1, -1, 1, 1.04633759618931e+018, 0)))
+															view(78, cam(PolCam(-1, 1, -1, 1, 0, 0)))
 														$end 'svrc'
 													$end 'MedCamera'
 												$end 'CurveMed'
@@ -4298,6 +4454,12 @@ $begin 'AnsoftProject'
 								$end 'Report2D'
 							$end 'WindowInfoList'
 						$end 'Smith Chart 1'
+						$begin '3D Polar Plot 1'
+							ReportID=57
+							$begin 'WindowInfoList'
+								R3DWindowPos(Editor3d(View(WindowPos(5, -1, -1, -8, -31, 0, 0, 1383, 496), OrientationMatrix(-0.153014898300171, -0.331111699342728, 0.331668466329575, 0, 0.449142873287201, -0.203240096569061, 0.00431334972381592, 0, 0.133832797408104, 0.303499460220337, 0.36473223567009, 0, -0.0509284734725952, 0.103144489228725, -5.71922779083252, 1, 0, -2.10009932518005, 2.15575051307678, -0.688676297664642, 0.725777089595795, 0.595751762390137, 10.8427038192749), Drawings[1: 'rETotal'])))
+							$end 'WindowInfoList'
+						$end '3D Polar Plot 1'
 					$end 'ReportsWindowInfoList'
 				$end 'ReportSetup'
 				$begin 'Properties'

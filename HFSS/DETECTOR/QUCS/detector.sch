@@ -30,9 +30,9 @@
   <SPfile scheme1 1 150 140 -26 -59 0 0 "D:/RF/HFSS/DETECTOR/S2P/2port-sma.s2p" 1 "rectangular" 0 "linear" 0 "open" 0 "2" 0>
   <R R1 1 270 180 -26 15 0 0 "10 Ohm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "european" 0>
   <SPfile diode 1 480 360 -26 -41 0 0 "D:/RF/HFSS/DETECTOR/S2P/ONEPORT.s1p" 0 "rectangular" 0 "linear" 0 "open" 0 "1" 0>
-  <SPfile SMAMS 1 190 330 -26 -41 0 0 "D:/RF/HFSS/DETECTOR/S2P/1port-sma.s1p" 0 "rectangular" 0 "linear" 0 "open" 0 "1" 0>
-  <R R2 1 300 360 -26 15 0 0 "22 Ohm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "european" 0>
   <GND * 1 480 390 0 0 0 0>
+  <SPfile SMAMS 1 190 330 -26 -41 0 0 "D:/RF/HFSS/DETECTOR/S2P/SMA-MS/longSmaToPCBgap0mm.s1p" 0 "rectangular" 0 "linear" 0 "open" 0 "1" 0>
+  <R R2 1 300 360 -26 15 0 0 "56 Ohm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "european" 0>
 </Components>
 <Wires>
   <400 210 400 250 "" 0 0 0 "">
@@ -40,10 +40,10 @@
   <180 140 180 180 "" 0 0 0 "">
   <180 180 240 180 "" 0 0 0 "">
   <430 180 600 180 "" 0 0 0 "">
+  <330 360 450 360 "" 0 0 0 "">
   <190 360 270 360 "" 0 0 0 "">
   <80 330 80 460 "" 0 0 0 "">
   <80 330 160 330 "" 0 0 0 "">
-  <330 360 450 360 "" 0 0 0 "">
 </Wires>
 <Diagrams>
   <Tab 112 690 447 241 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 0 1 51 315 0 225 "" "" "">
@@ -57,5 +57,5 @@
   </Smith>
 </Diagrams>
 <Paintings>
-  <Text 800 260 14 #ff007f 0 "diodeSerias.s2p & strips.s2p были измерены \nв 2х-портовой конфигурации 2 порта по 50 Ом, \nпоэтому друг с другом они согласованы?">
+  <Text 630 150 14 #ff007f 0 "diodeSerias.s2p & strips.s2p были измерены \nв 2х-портовой конфигурации 2 порта по 50 Ом, \nпоэтому друг с другом они согласованы?">
 </Paintings>

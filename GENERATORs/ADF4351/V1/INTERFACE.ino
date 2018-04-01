@@ -5,6 +5,7 @@ void BUTTON_init() {
   pinMode(BTN_out_power, INPUT_PULLUP);
   pinMode(BTN_multiplier, INPUT_PULLUP);
   pinMode(LED_pin, OUTPUT);
+  pinMode(LD_pin, INPUT);
 }
 
 void BUTTON_check() {

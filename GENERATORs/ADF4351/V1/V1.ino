@@ -43,8 +43,9 @@
 //============================================================= ADF4351 =========================================
 #include <SPI.h>
 #define ADF4351_ss_pin 3 //SPI-SS enable ADF4351
+#define LD_pin 5
 uint32_t ADF4351_referenceFreq = 2500000L; //*10 Hz reference frequency = quartz 25 MHz
-uint32_t ADF4351_frequency = 43392000L; //*10 Hz = 433 MHz
+uint32_t ADF4351_frequency = 43300000L; //*10 Hz = 433 MHz
 uint32_t ADF4351_freqStepCurrent = 0L;
 uint32_t ADF4351_stepsVariants[7] = {
   625, //*10Hz 6,25 khz, 5khz does not work in Int-N mode (MOD> 4095) at 25Mhz Ref.
@@ -55,7 +56,7 @@ uint32_t ADF4351_stepsVariants[7] = {
   1000000, //*10Hz 10 Mhz
   10000000 //*10Hz 100 Mhz
 };
-uint8_t ADF4351_stepsVariantsNumCurrent = 0;
+uint8_t ADF4351_stepsVariantsNumCurrent = 5;
 String OLED_stepsVariants_val[7] = {"6.25", "10", "12.5", "25", "1", "10", "100"};
 String OLED_stepsVariants_kmhz[7] = {"kHz", "kHz", "kHz", "kHz", "MHz", "MHz", "MHz"};
 
@@ -111,7 +112,7 @@ void setup() {
 }
 
 void loop() {
-  TIMEMACHINE_loop();  
+  TIMEMACHINE_loop();
 }
 
 

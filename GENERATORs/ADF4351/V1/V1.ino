@@ -20,7 +20,8 @@
    SCK 13 -----> CLK
    d10 no connect, but SPI
    d3----------> LE
-   LD = lock detect
+   d5----------> LD = lock detect
+                 CE---3V3
 
 
 

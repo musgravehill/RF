@@ -2,24 +2,29 @@
 import javax.swing.JOptionPane; // Had to change this which meant showMessageDialog() changes
 final boolean debugPort = true; 
 
+
+
 import processing.serial.*;
 
-int value1 = 0;
+long value1 = 0;
 int value2 = 0;
 int value3 = 0;
 
+
+int graph_w = 1000;
+int graph_h = 300;
+int[] vswr = new int[graph_w];
+
 int graph_x_curr = 0;
-int graph_w = 400;
-int graph_h = 400;
-int graph_y =0; 
-int graph_y_prev = 0;
+
+
 
 Serial myPort;  // Create object from Serial class
 
 void setup() {   
-  size(500, 500);
+  size(1050, 350);
   background(0);
-  //frameRate(24); //1/24seconds
+  frameRate(1); //1/24seconds
 
   // Allow user to choose serial port
   String COMx = "";
@@ -58,38 +63,16 @@ void setup() {
 }
 
 void draw() { 
-  //draw
+  background(0);
   stroke(255, 0, 0);
-  line(0, 0, 333, 111);
-  graph_y = int (map(value3, 0, 100, 0, graph_h));     
-  //println(graph_y);
-  line(graph_x_curr-1, graph_y_prev, graph_x_curr, graph_y); //graph_h -
-  if (graph_x_curr>= graph_w) {
-    graph_x_curr=0;
-    background(0);
-  } else {
-    graph_x_curr++;
-  }  
-  graph_y_prev = graph_y;
-
-
-
-  /*
-  stroke(255, 0, 0);
-   int graph_y = int (random(graph_h));    // = map(value2, 0, 1023, 0, graph_h);   
-   
-   //graph_h - graph_y    
-   line(graph_x_curr-1, graph_y_prev, graph_x_curr, graph_y);
-   
-   if (graph_x_curr>= graph_w) {
-   graph_x_curr=0;
-   background(0);
-   } else {
-   graph_x_curr++;
-   }
-   
-   graph_y_prev = graph_y;
-   */
+  for (int i = 0; i < vswr.length; i++) {
+    int y = vswr[i];
+    int j = (i>0)? i-1: 0;
+    int y_prev=vswr[j];
+    if (y>0 && y_prev>0) {
+      line(j, graph_h -y_prev, i, graph_h - y);
+    }
+  }
 } 
 
 void serialEvent (Serial myPort) {  
@@ -107,6 +90,15 @@ void serialEvent (Serial myPort) {
       print(value2);
       print(';');
       println(value3);
+
+      //for draw             
+      int graph_y = int (map(value3, 0, 50, 0, graph_h));  
+      vswr[graph_x_curr] = 1+graph_y; //0 = no line
+      if (graph_x_curr>= graph_w) {
+        graph_x_curr=0;
+      } else {
+        graph_x_curr++;
+      }
     }
   }
 }

@@ -8,9 +8,9 @@ void TIMEMACHINE_loop() {
     TIMEMACHINE_311ms();
     TIMEMACHINE_prev_311ms = TIMEMACHINE_currMillis;
   }
-  if ((TIMEMACHINE_currMillis - TIMEMACHINE_prev_503ms) > 503L) {
-    TIMEMACHINE_503ms();
-    TIMEMACHINE_prev_503ms = TIMEMACHINE_currMillis;
+  if ((TIMEMACHINE_currMillis - TIMEMACHINE_prev_101ms) > 101L) {
+    TIMEMACHINE_101ms();
+    TIMEMACHINE_prev_101ms = TIMEMACHINE_currMillis;
   }
 }
 
@@ -23,19 +23,17 @@ void TIMEMACHINE_311ms() {
   OLED_display();
 }
 
-void TIMEMACHINE_503ms() {
+void TIMEMACHINE_101ms() {
   if (ADF4351_isSweep) {
     if (sweep_tmp) {
       ADF4351_freq_inc();
       ADF4351_setConfig();
       sweep_tmp = false;
     } else {
-      int ADC_in = 0;
       Serial.print(ADF4351_frequency * 10, DEC); //Hz
       Serial.print(';');
 
-
-
+      int ADC_in = 0;
       //ADC_in = analogRead(A6);
       Serial.print(0, DEC);//0-1023
       Serial.print(';');

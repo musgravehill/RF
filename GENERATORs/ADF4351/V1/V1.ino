@@ -59,13 +59,13 @@ uint32_t ADF4351_stepsVariants[7] = {
   625, //*10Hz 6,25 khz, 5khz does not work in Int-N mode (MOD> 4095) at 25Mhz Ref.
   1000, //*10Hz 10 khz
   1250, //*10Hz 12.5 khz
-  2500, //*10Hz 25 khz
+  10000, //*10Hz 100 khz
   100000, //*10Hz 1 Mhz
   1000000, //*10Hz 10 Mhz
   10000000 //*10Hz 100 Mhz
 };
 uint8_t ADF4351_stepsVariantsNumCurrent = 5;
-String OLED_stepsVariants_val[7] = {"6.25", "10", "12.5", "25", "1", "10", "100"};
+String OLED_stepsVariants_val[7] = {"6.25", "10", "12.5", "100", "1", "10", "100"};
 String OLED_stepsVariants_kmhz[7] = {"kHz", "kHz", "kHz", "kHz", "MHz", "MHz", "MHz"};
 
 uint8_t ADF4351_lowNoiseOrSpurVariants[2] = {B0, B11};
@@ -112,7 +112,7 @@ boolean OLED_blynk_state = false;
 //================================== TIMEMACHINE =================================================================
 uint32_t TIMEMACHINE_prev_5ms = 0L;
 uint32_t TIMEMACHINE_prev_311ms = 0L;
-uint32_t TIMEMACHINE_prev_503ms = 0L;
+uint32_t TIMEMACHINE_prev_101ms = 0L;
 
 void setup() {
   ADF4351_init();

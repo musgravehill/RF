@@ -25,23 +25,38 @@ void TIMEMACHINE_311ms() {
 
 void TIMEMACHINE_503ms() {
   if (ADF4351_isSweep) {
-    uint16_t ADC_in = 0;
-    ADF4351_freq_inc();
-    ADF4351_setConfig();
+    if (sweep_tmp) {
+      ADF4351_freq_inc();
+      ADF4351_setConfig();
+      sweep_tmp = false;
+    } else {
+      int ADC_in = 0;
+      Serial.print(ADF4351_frequency * 10, DEC); //Hz
+      Serial.print(';');
 
-    Serial.print(ADF4351_frequency * 10, DEC); //Hz
-    Serial.print(';');
 
-    ADC_in = analogRead(A6);
-    Serial.print(ADC_in, DEC);//0-1023
-    Serial.print(';');
 
-    ADC_in = analogRead(A7);
-    Serial.print(ADC_in, DEC);//0-1023
-    Serial.print(';');
+      //ADC_in = analogRead(A6);
+      Serial.print(0, DEC);//0-1023
+      Serial.print(';');
 
-    Serial.print("\r\n");
+      ADC_in = 0;
+      for (byte i = 0; i < 10; i++) {
+        ADC_in += analogRead(A7);
+      }
+      ADC_in = ADC_in / 10.0;
+      Serial.print(ADC_in, DEC);//0-1023
+      Serial.print(';');
+
+      Serial.print("\r\n");
+      sweep_tmp = true;
+    }
+
+
+
+
 
   }
 }
+
 

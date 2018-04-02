@@ -210,7 +210,7 @@ void ADF4351_prepareConfig() {
     D_RfDivSel = B110;
   }
 
-  float PFDFreq = ADF4351_referenceFreq * ((1.0 + RD2refdoubl) / (R_Counter * (1.0 + RD1_Rdiv2))); //Referenzfrequenz *10 (все частоту сокращена в 10раз почему-то)
+  float PFDFreq = ADF4351_referenceFreq * ((1.0 + RD2refdoubl) / (R_Counter * (1.0 + RD1_Rdiv2))); //Referenzfrequenz *10 (РІСЃРµ С‡Р°СЃС‚РѕС‚Сѓ СЃРѕРєСЂР°С‰РµРЅР° РІ 10СЂР°Р· РїРѕС‡РµРјСѓ-С‚Рѕ)
   float N = ((RFout) * outdiv) / PFDFreq;
   uint16_t N_Int = N;
   uint16_t M_Mod = PFDFreq * (100000 / ADF4351_freqStepCurrent) / 100000;
@@ -282,5 +282,6 @@ void ADF4351_prepareConfig() {
   the spurs. Figure 10 through Figure 12 show the trade-offs in a
   typical W-CDMA setup for different noise and spur settings.
 */
+
 
 

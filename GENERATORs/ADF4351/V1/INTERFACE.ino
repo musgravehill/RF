@@ -82,3 +82,4 @@ void ENCODER_check() {
   }
   ENCODER_A_state_prev = ENCODER_A_state;
 }
+

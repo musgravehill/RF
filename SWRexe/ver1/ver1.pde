@@ -11,6 +11,7 @@ int value3 = 0;
 int graph_x_curr = 0;
 int graph_w = 400;
 int graph_h = 400;
+int graph_y =0; 
 int graph_y_prev = 0;
 
 Serial myPort;  // Create object from Serial class
@@ -18,7 +19,7 @@ Serial myPort;  // Create object from Serial class
 void setup() {   
   size(500, 500);
   background(0);
-  frameRate(24); //1seconds
+  //frameRate(24); //1/24seconds
 
   // Allow user to choose serial port
   String COMx = "";
@@ -57,20 +58,38 @@ void setup() {
 }
 
 void draw() { 
+  //draw
   stroke(255, 0, 0);
-  int graph_y = int (random(graph_h));    // = map(value2, 0, 1023, 0, graph_h);   
-  
-   //graph_h - graph_y    
-    line(graph_x_curr-1, graph_y_prev, graph_x_curr, graph_y);
-  
+  line(0, 0, 333, 111);
+  graph_y = int (map(value3, 0, 100, 0, graph_h));     
+  //println(graph_y);
+  line(graph_x_curr-1, graph_y_prev, graph_x_curr, graph_y); //graph_h -
   if (graph_x_curr>= graph_w) {
     graph_x_curr=0;
     background(0);
   } else {
     graph_x_curr++;
-  }
-  
+  }  
   graph_y_prev = graph_y;
+
+
+
+  /*
+  stroke(255, 0, 0);
+   int graph_y = int (random(graph_h));    // = map(value2, 0, 1023, 0, graph_h);   
+   
+   //graph_h - graph_y    
+   line(graph_x_curr-1, graph_y_prev, graph_x_curr, graph_y);
+   
+   if (graph_x_curr>= graph_w) {
+   graph_x_curr=0;
+   background(0);
+   } else {
+   graph_x_curr++;
+   }
+   
+   graph_y_prev = graph_y;
+   */
 } 
 
 void serialEvent (Serial myPort) {  

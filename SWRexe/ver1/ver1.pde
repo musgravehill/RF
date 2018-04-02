@@ -92,7 +92,7 @@ void serialEvent (Serial myPort) {
       println(value3);
 
       //for draw             
-      int graph_y = int (map(value3, 0, 50, 0, graph_h));  
+      int graph_y = int (map(value3, 0, 22, 0, graph_h));  
       vswr[graph_x_curr] = 1+graph_y; //0 = no line
       if (graph_x_curr>= graph_w) {
         graph_x_curr=0;

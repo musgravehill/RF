@@ -25,8 +25,23 @@ void TIMEMACHINE_311ms() {
 
 void TIMEMACHINE_503ms() {
   if (ADF4351_isSweep) {
+    uint16_t ADC_in = 0;
     ADF4351_freq_inc();
     ADF4351_setConfig();
+
+    Serial.print(ADF4351_frequency * 10, DEC); //Hz
+    Serial.print(';');
+
+    ADC_in = analogRead(A6);
+    Serial.print(ADC_in, DEC);//0-1023
+    Serial.print(';');
+
+    ADC_in = analogRead(A7);
+    Serial.print(ADC_in, DEC);//0-1023
+    Serial.print(';');
+
+    Serial.print("\r\n");
+
   }
 }
 

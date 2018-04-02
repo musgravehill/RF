@@ -62,7 +62,7 @@ void ADF4351_setConfig() {
   ADF4351_writeToRegister(0);
   delayMicroseconds(2500);
 
-  //////DBG
+  /*/////DBG
   Serial.println("\r\n SEND CONFIG \r\n");
   for (byte i = 0; i < 6; i++) {
     Serial.print("REG");
@@ -71,9 +71,8 @@ void ADF4351_setConfig() {
     Serial.println(ADF4351_registers[i], HEX);
   }
   Serial.print("\r\n ADF4351_freqStepCurrent=");
-  Serial.println(ADF4351_freqStepCurrent, DEC);
-  
-  ///////DBG END
+  Serial.println(ADF4351_freqStepCurrent, DEC);  
+  ///////DBG END */
 
 }
 

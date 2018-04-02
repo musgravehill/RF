@@ -30,7 +30,6 @@ void OLED_display() {
     myOLED.print("SWEEP", 92, 56);
   }
 
-
   myOLED.print(ADF4351_lowNoiseOrSpur_verb[ADF4351_lowNoiseOrSpur_current], 0, 56);
   if (ADF4351_isNeedSetNewConfig) {
     if (OLED_blynk_state) {

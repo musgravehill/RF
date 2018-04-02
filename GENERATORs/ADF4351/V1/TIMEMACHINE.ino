@@ -8,15 +8,25 @@ void TIMEMACHINE_loop() {
     TIMEMACHINE_311ms();
     TIMEMACHINE_prev_311ms = TIMEMACHINE_currMillis;
   }
-
+  if ((TIMEMACHINE_currMillis - TIMEMACHINE_prev_503ms) > 503L) {
+    TIMEMACHINE_503ms();
+    TIMEMACHINE_prev_503ms = TIMEMACHINE_currMillis;
+  }
 }
 
 void TIMEMACHINE_5ms() {
-  ENCODER_check();  
+  ENCODER_check();
 }
 
 void TIMEMACHINE_311ms() {
   BUTTON_check();
   OLED_display();
+}
+
+void TIMEMACHINE_503ms() {
+  if (ADF4351_isSweep) {
+    ADF4351_freq_inc();
+    ADF4351_setConfig();
+  }
 }
 

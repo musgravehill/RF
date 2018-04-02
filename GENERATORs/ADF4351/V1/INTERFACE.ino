@@ -3,7 +3,7 @@ void BUTTON_init() {
   pinMode(BTN_step, INPUT_PULLUP);
   pinMode(BTN_lownoisespur, INPUT_PULLUP);
   pinMode(BTN_out_power, INPUT_PULLUP);
-  pinMode(BTN_multiplier, INPUT_PULLUP);
+  pinMode(BTN_sweep, INPUT_PULLUP);
   pinMode(LED_pin, OUTPUT);
   pinMode(LD_pin, INPUT);
 }
@@ -14,7 +14,7 @@ void BUTTON_check() {
   //BTN STEP
   button_state = digitalRead(BTN_step);
   if (!button_state) {
-    if ((currMillis - INTERFACE_action_prev_ms) > 1111L) {
+    if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
       INTERFACE_action_prev_ms = currMillis;
       ADF4351_step_next();
     }
@@ -22,7 +22,7 @@ void BUTTON_check() {
   //BTN LOW noise\spur mode
   button_state = digitalRead(BTN_lownoisespur);
   if (!button_state) {
-    if ((currMillis - INTERFACE_action_prev_ms) > 1111L) {
+    if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
       INTERFACE_action_prev_ms = currMillis;
       ADF4351_lowNoiseSpurMode_next();
     }
@@ -30,23 +30,23 @@ void BUTTON_check() {
   //BTN output rf power
   button_state = digitalRead(BTN_out_power);
   if (!button_state) {
-    if ((currMillis - INTERFACE_action_prev_ms) > 1111L) {
+    if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
       INTERFACE_action_prev_ms = currMillis;
       ADF4351_out_power_next();
     }
   }
-  //BTN_multiplier
-  button_state = digitalRead(BTN_multiplier);
+  //BTN_sweep
+  button_state = digitalRead(BTN_sweep);
   if (!button_state) {
-    if ((currMillis - INTERFACE_action_prev_ms) > 1111L) {
+    if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
       INTERFACE_action_prev_ms = currMillis;
-      INTERFACE_freq_multiplier_next();
+      ADF4351_isSweep = ADF4351_isSweep ? false : true;
     }
   }
   button_state = digitalRead(ENCODER_button);
   if (!button_state) {
     uint32_t  currMillis = millis();
-    if ((currMillis - INTERFACE_action_prev_ms) > 1111L) {
+    if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
       INTERFACE_action_prev_ms = currMillis;
       ADF4351_setConfig();
     }
@@ -54,13 +54,14 @@ void BUTTON_check() {
 
 }
 
+/*FUTURE
 //show x1,x2,x4 on display and multiply freq on display only.
 void INTERFACE_freq_multiplier_next() {
   INTERFACE_freq_multiplier_current++;
   if (INTERFACE_freq_multiplier_current > 2) {  //cycle, return to 0-pos
     INTERFACE_freq_multiplier_current = 0;
   }
-}
+}*/
 
 void ENCODER_init() {
   pinMode(ENCODER_button, INPUT_PULLUP);

@@ -1,3 +1,11 @@
+/*
+TODO
+btn4 -> sweep start (every 0.5s freq+=step; show on screen freq, sweep-mode)
+
+
+
+*/
+
 
 //============================================   3.3V ONLY ===================================================================================================================
 //============================================   3.3V ONLY ===================================================================================================================
@@ -71,7 +79,7 @@ String ADF4351_outputPower_verb[4] = {"-4", "-1", "2", "5"};
 uint32_t ADF4351_registers[6]; //ADF4351 Registers, see datasheet
 
 boolean ADF4351_isNeedSetNewConfig = false;
-
+boolean ADF4351_isSweep = false;
 //========================================== INTERFACE ==========================================================
 #define ENCODER_button 7
 #define ENCODER_A 9
@@ -83,7 +91,7 @@ boolean ENCODER_A_state_prev = false;
 #define BTN_step A3
 #define BTN_lownoisespur A2
 #define BTN_out_power A1
-#define BTN_multiplier A0
+#define BTN_sweep A0
 
 #define LED_pin 6
 
@@ -96,12 +104,14 @@ extern uint8_t SmallFont[]; //6*8
 extern uint8_t MediumNumbers[]; //12*16
 boolean OLED_blynk_state = false;
 
-uint8_t INTERFACE_freq_multiplier_variants[3] = {1, 2, 4};
-uint8_t INTERFACE_freq_multiplier_current = 0;
+//FUTURE
+//uint8_t INTERFACE_freq_multiplier_variants[3] = {1, 2, 4};
+//uint8_t INTERFACE_freq_multiplier_current = 0;
 
 //================================== TIMEMACHINE =================================================================
 uint32_t TIMEMACHINE_prev_5ms = 0L;
 uint32_t TIMEMACHINE_prev_311ms = 0L;
+uint32_t TIMEMACHINE_prev_503ms = 0L;
 
 void setup() {
   ADF4351_init();

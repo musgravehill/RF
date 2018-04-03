@@ -30,7 +30,7 @@ void TIMEMACHINE_101ms() {
       ADF4351_setConfig();
       sweep_tmp = false;
     } else {
-      Serial.print(ADF4351_frequency * 10, DEC); //Hz
+      Serial.print(ADF4351_frequency/100000, DEC); //MHz
       Serial.print(';');
 
       int ADC_in = 0;

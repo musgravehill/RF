@@ -69,7 +69,7 @@ String OLED_stepsVariants_val[7] = {"6.25", "10", "12.5", "100", "1", "10", "100
 String OLED_stepsVariants_kmhz[7] = {"kHz", "kHz", "kHz", "kHz", "MHz", "MHz", "MHz"};
 
 uint8_t ADF4351_lowNoiseOrSpurVariants[2] = {B0, B11};
-uint8_t ADF4351_lowNoiseOrSpur_current = 0;
+uint8_t ADF4351_lowNoiseOrSpur_current = 1;
 String ADF4351_lowNoiseOrSpur_verb[2] = {"LOW-NOISE-MODE", "LOW-SPUR-MODE"};
 
 uint8_t ADF4351_outputPowerVariants[4] = {B0, B01, B10, B11};

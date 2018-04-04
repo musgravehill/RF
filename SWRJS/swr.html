@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="common/bootstrap.min.css">
+
+    <title>SWRJS</title>
+  </head>
+  <body>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+        <textarea title="shortPortInput" id="shortPortInput" cols="30" rows="10"></textarea>
+        <span class="btn btn-danger" id="shortPortBtn">shortPortBtn</span>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                $('#shortPortBtn').click(function () {
+                    var res = $('#shortPortInput').val();                    
+                    var ar = res.split('\n');
+                    $(ar).each(function( i, item ) {
+                        var tmp = item.split(';');
+                        var freq = tmp[0];
+                        var volt = tmp[1];
+                        console.log('f='+freq+' v='+volt);
+                    });
+                });
+            });
+        </script>
+
+    </div>
+</div>
+     
+
+     
+    <script src="common/jquery-3.2.1.slim.min.js"></script>
+    <script src="common/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

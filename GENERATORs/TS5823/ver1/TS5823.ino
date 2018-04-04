@@ -64,3 +64,55 @@ void TS5823_set_CH8() {
   digitalWrite(TS5823_pin_3, HIGH); //OFF switch
 }
 
+void TS5823_setNextFreq() {
+  if (TS5823_frch == 1) {
+    TS5823_set_FR1();
+    TS5823_set_CH1();
+    TS5823_frequency_MHz = 5865;
+  }
+  if (TS5823_frch == 2) {
+    TS5823_set_FR1();
+    TS5823_set_CH2();
+    TS5823_frequency_MHz = 5845;
+  }
+  if (TS5823_frch == 3) {
+    TS5823_set_FR1();
+    TS5823_set_CH3();
+    TS5823_frequency_MHz = 5825;
+  }
+  if (TS5823_frch == 4) {
+    TS5823_set_FR1();
+    TS5823_set_CH4();
+    TS5823_frequency_MHz = 5805;
+  }
+
+  if (TS5823_frch == 5) {
+    TS5823_set_FR1();
+    TS5823_set_CH5();
+    TS5823_frequency_MHz = 5785;
+  }
+  if (TS5823_frch == 6) {
+    TS5823_set_FR1();
+    TS5823_set_CH6();
+    TS5823_frequency_MHz = 5765;
+  }
+  if (TS5823_frch == 7) {
+    TS5823_set_FR1();
+    TS5823_set_CH7();
+    TS5823_frequency_MHz = 5745;
+  }
+  if (TS5823_frch == 8) {
+    TS5823_set_FR1();
+    TS5823_set_CH8();
+    TS5823_frequency_MHz = 5725;
+  }
+
+
+
+
+  TS5823_frch++;
+  if (TS5823_frch > 32) {
+    TS5823_frch = 1;
+  }
+}
+

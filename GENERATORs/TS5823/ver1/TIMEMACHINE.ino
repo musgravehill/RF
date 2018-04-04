@@ -14,8 +14,7 @@ void TIMEMACHINE_loop() {
   }
 }
 
-void TIMEMACHINE_5ms() {
-  ENCODER_check();
+void TIMEMACHINE_5ms() {  
 }
 
 void TIMEMACHINE_311ms() {
@@ -23,13 +22,12 @@ void TIMEMACHINE_311ms() {
 }
 
 void TIMEMACHINE_101ms() {
-  if (ADF4351_isSweep) {
+  if (isSweep) {
     if (sweep_tmp) {
-      ADF4351_freq_inc();
-      ADF4351_setConfig();
+      TS5823_setNextFreq();      
       sweep_tmp = false;
     } else {
-      Serial.print(ADF4351_frequency/100000, DEC); //MHz
+      Serial.print(TS5823_frequency_MHz, DEC); //MHz
       Serial.print(';');
 
       int ADC_in = 0;

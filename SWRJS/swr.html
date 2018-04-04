@@ -1,41 +1,151 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="common/bootstrap.min.css">
+        <title>SWRJS</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                    Short circuit at DUT-port
+                    <textarea title="shortPortInput" id="shortPortInput" class="form-control">
+33;198;
+34;198;
+35;197;
+36;196;
+37;195;
+38;193;
+39;194;
+40;193;
+41;192;
+42;192;
+43;190;
+44;190;
+45;188;
+46;187;
+47;186;
+48;186;
+49;186;
+50;186;
+51;185;
+52;186;
+53;185;
+54;184;
+55;184;
+56;184;
+57;182;
+58;182;
+59;183;
+60;182;
+                    </textarea>
+                    <span class="btn btn-danger btn-sm" id="shortPortBtn">save shortPort</span>
+                </div>
+                <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+                    <div class="chart-containerz" style="position: relative; height: 300px;">
+                        <canvas id="shortPort_chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <form class="form-inline">
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">FREQ_FROM MHz</div>
+                            </div>
+                            <input id="freq_from" type="number" class="form-control" value="33"  />
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">FREQ_TO MHz</div>
+                            </div>
+                            <input id="freq_to" type="number" class="form-control" value="60" />
+                        </div>
+                    </form>
+                </div>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="common/bootstrap.min.css">
+            </div>
+        </div>    
 
-    <title>SWRJS</title>
-  </head>
-  <body>
-  <div class="row">
-    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
-        <textarea title="shortPortInput" id="shortPortInput" cols="30" rows="10"></textarea>
-        <span class="btn btn-danger" id="shortPortBtn">shortPortBtn</span>
+        <script src="common/jquery-3.2.1.slim.min.js"></script>
+        <script src="common/bootstrap.bundle.min.js"></script>
+        <script src="common/Chart.bundle.min.js"></script>
+
         <script type="text/javascript">
+            var correction_shortPort = [];
+            var freq_from = parseInt($('#freq_from').val()); //MHz
+            var freq_to = parseInt($('#freq_to').val()); //MHz
+
             document.addEventListener('DOMContentLoaded', function () {
-                $('#shortPortBtn').click(function () {
-                    var res = $('#shortPortInput').val();                    
-                    var ar = res.split('\n');
-                    $(ar).each(function( i, item ) {
-                        var tmp = item.split(';');
-                        var freq = tmp[0];
-                        var volt = tmp[1];
-                        console.log('f='+freq+' v='+volt);
-                    });
-                });
+                shortPort_fill();
+
             });
+
+            function shortPort_fill() {
+                $('#shortPortBtn').click(function () {
+                    var res = $('#shortPortInput').val();
+                    var ar = res.split('\n');
+                    var tmp, freq, volt;
+                    $(ar).each(function (i, item) {
+                        tmp = item.split(';');
+                        freq = parseInt(tmp[0]);
+                        volt = parseInt(tmp[1]);
+                        if (freq > 0 && volt >= 0) {
+                            //console.log('f=' + freq + ' v=' + volt);
+                            correction_shortPort[freq] = volt;
+                        }
+                    });
+                    shortPort_draw();
+                });
+            }
+
+
+            function shortPort_draw() {
+                var i;
+                var dataLabels = [];
+                var dataY = [];
+                for (i = freq_from; i <= freq_to; i++) {
+                    dataLabels.push(i);
+                    dataY.push(correction_shortPort[i]);
+                }
+                var ctx = document.getElementById('shortPort_chart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dataLabels,
+                        datasets: [{
+                                label: 'shortPort',
+                                fill: false,
+                                backgroundColor: 'rgb(255, 99, 132)',
+                                borderColor: 'rgb(255, 99, 132)',
+                                data: dataY
+                            }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        //responsive: true,
+                        hover: {
+                            mode: 'nearest',
+                            intersect: true
+                        }
+                    }
+                });
+
+                //chart.canvas.parentNode.style.height = '128px';
+            }
+            /*
+             red: 'rgb(255, 99, 132)',
+             orange: 'rgb(255, 159, 64)',
+             yellow: 'rgb(255, 205, 86)',
+             green: 'rgb(75, 192, 192)',
+             blue: 'rgb(54, 162, 235)',
+             purple: 'rgb(153, 102, 255)',
+             grey: 'rgb(201, 203, 207)'
+             */
         </script>
 
-    </div>
-</div>
-     
-
-     
-    <script src="common/jquery-3.2.1.slim.min.js"></script>
-    <script src="common/bootstrap.bundle.min.js"></script>
-  </body>
+    </body>
 </html>

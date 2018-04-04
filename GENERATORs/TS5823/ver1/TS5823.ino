@@ -85,7 +85,6 @@ void TS5823_setNextFreq() {
     TS5823_set_CH4();
     TS5823_frequency_MHz = 5805;
   }
-
   if (TS5823_frch == 5) {
     TS5823_set_FR1();
     TS5823_set_CH5();
@@ -105,6 +104,129 @@ void TS5823_setNextFreq() {
     TS5823_set_FR1();
     TS5823_set_CH8();
     TS5823_frequency_MHz = 5725;
+  }
+  //FR2
+  if (TS5823_frch == 9) {
+    TS5823_set_FR2();
+    TS5823_set_CH1();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 10) {
+    TS5823_set_FR2();
+    TS5823_set_CH2();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 11) {
+    TS5823_set_FR2();
+    TS5823_set_CH3();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 12) {
+    TS5823_set_FR2();
+    TS5823_set_CH4();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 13) {
+    TS5823_set_FR2();
+    TS5823_set_CH5();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 14) {
+    TS5823_set_FR2();
+    TS5823_set_CH6();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 15) {
+    TS5823_set_FR2();
+    TS5823_set_CH7();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 16) {
+    TS5823_set_FR2();
+    TS5823_set_CH8();
+    TS5823_frequency_MHz = 5;
+  }
+  //FR3
+  if (TS5823_frch == 17) {
+    TS5823_set_FR3();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 18) {
+    TS5823_set_FR3();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 19) {
+    TS5823_set_FR3();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 20) {
+    TS5823_set_FR3();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 21) {
+    TS5823_set_FR3();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 22) {
+    TS5823_set_FR3();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 23) {
+    TS5823_set_FR3();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 24) {
+    TS5823_set_FR3();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  //FR4
+  if (TS5823_frch == 25) {
+    TS5823_set_FR4();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 26) {
+    TS5823_set_FR4();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 27) {
+    TS5823_set_FR4();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 28) {
+    TS5823_set_FR4();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 29) {
+    TS5823_set_FR4();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 30) {
+    TS5823_set_FR4();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 31) {
+    TS5823_set_FR4();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
+  }
+  if (TS5823_frch == 32) {
+    TS5823_set_FR4();
+    TS5823_set_CH();
+    TS5823_frequency_MHz = 5;
   }
 
 

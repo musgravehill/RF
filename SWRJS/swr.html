@@ -11,8 +11,7 @@
             <div class="row">
                 <div class="col">
                     <b>DUT-port</b>
-                    <textarea id="DUT_PortInput" class="form-control">
-                    </textarea>
+                    <textarea id="DUT_portInput" class="form-control"></textarea>
                 </div>
                 <div class="col">
                     <b>Short circuit at DUT-port</b>
@@ -168,7 +167,7 @@
             <div class="row" style="color: #99ff99">
                 <div class="col">
                     <div class="chart-containerz"> <!-- style="position: relative; height: 300px;" -->
-                        <canvas id="shortPort_chart"></canvas>
+                        <canvas id="chart_main"></canvas>
                     </div>
                 </div>
             </div>
@@ -185,6 +184,8 @@
 
             var openPort_values = []; //input values from device
             var openPort_correction_coef = []; //coefficient for corrction
+
+            var DUT_port_values = []; //input values from device
 
             var freq_from = 0; //MHz
             var freq_to = 0; //MHz
@@ -203,14 +204,32 @@
                     isUseShortPortCorrection = $("#isUseShortPortCorrection").prop('checked');
                     isUseOpenPortCorrection = $("#isUseOpenPortCorrection").prop('checked');
 
+
                     shortPort_fill();
                     shortPort_calc_correction_coef();
 
                     openPort_fill();
                     openPort_calc_correction_coef();
 
-                    DUT_port_correction_draw();
+                    DUT_port_fill();
 
+                    mainChart_draw();
+
+                });
+            }
+
+            function DUT_port_fill() {
+                var res = $('#DUT_portInput').val();
+                var ar = res.split('\n');
+                var tmp, freq, volt;
+                $(ar).each(function (i, item) {
+                    tmp = item.split(';');
+                    freq = parseInt(tmp[0]);
+                    volt = parseInt(tmp[2]);
+                    if (freq > 0 && volt >= 0) {
+                        //console.log('f=' + freq + ' v=' + volt);
+                        DUT_port_values[freq] = volt;
+                    }
                 });
             }
 
@@ -273,7 +292,7 @@
             }
 
 
-            function DUT_port_correction_draw() {
+            function mainChart_draw() {
                 var i;
                 var dataLabels = [];
 
@@ -298,12 +317,33 @@
                     dataY_openPort_correction_coef.push(openPort_correction_coef[i]);
                 }
 
-                var ctx = document.getElementById('shortPort_chart').getContext('2d');
+                var dataY_DUT_port_values = [];
+                for (i = freq_from; i <= freq_to; i++) {
+                    if (isUseShortPortCorrection) {
+                        dataY_DUT_port_values.push(DUT_port_values[i] + shortPort_correction_coef[i]);
+                    } else if (isUseOpenPortCorrection) {
+                        dataY_DUT_port_values.push(DUT_port_values[i] + openPort_correction_coef[i]);
+                    } else {
+                        dataY_DUT_port_values.push(DUT_port_values[i]);
+                    }
+                }
+
+                var ctx = document.getElementById('chart_main').getContext('2d');
                 var chart = new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: dataLabels,
                         datasets: [
+                            {
+                                label: 'DUT_port',
+                                fill: false,
+                                backgroundColor: '#ff2600',
+                                borderWidth: 3,
+                                borderColor: '#ff2600',
+                                pointStyle: 'circle',
+                                radius: 1,
+                                data: dataY_DUT_port_values
+                            },
                             {
                                 label: 'shortPort',
                                 fill: false,
@@ -344,6 +384,7 @@
                                 radius: 1,
                                 data: dataY_openPort_correction_coef
                             }
+                            
                         ]
                     },
                     options: {
@@ -369,8 +410,8 @@
                     }
                 });
 
-                
-            }            
+
+            }
         </script>
 
     </body>

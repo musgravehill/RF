@@ -422,9 +422,9 @@
                 var dataY_DUT_port_values = [];
                 for (i = freq_from; i <= freq_to; i++) {
                     if (isUseShortPortCorrection) {
-                        dataY_DUT_port_values.push(Math.round(DUT_port_values[i] / shortPort_correction_coef[i]));
+                        dataY_DUT_port_values.push(Math.round(DUT_port_values[i] * shortPort_correction_coef[i]));
                     } else if (isUseOpenPortCorrection) {
-                        dataY_DUT_port_values.push(Math.round(DUT_port_values[i] / openPort_correction_coef[i]));
+                        dataY_DUT_port_values.push(Math.round(DUT_port_values[i] * openPort_correction_coef[i]));
                     } else {
                         dataY_DUT_port_values.push(DUT_port_values[i]);
                     }

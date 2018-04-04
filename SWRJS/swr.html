@@ -9,7 +9,12 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                <div class="col">
+                    <b>DUT-port</b>
+                    <textarea id="DUT_PortInput" class="form-control">
+                    </textarea>
+                </div>
+                <div class="col">
                     <b>Short circuit at DUT-port</b>
                     <textarea id="shortPortInput" class="form-control">
 400;0;196;
@@ -64,7 +69,8 @@
 449;0;208;
 450;0;208;
                     </textarea>
-                    <br>
+                </div>
+                <div class="col">
                     <b>Open circuit at DUT-port</b>
                     <textarea id="openPortInput" class="form-control">
 400;0;175;
@@ -119,20 +125,17 @@
 449;0;167;
 450;0;166;
                     </textarea>
-                    <br>
+                </div>
+                <div class="col">
                     <b>50R at DUT-port</b>
                     <textarea id="50rPortInput" class="form-control">
                     </textarea>
                 </div>
-                <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
-                    <div class="chart-containerz" style="position: relative; height: 300px;">
-                        <canvas id="shortPort_chart"></canvas>
-                    </div>
-                </div>
             </div>
+
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <form class="form-inline">
+                    <form class="form-inline m-4">
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">FREQ_FROM MHz</div>
@@ -160,9 +163,17 @@
                         <span class="btn btn-danger mb-2" id="freqs_range_apply">ok</span>
                     </form>
                 </div>
-
             </div>
-        </div>    
+
+            <div class="row" style="color: #99ff99">
+                <div class="col">
+                    <div class="chart-containerz"> <!-- style="position: relative; height: 300px;" -->
+                        <canvas id="shortPort_chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>   <!-- container -->
 
         <script src="common/jquery-3.2.1.slim.min.js"></script>
         <script src="common/bootstrap.bundle.min.js"></script>
@@ -265,7 +276,7 @@
             function DUT_port_correction_draw() {
                 var i;
                 var dataLabels = [];
-                
+
                 var dataY_shortPort_values = [];
                 for (i = freq_from; i <= freq_to; i++) {
                     dataLabels.push(i);
@@ -278,7 +289,7 @@
                 }
 
                 var dataY_openPort_values = [];
-                for (i = freq_from; i <= freq_to; i++) {                    
+                for (i = freq_from; i <= freq_to; i++) {
                     dataY_openPort_values.push(openPort_values[i]);
                 }
 
@@ -296,9 +307,9 @@
                             {
                                 label: 'shortPort',
                                 fill: false,
-                                backgroundColor: 'rgb(255, 99, 132)',
+                                backgroundColor: '#99ccff',
                                 borderWidth: 3,
-                                borderColor: 'rgb(255, 99, 132)',
+                                borderColor: '#99ccff',
                                 pointStyle: 'circle',
                                 radius: 1,
                                 data: dataY_shortPort_values
@@ -306,9 +317,9 @@
                             {
                                 label: 'shortPort_correction_coef',
                                 fill: false,
-                                backgroundColor: 'rgb(255, 99, 132)',
+                                backgroundColor: '#99ccff',
                                 borderWidth: 3,
-                                borderColor: 'rgb(255, 99, 132)',
+                                borderColor: '#99ccff',
                                 pointStyle: 'circle',
                                 radius: 1,
                                 data: dataY_shortPort_correction_coef
@@ -316,9 +327,9 @@
                             {
                                 label: 'openPort',
                                 fill: false,
-                                backgroundColor: 'rgb(75, 192, 192)',
+                                backgroundColor: '#99ff99',
                                 borderWidth: 3,
-                                borderColor: 'rgb(75, 192, 192)',
+                                borderColor: '#99ff99',
                                 pointStyle: 'circle',
                                 radius: 1,
                                 data: dataY_openPort_values
@@ -326,9 +337,9 @@
                             {
                                 label: 'openPort_correction_coef',
                                 fill: false,
-                                backgroundColor: 'rgb(75, 192, 192)',
+                                backgroundColor: '#99ff99',
                                 borderWidth: 3,
-                                borderColor: 'rgb(75, 192, 192)',
+                                borderColor: '#99ff99',
                                 pointStyle: 'circle',
                                 radius: 1,
                                 data: dataY_openPort_correction_coef
@@ -348,7 +359,7 @@
                             animationDuration: 0, // duration of animations when hovering an item
                         },
                         responsiveAnimationDuration: 0,
-                        maintainAspectRatio: false,
+                        //maintainAspectRatio: false, //chart.canvas.parentNode.style.height = '128px';
 
                         //responsive: true,
                         //hover: {
@@ -358,17 +369,8 @@
                     }
                 });
 
-                //chart.canvas.parentNode.style.height = '128px';
-            }
-            /*
-             red: 'rgb(255, 99, 132)',
-             orange: 'rgb(255, 159, 64)',
-             yellow: 'rgb(255, 205, 86)',
-             green: 'rgb(75, 192, 192)',
-             blue: 'rgb(54, 162, 235)',
-             purple: 'rgb(153, 102, 255)',
-             grey: 'rgb(201, 203, 207)'
-             */
+                
+            }            
         </script>
 
     </body>

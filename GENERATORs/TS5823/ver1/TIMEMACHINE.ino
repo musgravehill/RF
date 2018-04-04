@@ -19,8 +19,7 @@ void TIMEMACHINE_5ms() {
 }
 
 void TIMEMACHINE_311ms() {
-  BUTTON_check();
-  OLED_display();
+  BUTTON_check();  
 }
 
 void TIMEMACHINE_101ms() {

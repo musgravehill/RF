@@ -264,10 +264,17 @@
                 </div>
             </div>
 
-            <div class="row" style="color: #99ff99">
+            <div class="row">
                 <div class="col">
                     <div class="chart-containerz"> <!-- style="position: relative; height: 300px;" -->
-                        <canvas id="chart_main"></canvas>
+                        <canvas id="chart_DUT"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="chart-containerz"> <!-- style="position: relative; height: 300px;" -->
+                        <canvas id="chart_correction"></canvas>  
                     </div>
                 </div>
             </div>
@@ -292,8 +299,8 @@
             var isUseShortPortCorrection = false;
             var isUseOpenPortCorrection = false;
 
-            var chart = false;
-
+            var chart_DUT = false;
+            var chart_correction = false;
 
             document.addEventListener('DOMContentLoaded', function () {
                 freqs_range_apply();
@@ -315,8 +322,8 @@
 
                     DUT_port_fill();
 
-                    mainChart_draw();
-
+                    chart_DUT_draw();
+                    chart_correction_draw();
                 });
             }
 
@@ -394,33 +401,13 @@
             }
 
 
-            function mainChart_draw() {
+            function chart_DUT_draw() {
                 var i;
-                var dataLabels = [];
-
-                var dataY_shortPort_values = [];
-                for (i = freq_from; i <= freq_to; i++) {
-                    dataLabels.push(i);
-                    dataY_shortPort_values.push(shortPort_values[i]);
-                }
-
-                var dataY_shortPort_correction_coef = [];
-                for (i = freq_from; i <= freq_to; i++) {
-                    dataY_shortPort_correction_coef.push(shortPort_correction_coef[i]);
-                }
-
-                var dataY_openPort_values = [];
-                for (i = freq_from; i <= freq_to; i++) {
-                    dataY_openPort_values.push(openPort_values[i]);
-                }
-
-                var dataY_openPort_correction_coef = [];
-                for (i = freq_from; i <= freq_to; i++) {
-                    dataY_openPort_correction_coef.push(openPort_correction_coef[i]);
-                }
+                var dataLabels = [];                
 
                 var dataY_DUT_port_values = [];
                 for (i = freq_from; i <= freq_to; i++) {
+                    dataLabels.push(i);
                     if (isUseShortPortCorrection) {
                         dataY_DUT_port_values.push(Math.round(DUT_port_values[i] * shortPort_correction_coef[i]));
                     } else if (isUseOpenPortCorrection) {
@@ -430,13 +417,13 @@
                     }
                 }
 
-                if(chart){
-                    chart.destroy();
+                if (chart_DUT) {
+                    chart_DUT.destroy();
                     //alert('destroy');
                 }
-                
-                var ctx = document.getElementById('chart_main').getContext('2d');
-                chart = new Chart(ctx, {
+
+                var ctx = document.getElementById('chart_DUT').getContext('2d');
+                chart_DUT = new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: dataLabels,
@@ -450,48 +437,7 @@
                                 pointStyle: 'circle',
                                 radius: 1,
                                 data: dataY_DUT_port_values
-                            },
-                            {
-                                label: 'shortPort',
-                                fill: false,
-                                backgroundColor: '#99ccff',
-                                borderWidth: 3,
-                                borderColor: '#99ccff',
-                                pointStyle: 'circle',
-                                radius: 1,
-                                data: dataY_shortPort_values
-                            },
-                            {
-                                label: 'shortPort_correction_coef',
-                                fill: false,
-                                backgroundColor: '#99ccff',
-                                borderWidth: 3,
-                                borderColor: '#99ccff',
-                                pointStyle: 'circle',
-                                radius: 1,
-                                data: dataY_shortPort_correction_coef
-                            },
-                            {
-                                label: 'openPort',
-                                fill: false,
-                                backgroundColor: '#99ff99',
-                                borderWidth: 3,
-                                borderColor: '#99ff99',
-                                pointStyle: 'circle',
-                                radius: 1,
-                                data: dataY_openPort_values
-                            },
-                            {
-                                label: 'openPort_correction_coef',
-                                fill: false,
-                                backgroundColor: '#99ff99',
-                                borderWidth: 3,
-                                borderColor: '#99ff99',
-                                pointStyle: 'circle',
-                                radius: 1,
-                                data: dataY_openPort_correction_coef
                             }
-
                         ]
                     },
                     options: {
@@ -516,10 +462,108 @@
                         //}
                     }
                 });
+            }
+            function chart_correction_draw() {
+                var i;
+                var dataLabels = [];
 
-                chart.update();
+                var dataY_shortPort_values = [];
+                for (i = freq_from; i <= freq_to; i++) {
+                    dataLabels.push(i);
+                    dataY_shortPort_values.push(shortPort_values[i]);
+                }
 
+                var dataY_shortPort_correction_coef = [];
+                for (i = freq_from; i <= freq_to; i++) {
+                    dataY_shortPort_correction_coef.push(shortPort_correction_coef[i]);
+                }
 
+                var dataY_openPort_values = [];
+                for (i = freq_from; i <= freq_to; i++) {
+                    dataY_openPort_values.push(openPort_values[i]);
+                }
+
+                var dataY_openPort_correction_coef = [];
+                for (i = freq_from; i <= freq_to; i++) {
+                    dataY_openPort_correction_coef.push(openPort_correction_coef[i]);
+                }                
+
+                if (chart_correction) {
+                    chart_correction.destroy();
+                    //alert('destroy');
+                }
+
+                var ctx = document.getElementById('chart_correction').getContext('2d');
+                chart_correction = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dataLabels,
+                        datasets: [                           
+                            {
+                                label: 'shortPort',
+                                fill: false,
+                                backgroundColor: '#99ccff',
+                                borderWidth: 3,
+                                borderColor: '#99ccff',
+                                pointStyle: 'circle',
+                                radius: 1,
+                                data: dataY_shortPort_values
+                            },
+                            /*{
+                                label: 'shortPort_correction_coef',
+                                fill: false,
+                                backgroundColor: '#99ccff',
+                                borderWidth: 3,
+                                borderColor: '#99ccff',
+                                pointStyle: 'circle',
+                                radius: 1,
+                                data: dataY_shortPort_correction_coef
+                            },*/
+                            {
+                                label: 'openPort',
+                                fill: false,
+                                backgroundColor: '#99ff99',
+                                borderWidth: 3,
+                                borderColor: '#99ff99',
+                                pointStyle: 'circle',
+                                radius: 1,
+                                data: dataY_openPort_values
+                            },
+                            /*{
+                                label: 'openPort_correction_coef',
+                                fill: false,
+                                backgroundColor: '#99ff99',
+                                borderWidth: 3,
+                                borderColor: '#99ff99',
+                                pointStyle: 'circle',
+                                radius: 1,
+                                data: dataY_openPort_correction_coef
+                            }*/
+
+                        ]
+                    },
+                    options: {
+                        elements: {
+                            line: {
+                                tension: 0, // disables bezier curves
+                            }
+                        },
+                        animation: {
+                            duration: 0, // general animation time
+                        },
+                        hover: {
+                            animationDuration: 0, // duration of animations when hovering an item
+                        },
+                        responsiveAnimationDuration: 0,
+                        //maintainAspectRatio: false, //chart.canvas.parentNode.style.height = '128px';
+
+                        //responsive: true,
+                        //hover: {
+                        //mode: 'nearest',
+                        //intersect: true
+                        //}
+                    }
+                }); 
             }
         </script>
 

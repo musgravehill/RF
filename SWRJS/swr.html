@@ -22,12 +22,8 @@
                     </textarea>
                 </div>
                 <div class="col">
-                    <b>Short circuit at DUT-port</b>
-                    <textarea id="shortPortInput" class="form-control"></textarea>
-                </div>
-                <div class="col">
-                    <b>Open circuit at DUT-port</b>
-                    <textarea id="openPortInput" class="form-control">
+                    <b>Short\open circuit, 50R, 75R, etc. at DUT-port</b>
+                    <textarea id="portCorrectionInput" class="form-control">
 5865;0;5;
 5845;0;5;
 5825;0;6;
@@ -36,12 +32,7 @@
 5765;0;8;
 5745;0;9;
                     </textarea>
-                </div>
-                <div class="col">
-                    <b>50R at DUT-port</b>
-                    <textarea id="50rPortInput" class="form-control">
-                    </textarea>
-                </div>
+                </div>                
             </div>
 
             <div class="row">
@@ -60,17 +51,11 @@
                             <input id="freq_to" type="number" class="form-control" value="6000" style="width: 90px;" />
                         </div>
                         <div class="form-check mb-2 mr-sm-2">
-                            <input class="form-check-input" type="checkbox" id="isUseShortPortCorrection">
+                            <input class="form-check-input" type="checkbox" id="isUsePortCorrection">
                             <label class="form-check-label" for="inlineFormCheck">
-                                use shortPort correction
+                                use port correction
                             </label>
-                        </div>
-                        <div class="form-check mb-2 mr-sm-2">
-                            <input class="form-check-input" type="checkbox" id="isUseOpenPortCorrection">
-                            <label class="form-check-label" for="inlineFormCheck">
-                                use openPort correction
-                            </label>
-                        </div>
+                        </div>                        
                         <span class="btn btn-danger mb-2" id="freqs_range_apply">ok</span>
                     </form>
                 </div>
@@ -98,8 +83,8 @@
         <script src="common/Chart.bundle.min.js"></script>
 
         <script type="text/javascript">
-            var shortPort_values = []; //input values from device
-            var shortPort_correction_coef = []; //coefficient for corrction
+            var portCorrection_values = []; //input values from device
+            var portCorrection_correction_coef = []; //coefficient for corrction
 
             var openPort_values = []; //input values from device
             var openPort_correction_coef = []; //coefficient for corrction
@@ -108,8 +93,7 @@
 
             var freq_from = 0; //MHz
             var freq_to = 0; //MHz
-            var isUseShortPortCorrection = false;
-            var isUseOpenPortCorrection = false;
+            var isUsePortCorrection = false;            
 
             var chart_DUT = false;
             var chart_correction = false;
@@ -122,15 +106,10 @@
                 $('#freqs_range_apply').click(function () {
                     freq_from = parseInt($('#freq_from').val()); //MHz
                     freq_to = parseInt($('#freq_to').val()); //MHz
-                    isUseShortPortCorrection = $("#isUseShortPortCorrection").prop('checked');
-                    isUseOpenPortCorrection = $("#isUseOpenPortCorrection").prop('checked');
+                    isUsePortCorrection = $("#isUsePortCorrection").prop('checked');  
 
-
-                    shortPort_fill();
-                    shortPort_calc_correction_coef();
-
-                    openPort_fill();
-                    openPort_calc_correction_coef();
+                    portCorrection_fill();
+                    portCorrection_calc_correction_coef();                   
 
                     DUT_port_fill();
 
@@ -154,8 +133,8 @@
                 });
             }
 
-            function shortPort_fill() {
-                var res = $('#shortPortInput').val();
+            function portCorrection_fill() {
+                var res = $('#portCorrectionInput').val();
                 var ar = res.split('\n');
                 var tmp, freq, volt;
                 $(ar).each(function (i, item) {
@@ -164,56 +143,27 @@
                     volt = parseInt(tmp[2]);
                     if (freq > 0 && volt >= 0) {
                         //console.log('f=' + freq + ' v=' + volt);
-                        shortPort_values[freq] = volt;
+                        portCorrection_values[freq] = volt;
                     }
                 });
             }
-            function shortPort_calc_correction_coef() {
+            function portCorrection_calc_correction_coef() {
                 var i;
-                var shortPort_values_freqsRange = [];
+                var portCorrection_values_freqsRange = [];
                 for (i = freq_from; i <= freq_to; i++) {
-                    if (shortPort_values[i]) {
-                        shortPort_values_freqsRange.push(shortPort_values[i]);
+                    if (portCorrection_values[i]) {
+                        portCorrection_values_freqsRange.push(portCorrection_values[i]);
                     }
                 }
-                var shortPort_values_freqsRange_max = Math.max.apply(null, shortPort_values_freqsRange);
+                var portCorrection_values_freqsRange_max = Math.max.apply(null, portCorrection_values_freqsRange);
                 for (i = freq_from; i <= freq_to; i++) {
-                    if (shortPort_values[i]) {
-                        shortPort_correction_coef[i] = shortPort_values_freqsRange_max / shortPort_values[i];
+                    if (portCorrection_values[i]) {
+                        portCorrection_correction_coef[i] = portCorrection_values_freqsRange_max / portCorrection_values[i];
                     }
                 }
+            }
 
-            }
-
-            function openPort_fill() {
-                var res = $('#openPortInput').val();
-                var ar = res.split('\n');
-                var tmp, freq, volt;
-                $(ar).each(function (i, item) {
-                    tmp = item.split(';');
-                    freq = parseInt(tmp[0]);
-                    volt = parseInt(tmp[2]);
-                    if (freq > 0 && volt >= 0) {
-                        //console.log('f=' + freq + ' v=' + volt);
-                        openPort_values[freq] = volt;
-                    }
-                });
-            }
-            function openPort_calc_correction_coef() {
-                var i;
-                var openPort_values_freqsRange = [];
-                for (i = freq_from; i <= freq_to; i++) {
-                    if (openPort_values[i]) {
-                        openPort_values_freqsRange.push(openPort_values[i]);
-                    }
-                }
-                var openPort_values_freqsRange_max = Math.max.apply(null, openPort_values_freqsRange);
-                for (i = freq_from; i <= freq_to; i++) {
-                    if (openPort_values[i]) {
-                        openPort_correction_coef[i] = openPort_values_freqsRange_max / openPort_values[i];
-                    }
-                }
-            }
+            
 
 
             function chart_DUT_draw() {
@@ -224,10 +174,8 @@
                 for (i = freq_from; i <= freq_to; i++) {
                     if (DUT_port_values[i]) {
                         dataLabels.push(i);
-                        if (isUseShortPortCorrection && shortPort_correction_coef[i]) {
-                            dataY_DUT_port_values.push(Math.round(DUT_port_values[i] * shortPort_correction_coef[i]));
-                        } else if (isUseOpenPortCorrection && openPort_correction_coef[i]) {
-                            dataY_DUT_port_values.push(Math.round(DUT_port_values[i] * openPort_correction_coef[i]));
+                        if (isUsePortCorrection && portCorrection_correction_coef[i]) {
+                            dataY_DUT_port_values.push(Math.round(DUT_port_values[i] * portCorrection_correction_coef[i]));
                         } else {
                             dataY_DUT_port_values.push(DUT_port_values[i]);
                         }
@@ -283,13 +231,11 @@
             function chart_correction_draw() {
                 var i;
                 var dataLabels = [];
-                var dataY_shortPort_values = [];
-                var dataY_openPort_values = [];
+                var dataY_portCorrection_values = [];
                 for (i = freq_from; i <= freq_to; i++) {
-                    if (shortPort_values[i] || openPort_values[i]) {
+                    if (portCorrection_values[i] || openPort_values[i]) {
                         dataLabels.push(i);
-                        dataY_shortPort_values.push(shortPort_values[i]);
-                        dataY_openPort_values.push(openPort_values[i]);
+                        dataY_portCorrection_values.push(portCorrection_values[i]);
                     }
                 }
 
@@ -306,25 +252,15 @@
                         labels: dataLabels,
                         datasets: [
                             {
-                                label: 'shortPort',
-                                fill: false,
-                                backgroundColor: '#2601a0',
-                                borderWidth: 3,
-                                borderColor: '#2601a0',
-                                pointStyle: 'circle',
-                                radius: 2,
-                                data: dataY_shortPort_values
-                            },
-                            {
-                                label: 'openPort',
+                                label: 'portCorrection',
                                 fill: false,
                                 backgroundColor: '#1a7200',
                                 borderWidth: 3,
                                 borderColor: '#1a7200',
                                 pointStyle: 'circle',
                                 radius: 2,
-                                data: dataY_openPort_values
-                            }
+                                data: dataY_portCorrection_values
+                            },                            
                         ]
                     },
                     options: {

@@ -119,25 +119,19 @@
             var freq_from = 0; //MHz
             var freq_to = 0; //MHz
             var isUsePortCorrection = false;
-
             var chart_DUT = false;
             var chart_correction = false;
-
             document.addEventListener('DOMContentLoaded', function () {
                 freqs_range_apply();
             });
-
             function freqs_range_apply() {
                 $('#freqs_range_apply').click(function () {
                     freq_from = parseInt($('#freq_from').val()); //MHz
                     freq_to = parseInt($('#freq_to').val()); //MHz
                     isUsePortCorrection = $("#isUsePortCorrection").prop('checked');
-
                     portCorrection_fill();
                     portCorrection_calc_correction_coef();
-
                     DUT_port_fill();
-
                     chart_DUT_draw();
                     chart_correction_draw();
                 });
@@ -191,7 +185,6 @@
             function chart_DUT_draw() {
                 var i;
                 var dataLabels = [];
-
                 var dataY_DUT_port_values = [];
                 for (i = freq_from; i <= freq_to; i++) {
                     if (DUT_port_values[i]) {
@@ -228,11 +221,19 @@
                         ]
                     },
                     options: {
+                        scales: {
+                            yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                        },
+
                         /*elements: {
-                            line: {
-                                tension: 0, // disables bezier curves
-                            }
-                        },*/
+                         line: {
+                         tension: 0, // disables bezier curves
+                         }
+                         },*/
                         animation: {
                             duration: 0, // general animation time
                         },
@@ -286,11 +287,18 @@
                         ]
                     },
                     options: {
+                        scales: {
+                            yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                        },
                         /*elements: {
-                            line: {
-                                tension: 0, // disables bezier curves
-                            }
-                        },*/
+                         line: {
+                         tension: 0, // disables bezier curves
+                         }
+                         },*/
                         animation: {
                             duration: 0, // general animation time
                         },

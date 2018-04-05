@@ -16,6 +16,7 @@ uint32_t TIMEMACHINE_prev_311ms = 0L;
 uint32_t TIMEMACHINE_prev_101ms = 0L;
 
 void setup() {
+  TS5823_init();
   //  BUTTON_init();
   Serial.begin(57600);
   analogReference(DEFAULT); // 3.3v

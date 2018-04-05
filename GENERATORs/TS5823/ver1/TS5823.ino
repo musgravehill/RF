@@ -105,136 +105,166 @@ void TS5823_setNextFreq() {
     TS5823_set_CH8();
     TS5823_frequency_MHz = 5725;
   }
-  //FR2
-  if (TS5823_frch == 9) {
+  /*
+    //FR2
+    if (TS5823_frch == 9) {
     TS5823_set_FR2();
     TS5823_set_CH1();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 10) {
+    }
+    if (TS5823_frch == 10) {
     TS5823_set_FR2();
     TS5823_set_CH2();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 11) {
+    }
+    if (TS5823_frch == 11) {
     TS5823_set_FR2();
     TS5823_set_CH3();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 12) {
+    }
+    if (TS5823_frch == 12) {
     TS5823_set_FR2();
     TS5823_set_CH4();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 13) {
+    }
+    if (TS5823_frch == 13) {
     TS5823_set_FR2();
     TS5823_set_CH5();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 14) {
+    }
+    if (TS5823_frch == 14) {
     TS5823_set_FR2();
     TS5823_set_CH6();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 15) {
+    }
+    if (TS5823_frch == 15) {
     TS5823_set_FR2();
     TS5823_set_CH7();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 16) {
+    }
+    if (TS5823_frch == 16) {
     TS5823_set_FR2();
     TS5823_set_CH8();
     TS5823_frequency_MHz = 5;
-  }
-  //FR3
-  if (TS5823_frch == 17) {
+    }
+    //FR3
+    if (TS5823_frch == 17) {
     TS5823_set_FR3();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 18) {
+    }
+    if (TS5823_frch == 18) {
     TS5823_set_FR3();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 19) {
+    }
+    if (TS5823_frch == 19) {
     TS5823_set_FR3();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 20) {
+    }
+    if (TS5823_frch == 20) {
     TS5823_set_FR3();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 21) {
+    }
+    if (TS5823_frch == 21) {
     TS5823_set_FR3();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 22) {
+    }
+    if (TS5823_frch == 22) {
     TS5823_set_FR3();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 23) {
+    }
+    if (TS5823_frch == 23) {
     TS5823_set_FR3();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 24) {
+    }
+    if (TS5823_frch == 24) {
     TS5823_set_FR3();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  //FR4
-  if (TS5823_frch == 25) {
+    }
+    //FR4
+    if (TS5823_frch == 25) {
     TS5823_set_FR4();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 26) {
+    }
+    if (TS5823_frch == 26) {
     TS5823_set_FR4();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 27) {
+    }
+    if (TS5823_frch == 27) {
     TS5823_set_FR4();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 28) {
+    }
+    if (TS5823_frch == 28) {
     TS5823_set_FR4();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 29) {
+    }
+    if (TS5823_frch == 29) {
     TS5823_set_FR4();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 30) {
+    }
+    if (TS5823_frch == 30) {
     TS5823_set_FR4();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 31) {
+    }
+    if (TS5823_frch == 31) {
     TS5823_set_FR4();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-  if (TS5823_frch == 32) {
+    }
+    if (TS5823_frch == 32) {
     TS5823_set_FR4();
     TS5823_set_CH();
     TS5823_frequency_MHz = 5;
-  }
-
-
-
+    }
+  */
 
   TS5823_frch++;
-  if (TS5823_frch > 32) {
+  if (TS5823_frch > 8) {
+    isSweep = false;
     TS5823_frch = 1;
   }
+}
+
+void TS5823_sweep() {
+  if (isSweep) {
+    if (sweep_tmp) {
+      TS5823_setNextFreq();
+      sweep_tmp = false;
+    } else {
+      Serial.print(TS5823_frequency_MHz, DEC); //MHz
+      Serial.print(';');
+
+      int ADC_in = 0;
+      //ADC_in = analogRead(A6);
+      Serial.print(0, DEC);//0-1023
+      Serial.print(';');
+
+      ADC_in = 0;
+      for (byte i = 0; i < 10; i++) {
+        ADC_in += analogRead(A7);
+      }
+      ADC_in = ADC_in / 10.0;
+      Serial.print(ADC_in, DEC);//0-1023
+      Serial.print(';');
+
+      Serial.print("\r\n");
+      sweep_tmp = true;
+    }
+  }
+
+
 }
 

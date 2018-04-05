@@ -1,6 +1,6 @@
 void TIMEMACHINE_loop() {
   uint32_t  TIMEMACHINE_currMillis = millis();
-  if ((TIMEMACHINE_currMillis - TIMEMACHINE_prev_311ms) > 311L) {
+  if ((TIMEMACHINE_currMillis - TIMEMACHINE_prev_311ms) > 511L) {
     TIMEMACHINE_311ms();
     TIMEMACHINE_prev_311ms = TIMEMACHINE_currMillis;
   }

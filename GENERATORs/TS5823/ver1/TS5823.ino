@@ -235,7 +235,7 @@ void TS5823_setNextFreq() {
 
 
   TS5823_frch++;
-  if (TS5823_frch > 8) {
+  if (TS5823_frch > 32) {
     isSweep = false;
     TS5823_frch = 1;
   }

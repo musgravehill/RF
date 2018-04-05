@@ -24,13 +24,38 @@
                 <div class="col">
                     <b>Short\open circuit, 50R, 75R, etc. at DUT-port</b>
                     <textarea id="portCorrectionInput" class="form-control">
-5865;0;5;
-5845;0;5;
-5825;0;6;
-5805;0;6;
-5785;0;7;
-5765;0;8;
-5745;0;9;
+5865;0;2;
+5845;0;3;
+5825;0;3;
+5805;0;2;
+5785;0;4;
+5765;0;3;
+5745;0;3;
+5725;0;3;
+5733;0;3;
+5752;0;3;
+5771;0;3;
+5790;0;3;
+5809;0;2;
+5828;0;2;
+5847;0;1;
+5866;0;1;
+5705;0;3;
+5685;0;3;
+5665;0;3;
+5645;0;2;
+5885;0;2;
+5905;0;0;
+5925;0;0;
+5945;0;0;
+5740;0;3;
+5760;0;3;
+5780;0;3;
+5800;0;3;
+5820;0;2;
+5840;0;1;
+5860;0;1;
+
                     </textarea>
                 </div>                
             </div>
@@ -93,7 +118,7 @@
 
             var freq_from = 0; //MHz
             var freq_to = 0; //MHz
-            var isUsePortCorrection = false;            
+            var isUsePortCorrection = false;
 
             var chart_DUT = false;
             var chart_correction = false;
@@ -106,10 +131,10 @@
                 $('#freqs_range_apply').click(function () {
                     freq_from = parseInt($('#freq_from').val()); //MHz
                     freq_to = parseInt($('#freq_to').val()); //MHz
-                    isUsePortCorrection = $("#isUsePortCorrection").prop('checked');  
+                    isUsePortCorrection = $("#isUsePortCorrection").prop('checked');
 
                     portCorrection_fill();
-                    portCorrection_calc_correction_coef();                   
+                    portCorrection_calc_correction_coef();
 
                     DUT_port_fill();
 
@@ -163,9 +188,6 @@
                 }
             }
 
-            
-
-
             function chart_DUT_draw() {
                 var i;
                 var dataLabels = [];
@@ -206,11 +228,11 @@
                         ]
                     },
                     options: {
-                        elements: {
+                        /*elements: {
                             line: {
                                 tension: 0, // disables bezier curves
                             }
-                        },
+                        },*/
                         animation: {
                             duration: 0, // general animation time
                         },
@@ -260,15 +282,15 @@
                                 pointStyle: 'circle',
                                 radius: 2,
                                 data: dataY_portCorrection_values
-                            },                            
+                            },
                         ]
                     },
                     options: {
-                        elements: {
+                        /*elements: {
                             line: {
                                 tension: 0, // disables bezier curves
                             }
-                        },
+                        },*/
                         animation: {
                             duration: 0, // general animation time
                         },

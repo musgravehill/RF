@@ -56,6 +56,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function onLineReceived() {
         console.log(SERIAL_stringReceived);
+
+        if ($("#putSerialData_to_DUT_portInput").prop('checked')) {
+            $('#DUT_portInput').append(SERIAL_stringReceived);
+        }
+        if ($("#putSerialData_to_portCorrectionInput").prop('checked')) {
+            $('#portCorrectionInput').append(SERIAL_stringReceived);
+        }
     }
 
     var convertStringToArrayBuffer = function (str) {

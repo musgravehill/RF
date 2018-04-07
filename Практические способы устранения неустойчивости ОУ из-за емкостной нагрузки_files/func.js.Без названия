@@ -1,0 +1,449 @@
+function votePoll(pollid, ip) {
+var pollid = pollid;
+var ip = ip;
+var answerid = $('input[name=variant]:checked').val();
+$("#poll").load("/assets/snippets/poll/php/poll.php", { pollid: pollid, ip: ip, answerid: answerid });
+}
+
+function subsNews() {
+var email = document.getElementById('Адрес электропочты').value;
+$("#podpiska").load("/assets/snippets/newsmail/php/subs.php", { email: email });
+}
+
+function advSearch(year, month, author, rubric, from, onpage) {
+var year = year;
+var month = month;
+var author = author;
+var rubric = rubric;
+var from = from;
+var onpage = onpage;
+$("#advsearch").load("/assets/snippets/advsearch/php/advsearch.php", { year: year, month: month, author: author, rubric: rubric, from: from, onpage: onpage });
+}
+
+function showhide(id) {
+if (document.getElementById)
+	{
+	obj = document.getElementById(id);
+	if (obj.style.display == "none")
+		{
+		obj.style.display = "block";
+		}
+	else
+		{
+		obj.style.display = "none";
+		}
+	}
+}
+
+function sendFeedback(f, chunk_id) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	}
+else
+	{
+	var name = document.getElementById('Ваше имя').value;
+	var email = document.getElementById('Ваш E-mail').value;
+	var message = document.feedbackForm.message.value;
+	var chunk_id = chunk_id;
+	$("#feedback").load("/assets/snippets/feedback/php/feedback.php", { name: name, email: email, message: message, chunk_id: chunk_id });
+	}
+}
+
+function isEmpty(str) {
+for (var i = 0; i < str.length; i++)
+	if (" " != str.charAt(i))
+		return false;
+		return true;
+}
+
+function submitForm(f, chunk_id) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	}
+else
+	{
+	var login = document.getElementById('Логин').value;
+	var password = document.getElementById('Пароль').value;
+	var password_copy = document.getElementById('Повтор пароля').value;
+	var initials = document.getElementById('Ф.И.О. лица ответственного за размещение').value;
+	var priv_mail = document.getElementById('E-mail лица ответственного за размещение').value;
+	var company_name = document.getElementById('Название предприятия').value;
+	var company_head = document.getElementById('Руководитель предприятия').value;
+	var city = document.getElementById('Город').value;
+	var address = document.getElementById('Адрес предприятия').value;
+	var phone = document.getElementById('Телефон').value;
+	var fax = document.getElementById('Факс').value;
+	var www = document.getElementById('www').value;
+	var email = document.getElementById('E-mail').value;
+	var company_desc = document.getElementById('Краткое описание компании').value;
+	var distributors = document.getElementById('Прямые дистрибьюторские отношения').value;
+	var prod_desc = document.getElementById('Описание продукции / услуг компании').value;
+	var chunk_id = chunk_id;
+	var tagsArray = new Array();
+	$("#specdiv :input:checked").each(function(id) {
+		message = $("#specdiv :input:checked").get(id);
+		tagsArray.push(message.id);})
+	$("#enterprisediv").load("/assets/snippets/register/php/submitform.php", { 'spec[]': tagsArray, login: login, password: password, password_copy: password_copy, initials: initials, priv_mail: priv_mail, company_name: company_name, company_head: company_head, city: city, address: address, phone: phone, fax: fax, www: www, email: email, company_desc: company_desc, distributors: distributors, prod_desc: prod_desc, chunk_id: chunk_id });
+	}
+}
+
+function sendPassword(f, chunk_id) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	}
+else
+	{
+	var chunk_id = chunk_id;
+	var email = document.getElementById('Регистрационный E-mail').value;
+	$("#sendpassword").load("/assets/snippets/register/php/sendpassword.php", { email: email, chunk_id: chunk_id });
+	}
+}
+
+function enterAccount(f) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	return false;
+	}
+else
+	{
+	f.submit()
+	}
+}
+
+function changeData(f, ident, login, chunk_id) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	}
+else
+	{
+	var login = login;
+	var id = ident;
+	var password = document.getElementById('Текущий пароль').value;
+	var newpassword = document.getElementById('Новый пароль').value;
+	var password_copy = document.getElementById('Повтор нового пароля').value;
+	var initials = document.getElementById('Ф.И.О. лица ответственного за размещение').value;
+	var priv_mail = document.getElementById('E-mail лица ответственного за размещение').value;
+	var company_name = document.getElementById('Название предприятия').value;
+	var company_head = document.getElementById('Руководитель предприятия').value;
+	var city = document.getElementById('Город').value;
+	var address = document.getElementById('Адрес предприятия').value;
+	var phone = document.getElementById('Телефон').value;
+	var fax = document.getElementById('Факс').value;
+	var www = document.getElementById('www').value;
+	var email = document.getElementById('E-mail').value;
+	var company_desc = document.getElementById('Краткое описание компании').value;
+	var distributors = document.getElementById('Прямые дистрибьюторские отношения').value;
+	var prod_desc = document.getElementById('Описание продукции / услуг компании').value;
+	var chunk_id = chunk_id;
+	var tagsArray = new Array();
+	$("#specdiv :input:checked").each(function(id) {
+		message = $("#specdiv :input:checked").get(id);
+		tagsArray.push(message.id);})
+	$("#changediv").load("/assets/snippets/register/php/change.php", { 'spec[]': tagsArray, password: password, id: id, login: login, newpassword: newpassword, password_copy: password_copy, initials: initials, priv_mail: priv_mail, company_name: company_name, company_head: company_head, city: city, address: address, phone: phone, fax: fax, www: www, email: email, company_desc: company_desc, distributors: distributors, prod_desc: prod_desc, chunk_id: chunk_id });
+	}
+}
+
+function checkForma(f) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	return false;
+	}
+else
+	{
+	f.submit();
+	}
+}
+
+function sendForm(f) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Поле поиска не должно быть пустым");
+	return false;
+	}
+else
+	{
+	f.submit();
+	}
+}
+
+$(function() {
+$("#tree").treeview({
+collapsed: true,
+animated: "medium",
+control:"#sidetreecontrol",
+persist: "location"
+	});
+})
+
+function askSubscribe(f, chunk_id) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	return false;
+	}
+else
+	{
+	var person = $('input[name=person]:checked').val();
+	var name = document.getElementById('Ф.И.О.').value;
+	var enterprise = document.getElementById('Название предприятия').value;
+	var inn = document.getElementById('ИНН').value;
+	var kpp = document.getElementById('КПП').value;
+	var city = document.getElementById('Город').value;
+	var postal = document.getElementById('Почтовый индекс').value;
+	var address = document.getElementById('Адрес для доставки').value;
+	var phone = document.getElementById('Телефон').value;
+	var email = document.getElementById('E-mail').value;
+	var term = document.getElementById('Срок подписки').value;
+	$("#subscribe").load("/assets/snippets/subscribe/php/subscribe.php", { person: person, name: name, enterprise: enterprise, inn: inn, kpp: kpp, city: city, postal: postal, address: address, phone: phone, email: email, term: term, chunk_id: chunk_id });
+	}
+}
+
+function orderFree(f, chunk_id) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	return false;
+	}
+else
+	{
+	var name = document.orderFreeForm.name.value;
+	var city = document.orderFreeForm.city.value;
+	var phone = document.orderFreeForm.phone.value;
+	var email = document.orderFreeForm.email.value;
+	$("#orderfree").load("/assets/snippets/order/php/free.php", { name: name, city: city, phone: phone, email: email, chunk_id: chunk_id });
+	}
+}
+
+function orderYad(f, chunk_id) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	return false;
+	}
+else
+	{
+	var name = document.orderYadForm.name.value;
+	var address = document.orderYadForm.address.value;
+	var phone = document.orderYadForm.phone.value;
+	var email = document.orderYadForm.email.value;
+	$("#orderyad").load("/assets/snippets/order/php/yad.php", { name: name, address: address, phone: phone, email: email, chunk_id: chunk_id });
+	}
+}
+
+function orderPost(f, chunk_id) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	return false;
+	}
+else
+	{
+	var person = $('input[name=person]:checked').val();
+	var name = document.orderPostForm.name.value;
+	var enterprise = document.getElementById('Название предприятия').value;
+	var inn = document.getElementById('ИНН').value;
+	var kpp = document.getElementById('КПП').value;
+	var city = document.orderPostForm.city.value;
+	var postal = document.getElementById('Почтовый индекс').value;
+	var address = document.getElementById('Адрес для доставки').value;
+	var phone = document.orderPostForm.phone.value;
+	var email = document.orderPostForm.email.value;
+	var tagsArray = new Array();
+	var year = document.getElementById('Год выпуска журнала').value;
+	$("#monthdiv :input:checked").each(function(id) {
+		message = $("#monthdiv :input:checked").get(id);
+		tagsArray.push(message.id);})
+	$("#orderpost").load("/assets/snippets/order/php/post.php", { 'number[]': tagsArray, person: person, name: name, enterprise: enterprise, inn: inn, kpp: kpp, city: city, postal: postal, address: address, phone: phone, email: email, year:year, chunk_id: chunk_id });
+	}
+}
+
+function email (login, sc)
+{
+     var serv = new Array;
+    serv[0] = "fsmedia.ru";
+    eml = login +  "@" + serv[sc];
+    return eml;
+}
+function mail (login, sc)
+{
+document.write (email(login, sc));
+}
+function to_mail (login, sc, sub)
+{
+eml = "mailto:" + email(login, sc);
+if (sub != "") eml += "?subject=" + sub;
+window.location.href = eml;
+}
+
+function fieldsEnablePost () {
+document.orderPostForm.enterprise.disabled=false;
+document.orderPostForm.inn.disabled=false;
+document.orderPostForm.kpp.disabled=false;
+}
+
+function fieldsDisablePost () {
+document.orderPostForm.enterprise.disabled=true;
+document.orderPostForm.inn.disabled=true;
+document.orderPostForm.kpp.disabled=true;
+}
+
+function fieldsEnableSubs () {
+document.subscribeForm.enterprise.disabled=false;
+document.subscribeForm.inn.disabled=false;
+document.subscribeForm.kpp.disabled=false;
+}
+
+function fieldsDisableSubs () {
+document.subscribeForm.enterprise.disabled=true;
+document.subscribeForm.inn.disabled=true;
+document.subscribeForm.kpp.disabled=true;
+}
+
+function sendTender(f) {
+var errMSG = "";
+for (var i = 0; i<f.elements.length; i++)
+if (null!=f.elements[i].getAttribute("required"))
+if (isEmpty(f.elements[i].value))
+errMSG += "  " + f.elements[i].id + "\n";
+if ("" != errMSG)
+	{
+	alert("Не заполнены обязательные поля:\n" + errMSG);
+	return false;
+	}
+else
+	{
+	var name = document.getElementById('Ф.И.О. лица ответственного за размещение').value;
+	var company = document.getElementById('Название предприятия').value;
+	var city = document.getElementById('Город').value;
+	var address = document.getElementById('Адрес предприятия').value;
+	var phone = document.getElementById('Телефон').value;
+	var fax = document.getElementById('Факс').value;
+	var email = document.getElementById('E-mail').value;
+	var partners = document.getElementById('Ваши традиционные партнеры-поставщики').value;
+	var description = document.getElementById('Краткое описание тендера').value;
+	selected = new Array();
+  	for (var i = 0; i < document.forms['tenderForm'].product.options.length; i++)
+    if (document.forms['tenderForm'].product.options[i].selected)
+      selected.push(document.forms['tenderForm'].product.options[i].value);
+
+	$("#tenderdiv").load("/assets/snippets/tender/php/tender.php", { 'prod[]': selected, name: name, company: company, city: city, address: address, phone: phone, fax: fax, email: email, partners: partners, description: description });
+	}
+}
+
+function lookup(inputString) {
+var queryString = inputString;
+if (inputString.length == 0)
+	{
+	$("#suggestions").hide();
+	}
+else
+	{
+	$.post("/assets/snippets/search/php/search.php", {queryString: queryString}, function(data) {
+		if(data.length >0)
+			{
+			$("#suggestions").show();
+			$("#autoSuggestionsList").html(data);
+			}
+        });
+	}
+}
+
+function fill(thisValue) {
+	$("#ajaxSearch_input").val(thisValue);
+	$("#suggestions").hide();
+}
+
+function checkYear(form) {var form = form;var year = document.getElementById('Год выпуска журнала').value;
+if (year != "CD 2002-03" && year != "CD 2004-05")
+	{	$("input[@name='number[0]']").removeAttr('disabled');
+	$("input[@name='number[1]']").removeAttr('disabled');
+	$("input[@name='number[2]']").removeAttr('disabled');
+	$("input[@name='number[3]']").removeAttr('disabled');
+	$("input[@name='number[4]']").removeAttr('disabled');
+	$("input[@name='number[5]']").removeAttr('disabled');
+	$("input[@name='number[6]']").removeAttr('disabled');
+	$("input[@name='number[7]']").removeAttr('disabled');
+	$("input[@name='number[8]']").removeAttr('disabled');
+	$("input[@name='number[9]']").removeAttr('disabled');
+	$("input[@name='number[10]']").removeAttr('disabled');
+	$("input[@name='number[11]']").removeAttr('disabled');
+	$("input[@name='number[12]']").removeAttr('disabled');
+	}
+else
+	{	$("input[@name='number[0]']").attr("disabled","disabled");
+	$("input[@name='number[1]']").attr("disabled","disabled");
+	$("input[@name='number[2]']").attr("disabled","disabled");
+	$("input[@name='number[3]']").attr("disabled","disabled");
+	$("input[@name='number[4]']").attr("disabled","disabled");
+	$("input[@name='number[5]']").attr("disabled","disabled");
+	$("input[@name='number[6]']").attr("disabled","disabled");
+	$("input[@name='number[7]']").attr("disabled","disabled");
+	$("input[@name='number[8]']").attr("disabled","disabled");
+	$("input[@name='number[9]']").attr("disabled","disabled");
+	$("input[@name='number[10]']").attr("disabled","disabled");
+	$("input[@name='number[11]']").attr("disabled","disabled");
+	$("input[@name='number[12]']").attr("disabled","disabled");
+	}
+}
+

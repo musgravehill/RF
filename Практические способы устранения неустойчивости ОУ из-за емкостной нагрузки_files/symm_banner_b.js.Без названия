@@ -1,0 +1,94 @@
+function sym_banner(order, url, img, alt){
+this.order=order;
+this.url=url;
+this.img="http://www.symmetron.ru/banners200x200/img/" + img;
+this.alt=alt;
+}
+
+var sym_banners = new Array(
+new sym_banner(0,"http://www.symmetron.ru/suppliers/maxim/index.shtml?utm_source=kit-e&utm_medium=banner&utm_campaign=seria-2016-200x200_maxim", "seria-2016-200x200_maxim.png", "Maxim"),
+new sym_banner(1,"http://www.symmetron.ru/suppliers/hirose/index.shtml?utm_source=kit-e&utm_medium=banner&utm_campaign=seria-2016-200x200_hirose", "seria-2016-200x200_hirose.png", "Hirose"),
+new sym_banner(2,"http://www.symmetron.ru/suppliers/omron/index.shtml?utm_source=kit-e&utm_medium=banner&utm_campaign=seria-2016-200x200_omron", "seria-2016-200x200_omron.png", "Omron"),
+new sym_banner(3,"http://www.symmetron.ru/suppliers/tdk-lambda/index.shtml?utm_source=kit-e&utm_medium=banner&utm_campaign=seria-2016-200x200_tdk-lambda", "seria-2016-200x200_tdk-lambda.png", "TDK-Lambda"),
+new sym_banner(4,"http://www.symmetron.ru/suppliers/nxp/index.shtml?utm_source=kit-e&utm_medium=banner&utm_campaign=seria-2016-200x200_nxp", "seria-2016-200x200_nxp.png", "NXP"),
+new sym_banner(5,"http://www.symmetron.ru/suppliers/system-on-module/index.shtml?utm_source=kit-e&utm_medium=banner&utm_campaign=seria-2016-200x200_solidrun", "seria-2016-200x200_solidrun.png", "Solid Run"),
+new sym_banner(6,"http://www.symmetron.ru/suppliers/auo/index.shtml?utm_source=kit-e&utm_medium=banner&utm_campaign=seria-2016-200x200_auo", "seria-2016-200x200_auo.png", "AUO")
+)
+
+var displaytime = 6000; //time to display each banner
+var sym_intprev = -1;
+var sym_int;
+var sym_image = document.getElementById("sym_image");
+var sym_a = document.getElementById("sym_a");
+var sym_img = new Image(200,200);
+var sym_img_obj;
+
+
+sym_a.style.background = "url('http://www.symmetron.ru/banners200x200/img/seria-2016-200x200_background.png')";
+
+function sym_get_random_banner(){
+sym_int = Math.floor((sym_banners.length)*Math.random());
+while(sym_int == sym_intprev){
+sym_int = Math.floor((sym_banners.length)*Math.random());
+}
+sym_intprev = sym_int;
+return sym_banners[sym_int];
+}
+
+function sym_get_next_banner(){
+if (sym_int < sym_banners.length-1){sym_int++;}else{sym_int = 0}
+return sym_banners[sym_int];
+}
+
+function sym_set_opacity(opacity) {
+    sym_image.style.opacity = (opacity / 100);
+    sym_image.style.MozOpacity = (opacity / 100);
+    sym_image.style.KhtmlOpacity = (opacity / 100);
+    sym_image.style.filter = 'alpha(opacity=' + opacity + ')';
+}
+
+function preload_next_image() {
+clearTimeout(id_in);
+sym_img_obj = sym_get_next_banner();
+sym_img.src = sym_img_obj.img;
+id_pre = setTimeout("sym_change_opacity(100, 0, 1000)", displaytime); 
+}
+
+function swap_img(){
+clearTimeout(id_out);
+sym_image.src = sym_img.src;
+sym_a.setAttribute('href',sym_img_obj.url);
+sym_a.setAttribute('title',sym_img_obj.alt);
+sym_image.setAttribute('alt',sym_img_obj.alt);
+
+sym_change_opacity(0, 100, 1000);
+}
+
+function sym_change_opacity(opacStart, opacEnd, millisec) { 
+    //speed for each frame 
+    var speed = Math.round(millisec / 100); 
+    var timer = 0; 
+
+    //determine the direction for the blending, if start and end are the same nothing happens 
+    if(opacStart > opacEnd) { 
+        for(i = opacStart; i >= opacEnd; i--) { 
+            id_out = setTimeout("sym_set_opacity(" + i + ")",(timer * speed)); 
+            timer++; 
+        } 
+		setTimeout("swap_img()", millisec); 
+    } else if(opacStart < opacEnd) { 
+        for(i = opacStart; i <= opacEnd; i++) 
+            { 
+            id_in = setTimeout("sym_set_opacity(" + i + ")",(timer * speed)); 
+            timer++; 
+        } 
+		setTimeout("preload_next_image()", millisec); 
+    } 
+} 
+
+sym_img_obj = sym_get_random_banner();
+sym_image.src = sym_img_obj.img;
+sym_a.setAttribute('href',sym_img_obj.url);
+sym_a.setAttribute('title',sym_img_obj.alt);
+sym_image.setAttribute('alt',sym_img_obj.alt);
+sym_change_opacity(0, 100, 400);

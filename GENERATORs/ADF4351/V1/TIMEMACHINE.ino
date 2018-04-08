@@ -24,7 +24,8 @@ void TIMEMACHINE_311ms() {
 }
 
 void TIMEMACHINE_101ms() {
-  ADF4351_sweep();  
+  ADF4351_sweep();
+  SERIAL_processData();
 }
 
 

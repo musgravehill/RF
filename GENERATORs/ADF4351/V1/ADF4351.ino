@@ -11,40 +11,44 @@ void ADF4351_init() {
 
 void ADF4351_sweep() {
   if (ADF4351_SWEEP_isOn) {
-    if (ADF4351_SWEEP_tmp) {
+    //if (ADF4351_SWEEP_tmp) {
 
-      //the end
-      if (ADF4351_frequency >= (ADF4351_SWEEP_freq_to_MHz * 100000)) {
-        ADF4351_SWEEP_isOn = false;
-      }
-
-      ADF4351_freq_inc();
-      ADF4351_setConfig();
-      ADF4351_SWEEP_tmp = false;
-    } else {
-      int ADC_in;
-      Serial.print(ADF4351_frequency / 100000, DEC); //MHz
-      Serial.print(';');
-
-      ADC_in = 0;
-      for (byte i = 0; i < 10; i++) {
-        ADC_in += analogRead(A6);
-      }
-      ADC_in = ADC_in / 10.0;
-      Serial.print(ADC_in, DEC);//0-1023
-      Serial.print(';');
-
-      ADC_in = 0;
-      for (byte i = 0; i < 10; i++) {
-        ADC_in += analogRead(A7);
-      }
-      ADC_in = ADC_in / 10.0;
-      Serial.print(ADC_in, DEC);//0-1023
-      Serial.print(';');
-
-      Serial.print("\r\n");
-      ADF4351_SWEEP_tmp = true;
+    //the end
+    if (ADF4351_frequency >= ADF4351_SWEEP_freq_to) {
+      ADF4351_SWEEP_isOn = false;
     }
+
+    ADF4351_freq_inc();
+    ADF4351_setConfig();
+
+    delay(20);
+    
+    //ADF4351_SWEEP_tmp = false;
+    //} else {
+    int ADC_in;
+    Serial.print(ADF4351_frequency / 100000, DEC); //MHz
+    Serial.print(';');
+
+    ADC_in = 0;
+    for (byte i = 0; i < 10; i++) {
+      ADC_in += analogRead(A6);
+    }
+    ADC_in = ADC_in / 10.0;
+    Serial.print(ADC_in, DEC);//0-1023
+    Serial.print(';');
+
+    ADC_in = 0;
+    for (byte i = 0; i < 10; i++) {
+      ADC_in += analogRead(A7);
+    }
+    ADC_in = ADC_in / 10.0;
+    Serial.print(ADC_in, DEC);//0-1023
+    Serial.print(';');
+
+    Serial.print("\r\n");
+
+    //ADF4351_SWEEP_tmp = true;
+    //}
 
 
 

@@ -81,8 +81,8 @@ uint32_t ADF4351_registers[6]; //ADF4351 Registers, see datasheet
 boolean ADF4351_isNeedSetNewConfig = false;
 
 //SWEEP, control by device BTN or serial from PC soft
-uint16_t ADF4351_SWEEP_freq_from_MHz = 33; //MHz
-uint16_t ADF4351_SWEEP_freq_to_MHz = 5000; //MHz
+uint32_t ADF4351_SWEEP_freq_from = 33*100000; //*10 = X MHz 
+uint32_t ADF4351_SWEEP_freq_to = 5000*100000; //*10 = X MHz
 boolean ADF4351_SWEEP_isOn = false;
 
 
@@ -100,7 +100,7 @@ boolean ENCODER_A_state_prev = false;
 #define BTN_lownoisespur A2
 #define BTN_out_power A1
 #define BTN_sweep A0
-boolean ADF4351_SWEEP_tmp = true;
+//boolean ADF4351_SWEEP_tmp = true;
 
 #define LED_pin 6
 
@@ -138,9 +138,17 @@ void loop() {
 void serialEvent() {
   while (Serial.available()) {
     char inChar = (char)Serial.read();
-    SERIAL_data += inChar;
-    if (inChar == '\n') {
+
+    if (inChar == '[') {
+      SERIAL_data = "";
+      //SERIAL_isDataReady = false;
+    }
+    else if (inChar == ']') {
       SERIAL_isDataReady = true;
+    }
+    else {
+      SERIAL_data += inChar;
+      //SERIAL_isDataReady = false;
     }
   }
 }

@@ -41,7 +41,7 @@ void BUTTON_check() {
     if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
       INTERFACE_action_prev_ms = currMillis;
       ADF4351_SWEEP_isOn = ADF4351_SWEEP_isOn ? false : true;
-      ADF4351_SWEEP_freq_to_MHz = 5000; //MHz = 5GHz => by BTN sweep goto max ADF freq
+      ADF4351_SWEEP_freq_to = 5000; //MHz = 5GHz => by BTN sweep goto max ADF freq
     }
   }
   button_state = digitalRead(ENCODER_button);

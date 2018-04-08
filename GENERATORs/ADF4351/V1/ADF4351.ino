@@ -11,20 +11,15 @@ void ADF4351_init() {
 
 void ADF4351_sweep() {
   if (ADF4351_SWEEP_isOn) {
-    //if (ADF4351_SWEEP_tmp) {
 
-    //the end
     if (ADF4351_frequency >= ADF4351_SWEEP_freq_to) {
       ADF4351_SWEEP_isOn = false;
     }
 
-    ADF4351_freq_inc();
     ADF4351_setConfig();
 
-    delay(20);
-    
-    //ADF4351_SWEEP_tmp = false;
-    //} else {
+    delay(50);
+
     int ADC_in;
     Serial.print(ADF4351_frequency / 100000, DEC); //MHz
     Serial.print(';');
@@ -47,10 +42,7 @@ void ADF4351_sweep() {
 
     Serial.print("\r\n");
 
-    //ADF4351_SWEEP_tmp = true;
-    //}
-
-
+    ADF4351_freq_inc();
 
   }
 }

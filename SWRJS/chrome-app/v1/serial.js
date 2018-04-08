@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
             chrome.serial.connect(port, SERIAL_opts, function (info) {
                 SERIAL_connectionId = info.connectionId;
                 console.log(info);
-                $("#serial_i_btn_openclose").html("Close Port");
+                $("#serial_i_btn_openclose").html("close Port");
                 console.log('Connection opened with id: ' + SERIAL_connectionId + ', Bitrate: ' + info.bitrate);
             });
         } else {
             chrome.serial.disconnect(SERIAL_connectionId, function (result) {
-                $("#serial_i_btn_openclose").html("Open Port");
+                $("#serial_i_btn_openclose").html("open Port");
                 console.log('Connection with id: ' + SERIAL_connectionId + ' closed');
             });
         }

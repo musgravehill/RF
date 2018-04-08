@@ -26,7 +26,7 @@ void OLED_display() {
   myOLED.print("OUT", 0, 40);
   myOLED.print("dBm", 45, 41);
 
-  if (ADF4351_isSweep) {
+  if (ADF4351_SWEEP_isOn) {
     myOLED.print("SWEEP", 92, 56);
   }
 

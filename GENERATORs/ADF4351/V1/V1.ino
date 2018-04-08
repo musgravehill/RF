@@ -1,6 +1,6 @@
 /*
-TODO
-btn4 -> sweep start (every 0.5s freq+=step; show on screen freq, sweep-mode)
+  TODO
+  btn4 -> sweep start (every 0.5s freq+=step; show on screen freq, sweep-mode)
 
 
 
@@ -61,25 +61,33 @@ uint32_t ADF4351_stepsVariants[7] = {
   1250, //*10Hz 12.5 khz
   10000, //*10Hz 100 khz
   100000, //*10Hz 1 Mhz
-  1000000, //*10Hz 10 Mhz
-  10000000 //*10Hz 100 Mhz
+  1000000, //*10Hz 10 Mhz //only for fast inc\dec by encoder. ADF cannot LOCK at this freq-step
+  10000000 //*10Hz 100 Mhz //only for fast inc\dec by encoder. ADF cannot LOCK at this freq-step
 };
-uint8_t ADF4351_stepsVariantsNumCurrent = 5;
+uint8_t ADF4351_stepsVariantsNumCurrent = 4;
 String OLED_stepsVariants_val[7] = {"6.25", "10", "12.5", "100", "1", "10", "100"};
 String OLED_stepsVariants_kmhz[7] = {"kHz", "kHz", "kHz", "kHz", "MHz", "MHz", "MHz"};
 
 uint8_t ADF4351_lowNoiseOrSpurVariants[2] = {B0, B11};
-uint8_t ADF4351_lowNoiseOrSpur_current = 1;
+uint8_t ADF4351_lowNoiseOrSpur_current = 0; //at lowSpur cannot lock sometimes
 String ADF4351_lowNoiseOrSpur_verb[2] = {"LOW-NOISE-MODE", "LOW-SPUR-MODE"};
 
 uint8_t ADF4351_outputPowerVariants[4] = {B0, B01, B10, B11};
-uint8_t ADF4351_outputPower_current = 0;
+uint8_t ADF4351_outputPower_current = 0; //5dBm doesnot work, only -4 ... 2
 String ADF4351_outputPower_verb[4] = {"-4", "-1", "2", "5"};
 
 uint32_t ADF4351_registers[6]; //ADF4351 Registers, see datasheet
 
 boolean ADF4351_isNeedSetNewConfig = false;
-boolean ADF4351_isSweep = false;
+
+//SWEEP, control by device BTN or serial from PC soft
+uint16_t ADF4351_SWEEP_freq_from_MHz = 33; //MHz
+uint16_t ADF4351_SWEEP_freq_to_MHz = 5000; //MHz
+boolean ADF4351_SWEEP_isOn = false;
+
+
+String SERIAL_data = "";
+boolean SERIAL_isDataReady = false;
 //========================================== INTERFACE ==========================================================
 #define ENCODER_button 7
 #define ENCODER_A 9
@@ -92,7 +100,7 @@ boolean ENCODER_A_state_prev = false;
 #define BTN_lownoisespur A2
 #define BTN_out_power A1
 #define BTN_sweep A0
-boolean sweep_tmp = true;
+boolean ADF4351_SWEEP_tmp = true;
 
 #define LED_pin 6
 
@@ -126,6 +134,17 @@ void setup() {
 void loop() {
   TIMEMACHINE_loop();
 }
+
+void serialEvent() {
+  while (Serial.available()) {
+    char inChar = (char)Serial.read();
+    SERIAL_data += inChar;
+    if (inChar == '\n') {
+      SERIAL_isDataReady = true;
+    }
+  }
+}
+
 
 
 

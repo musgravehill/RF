@@ -40,7 +40,8 @@ void BUTTON_check() {
   if (!button_state) {
     if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
       INTERFACE_action_prev_ms = currMillis;
-      ADF4351_isSweep = ADF4351_isSweep ? false : true;
+      ADF4351_SWEEP_isOn = ADF4351_SWEEP_isOn ? false : true;
+      ADF4351_SWEEP_freq_to_MHz = 5000; //MHz = 5GHz => by BTN sweep goto max ADF freq
     }
   }
   button_state = digitalRead(ENCODER_button);
@@ -55,13 +56,13 @@ void BUTTON_check() {
 }
 
 /*FUTURE
-//show x1,x2,x4 on display and multiply freq on display only.
-void INTERFACE_freq_multiplier_next() {
+  //show x1,x2,x4 on display and multiply freq on display only.
+  void INTERFACE_freq_multiplier_next() {
   INTERFACE_freq_multiplier_current++;
   if (INTERFACE_freq_multiplier_current > 2) {  //cycle, return to 0-pos
     INTERFACE_freq_multiplier_current = 0;
   }
-}*/
+  }*/
 
 void ENCODER_init() {
   pinMode(ENCODER_button, INPUT_PULLUP);

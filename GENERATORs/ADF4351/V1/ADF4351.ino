@@ -9,6 +9,48 @@ void ADF4351_init() {
   ADF4351_setConfig();
 }
 
+void ADF4351_sweep() {
+  if (ADF4351_SWEEP_isOn) {
+    if (ADF4351_SWEEP_tmp) {
+
+      //the end
+      if (ADF4351_frequency >= (ADF4351_SWEEP_freq_to_MHz * 100000)) {
+        ADF4351_SWEEP_isOn = false;
+      }
+
+      ADF4351_freq_inc();
+      ADF4351_setConfig();
+      ADF4351_SWEEP_tmp = false;
+    } else {
+      int ADC_in;
+      Serial.print(ADF4351_frequency / 100000, DEC); //MHz
+      Serial.print(';');
+
+      ADC_in = 0;
+      for (byte i = 0; i < 10; i++) {
+        ADC_in += analogRead(A6);
+      }
+      ADC_in = ADC_in / 10.0;
+      Serial.print(ADC_in, DEC);//0-1023
+      Serial.print(';');
+
+      ADC_in = 0;
+      for (byte i = 0; i < 10; i++) {
+        ADC_in += analogRead(A7);
+      }
+      ADC_in = ADC_in / 10.0;
+      Serial.print(ADC_in, DEC);//0-1023
+      Serial.print(';');
+
+      Serial.print("\r\n");
+      ADF4351_SWEEP_tmp = true;
+    }
+
+
+
+  }
+}
+
 void ADF4351_out_power_next() {
   ADF4351_outputPower_current += 1;
   if (ADF4351_outputPower_current > 3) {  //cycle, return to 0-pos
@@ -63,16 +105,16 @@ void ADF4351_setConfig() {
   delayMicroseconds(2500);
 
   /*/////DBG
-  Serial.println("\r\n SEND CONFIG \r\n");
-  for (byte i = 0; i < 6; i++) {
+    Serial.println("\r\n SEND CONFIG \r\n");
+    for (byte i = 0; i < 6; i++) {
     Serial.print("REG");
     Serial.print(i, DEC);
     Serial.print(" ");
     Serial.println(ADF4351_registers[i], HEX);
-  }
-  Serial.print("\r\n ADF4351_freqStepCurrent=");
-  Serial.println(ADF4351_freqStepCurrent, DEC);  
-  ///////DBG END */
+    }
+    Serial.print("\r\n ADF4351_freqStepCurrent=");
+    Serial.println(ADF4351_freqStepCurrent, DEC);
+    ///////DBG END */
 
 }
 
@@ -216,24 +258,24 @@ void ADF4351_prepareConfig() {
   uint16_t M_Mod = PFDFreq * (100000 / ADF4351_freqStepCurrent) / 100000;
   uint16_t F_Frac = round((N - N_Int) * M_Mod);
 
-/*
-  Serial.print("\r\n PFDFreq=");
-  Serial.println(PFDFreq, DEC);
+  /*
+    Serial.print("\r\n PFDFreq=");
+    Serial.println(PFDFreq, DEC);
 
-  Serial.print("\r\n N_Int=");
-  Serial.println(N_Int, DEC);
+    Serial.print("\r\n N_Int=");
+    Serial.println(N_Int, DEC);
 
-  Serial.print("\r\n M_Mod=");
-  Serial.println(M_Mod, DEC);
+    Serial.print("\r\n M_Mod=");
+    Serial.println(M_Mod, DEC);
 
-  Serial.print("\r\n F_Frac=");
-  Serial.println(F_Frac, DEC);
+    Serial.print("\r\n F_Frac=");
+    Serial.println(F_Frac, DEC);
 
-  Serial.print("\r\n outdiv=");
-  Serial.println(outdiv, DEC);
+    Serial.print("\r\n outdiv=");
+    Serial.println(outdiv, DEC);
 
-  Serial.print("\r\n D_RfDivSel=");
-  Serial.println(D_RfDivSel, BIN);
+    Serial.print("\r\n D_RfDivSel=");
+    Serial.println(D_RfDivSel, BIN);
   */
 
 

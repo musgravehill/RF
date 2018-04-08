@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     chrome.serial.getDevices(function (devices) {
         for (var i = 0; i < devices.length; i++) {
             $('#serial_i_list').append('<option value="' + devices[i].path + '">' + devices[i].path + '</option>');
-            console.log(devices[i].path);
+            //console.log(devices[i].path);
         }
     });
 
@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 SERIAL_connectionId = info.connectionId;
                 console.log(info);
                 $("#serial_i_btn_openclose").html("close Port");
-                console.log('Connection opened with id: ' + SERIAL_connectionId + ', Bitrate: ' + info.bitrate);
+                //console.log('Connection opened with id: ' + SERIAL_connectionId + ', Bitrate: ' + info.bitrate);
             });
         } else {
             chrome.serial.disconnect(SERIAL_connectionId, function (result) {
                 $("#serial_i_btn_openclose").html("open Port");
-                console.log('Connection with id: ' + SERIAL_connectionId + ' closed');
+                //console.log('Connection with id: ' + SERIAL_connectionId + ' closed');
             });
         }
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     chrome.serial.onReceive.addListener(onReceiveCallback);
 
     function onLineReceived() {
-        console.log(SERIAL_stringReceived);
+        //console.log(SERIAL_stringReceived);
 
         if ($("#putSerialData_to_DUT_portInput").prop('checked')) {
             $('#DUT_portInput').append(SERIAL_stringReceived);

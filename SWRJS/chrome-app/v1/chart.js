@@ -12,26 +12,8 @@ var isUsePortCorrection = false;
 var chart_DUT = false;
 var chart_correction = false;
 document.addEventListener('DOMContentLoaded', function () {
-    btn_draw();
-    btn_sweep();
+    btn_draw();    
 });
-
-function btn_sweep() {
-    $('#btn_draw').click(function () {
-        freq_from = parseInt($('#freq_from').val()); //MHz
-        freq_to = parseInt($('#freq_to').val()); //MHz
-
-        if ($("#putSerialData_to_DUT_portInput").prop('checked')) {
-            $('#DUT_portInput').val('');
-        }
-        if ($("#putSerialData_to_portCorrectionInput").prop('checked')) {
-            $('#portCorrectionInput').val('');
-        }
-
-        
-
-    });
-}
 
 function btn_draw() {
     $('#btn_draw').click(function () {

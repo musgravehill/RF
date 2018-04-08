@@ -72,19 +72,18 @@ uint8_t ADF4351_lowNoiseOrSpurVariants[2] = {B0, B11};
 uint8_t ADF4351_lowNoiseOrSpur_current = 0; //at lowSpur cannot lock sometimes
 String ADF4351_lowNoiseOrSpur_verb[2] = {"LOW-NOISE-MODE", "LOW-SPUR-MODE"};
 
-uint8_t ADF4351_outputPowerVariants[4] = {B0, B01, B10, B11};
-uint8_t ADF4351_outputPower_current = 0; //5dBm doesnot work, only -4 ... 2
-String ADF4351_outputPower_verb[4] = {"-4", "-1", "2", "5"};
+//uint8_t ADF4351_outputPowerVariants[4] = {B0, B01, B10, B11};
+//uint8_t ADF4351_outputPower_current = 0; //5dBm doesnot work, only -4 ... 2
+//String ADF4351_outputPower_verb[4] = {"-4", "-1", "2", "5"};
 
 uint32_t ADF4351_registers[6]; //ADF4351 Registers, see datasheet
 
 boolean ADF4351_isNeedSetNewConfig = false;
 
 //SWEEP, control by device BTN or serial from PC soft
-uint32_t ADF4351_SWEEP_freq_from = 33*100000; //*10 = X MHz 
-uint32_t ADF4351_SWEEP_freq_to = 5000*100000; //*10 = X MHz
+uint32_t ADF4351_SWEEP_freq_from = 33 * 100000; //*10 = X MHz
+uint32_t ADF4351_SWEEP_freq_to = 5000 * 100000; //*10 = X MHz
 boolean ADF4351_SWEEP_isOn = false;
-
 
 String SERIAL_data = "";
 boolean SERIAL_isDataReady = false;

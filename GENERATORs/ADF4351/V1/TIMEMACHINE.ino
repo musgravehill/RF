@@ -21,11 +21,11 @@ void TIMEMACHINE_5ms() {
 void TIMEMACHINE_311ms() {
   BUTTON_check();
   OLED_display();
+  SERIAL_processData();
 }
 
 void TIMEMACHINE_101ms() {
-  ADF4351_sweep();
-  SERIAL_processData();
+  ADF4351_sweep();  
 }
 
 

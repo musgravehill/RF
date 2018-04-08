@@ -10,47 +10,51 @@ void BUTTON_init() {
 
 void BUTTON_check() {
   boolean button_state;
-  uint32_t  currMillis = millis();
+  //uint32_t  currMillis = millis();
   //BTN STEP
   button_state = digitalRead(BTN_step);
   if (!button_state) {
-    if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
-      INTERFACE_action_prev_ms = currMillis;
-      ADF4351_step_next();
-    }
+    //if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
+    //INTERFACE_action_prev_ms = currMillis;
+    ADF4351_step_next();
+    //}
   }
   //BTN LOW noise\spur mode
   button_state = digitalRead(BTN_lownoisespur);
   if (!button_state) {
-    if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
-      INTERFACE_action_prev_ms = currMillis;
-      ADF4351_lowNoiseSpurMode_next();
-    }
+    //if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
+    //INTERFACE_action_prev_ms = currMillis;
+    ADF4351_lowNoiseSpurMode_next();
+    //}
   }
-  //BTN output rf power
-  button_state = digitalRead(BTN_out_power);
-  if (!button_state) {
-    if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
-      INTERFACE_action_prev_ms = currMillis;
-      ADF4351_out_power_next();
-    }
-  }
+
+  /*
+    //BTN output rf power
+    button_state = digitalRead(BTN_out_power);
+    if (!button_state) {
+    //if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
+    //INTERFACE_action_prev_ms = currMillis;
+    ADF4351_out_power_next();
+    //}
+    }*/
+
+
   //BTN_sweep
   button_state = digitalRead(BTN_sweep);
   if (!button_state) {
-    if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
-      INTERFACE_action_prev_ms = currMillis;
-      ADF4351_SWEEP_isOn = ADF4351_SWEEP_isOn ? false : true;
-      ADF4351_SWEEP_freq_to = 5000; //MHz = 5GHz => by BTN sweep goto max ADF freq
-    }
+    //if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
+    //INTERFACE_action_prev_ms = currMillis;
+    ADF4351_SWEEP_isOn = ADF4351_SWEEP_isOn ? false : true;
+    ADF4351_SWEEP_freq_to = 5000 * 100000; //MHz = 5GHz => by BTN sweep goto max ADF freq
+    //}
   }
   button_state = digitalRead(ENCODER_button);
   if (!button_state) {
     uint32_t  currMillis = millis();
-    if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
-      INTERFACE_action_prev_ms = currMillis;
-      ADF4351_setConfig();
-    }
+    //if ((currMillis - INTERFACE_action_prev_ms) > 503L) {
+    //INTERFACE_action_prev_ms = currMillis;
+    ADF4351_setConfig();
+    //}
   }
 
 }

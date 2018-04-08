@@ -23,8 +23,8 @@ void OLED_display() {
     if (INTERFACE_freq_multiplier_current > 0) {
     myOLED.print("X", 108, 23);
     }*/
-  myOLED.print("OUT", 0, 40);
-  myOLED.print("dBm", 45, 41);
+ // myOLED.print("OUT", 0, 40);
+ // myOLED.print("dBm", 45, 41);
 
   if (ADF4351_SWEEP_isOn) {
     myOLED.print("SWEEP", 92, 56);
@@ -56,7 +56,7 @@ void OLED_display() {
 
   myOLED.print(OLED_stepsVariants_val[ADF4351_stepsVariantsNumCurrent], 26, 18);
 
-  myOLED.print(ADF4351_outputPower_verb[ADF4351_outputPower_current], 20, 36);
+  //myOLED.print("-4", 20, 36); //ADF4351_outputPower_verb[ADF4351_outputPower_current]
 
   myOLED.update();
 }

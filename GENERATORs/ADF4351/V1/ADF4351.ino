@@ -15,12 +15,13 @@ void ADF4351_sweep() {
     if (ADF4351_frequency >= ADF4351_SWEEP_freq_to) {
       ADF4351_SWEEP_isOn = false;
     }
-
+    
+    ADF4351_freq_inc();
     ADF4351_setConfig();
 
     delay(50);
 
-    int ADC_in;
+    uint16_t ADC_in;
     Serial.print(ADF4351_frequency / 100000, DEC); //MHz
     Serial.print(';');
 
@@ -40,20 +41,19 @@ void ADF4351_sweep() {
     Serial.print(ADC_in, DEC);//0-1023
     Serial.print(';');
 
-    Serial.print("\r\n");
-
-    ADF4351_freq_inc();
+    Serial.print("\r\n");    
 
   }
 }
 
+/*
 void ADF4351_out_power_next() {
   ADF4351_outputPower_current += 1;
   if (ADF4351_outputPower_current > 3) {  //cycle, return to 0-pos
     ADF4351_outputPower_current = 0;
   }
   ADF4351_isNeedSetNewConfig = true;
-}
+}*/
 
 void ADF4351_lowNoiseSpurMode_next() {
   ADF4351_lowNoiseOrSpur_current += 1;
@@ -183,7 +183,7 @@ void ADF4351_prepareConfig() {
 
   // PLL-Reg-R4         =  32bit
   // Registerselect        3bit
-  uint8_t D_out_PWR = ADF4351_outputPowerVariants[ADF4351_outputPower_current] ;    // 2bit
+  uint8_t D_out_PWR = B0;  // ADF4351_outputPowerVariants[ADF4351_outputPower_current] ;    // 2bit
   uint8_t D_RF_ena = 1;     // 1bit
   uint8_t D_auxOutPwr = 0;  // 2bit
   uint8_t D_auxOutEna = 0;  // 1bit

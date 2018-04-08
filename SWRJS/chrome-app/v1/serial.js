@@ -64,10 +64,10 @@ chrome.serial.onReceive.addListener(SERIAL_callback_onReceive);
 function SERIAL_onDataReceivedReady() {
     console.log(SERIAL_stringReceived);
     if ($("#putSerialData_to_DUT_portInput").prop('checked')) {
-        $('#DUT_portInput').append(SERIAL_stringReceived);
+        $('#DUT_portInput').val($('#DUT_portInput').val() + SERIAL_stringReceived);
     }
     if ($("#putSerialData_to_portCorrectionInput").prop('checked')) {
-        $('#portCorrectionInput').append(SERIAL_stringReceived);
+        $('#portCorrectionInput').val($('#portCorrectionInput').val() + SERIAL_stringReceived);
     }
 }
 

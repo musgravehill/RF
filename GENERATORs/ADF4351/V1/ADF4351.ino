@@ -41,8 +41,8 @@ void ADF4351_sweep() {
     for (byte i = 0; i < 4; i++) {
       ADC_in += analogRead(A7);
     }
-    ADC_in = ADC_in  >> 1; // >> n  decimating
-    ADC_in = (ADC_in * 1.0) / (B00000001 << 1); //   (B00000001 << n) === ( 2^n ) normalized 11 bit value
+    ADC_in = ADC_in  >> 1; // >> n  decimating non-significant 
+    //ADC_in = (ADC_in * 1.0) / (B00000001 << 1); //   (B00000001 << n) === ( 2^n ) normalized 11 bit value
     Serial.print(ADC_in, DEC);//0-2048
     Serial.print(';');
 

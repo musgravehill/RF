@@ -21,7 +21,7 @@ void ADF4351_sweep() {
 
     delay(50);
 
-    uint16_t ADC_in; // oversampling 4 samples * 1024 = 4k < max65k
+    uint16_t ADC_in; //  max65k
     Serial.print(ADF4351_frequency / 100000, DEC); //MHz
     Serial.print(';');
 
@@ -41,9 +41,8 @@ void ADF4351_sweep() {
     for (byte i = 0; i < 4; i++) {
       ADC_in += analogRead(A7);
     }
-    ADC_in = ADC_in  >> 1; // >> n  decimating non-significant 
-    //ADC_in = (ADC_in * 1.0) / (B00000001 << 1); //   (B00000001 << n) === ( 2^n ) normalized 11 bit value
-    Serial.print(ADC_in, DEC);//0-2048
+    ADC_in = (ADC_in  >> 2) + 1;     //+1 for chart, charts draw if data>0
+    Serial.print(ADC_in, DEC);
     Serial.print(';');
 
     Serial.print("\r\n");

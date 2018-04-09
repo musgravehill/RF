@@ -15,45 +15,50 @@ void ADF4351_sweep() {
     if (ADF4351_frequency >= ADF4351_SWEEP_freq_to) {
       ADF4351_SWEEP_isOn = false;
     }
-    
+
     ADF4351_freq_inc();
     ADF4351_setConfig();
 
     delay(50);
 
-    uint16_t ADC_in;
+    uint16_t ADC_in; // oversampling 4 samples * 1024 = 4k < max65k
     Serial.print(ADF4351_frequency / 100000, DEC); //MHz
     Serial.print(';');
 
-    ADC_in = 0;
-    for (byte i = 0; i < 10; i++) {
-      ADC_in += analogRead(A6);
-    }
-    ADC_in = ADC_in / 10.0;
-    Serial.print(ADC_in, DEC);//0-1023
+    /* ADC_in = 0;
+      for (byte i = 0; i < 10; i++) {
+         ADC_in += analogRead(A6);
+       }
+       ADC_in = ADC_in / 10.0;*/
+    Serial.print(-1, DEC);//0-1023
     Serial.print(';');
 
+    /*
+      The ADC provides us with 10 Bit resolution. So to get 11 Bit resolution we need to oversample by:
+      4^n,  (n= 11-10=1)    => 4 samples.
+    */
     ADC_in = 0;
-    for (byte i = 0; i < 10; i++) {
+    for (byte i = 0; i < 4; i++) {
       ADC_in += analogRead(A7);
     }
-    ADC_in = ADC_in / 10.0;
-    Serial.print(ADC_in, DEC);//0-1023
+    ADC_in = ADC_in  >> 1; // >> n  decimating
+    ADC_in = (ADC_in * 1.0) / (B00000001 << 1); //   (B00000001 << n) === ( 2^n ) normalized 11 bit value
+    Serial.print(ADC_in, DEC);//0-2048
     Serial.print(';');
 
-    Serial.print("\r\n");    
+    Serial.print("\r\n");
 
   }
 }
 
 /*
-void ADF4351_out_power_next() {
+  void ADF4351_out_power_next() {
   ADF4351_outputPower_current += 1;
   if (ADF4351_outputPower_current > 3) {  //cycle, return to 0-pos
     ADF4351_outputPower_current = 0;
   }
   ADF4351_isNeedSetNewConfig = true;
-}*/
+  }*/
 
 void ADF4351_lowNoiseSpurMode_next() {
   ADF4351_lowNoiseOrSpur_current += 1;

@@ -1,18 +1,21 @@
+
 var portCorrection_values = []; //input values from device
 var portCorrection_correction_coef = []; //coefficient for corrction
 
-var openPort_values = []; //input values from device
-var openPort_correction_coef = []; //coefficient for corrction
+var portDUT_values = []; //input values from device
 
-var DUT_port_values = []; //input values from device
+var portReference_values = []; //input values from device SWR=1, 1.5, 2, 3 etc
 
 var freq_from = 0; //MHz
 var freq_to = 0; //MHz
+
 var isUsePortCorrection = false;
-var chart_DUT = false;
-var chart_correction = false;
+
+var chart_portDUT = false;
+var chart_portCorrection = false;
+
 document.addEventListener('DOMContentLoaded', function () {
-    btn_draw();    
+    btn_draw();
 });
 
 function btn_draw() {
@@ -22,36 +25,52 @@ function btn_draw() {
         isUsePortCorrection = $("#isUsePortCorrection").prop('checked');
         portCorrection_fill();
         portCorrection_calc_correction_coef();
-        DUT_port_fill();
-        chart_DUT_draw();
-        chart_correction_draw();
+        portDUT_fill();
+        portReference_fill();
+        chart_portDUT_draw();
+        chart_portCorrection_draw();
     });
 }
 
-function DUT_port_fill() {
-    var res = $('#DUT_portInput').val();
+function portReference_fill() {
+    var res = $('#portReference').val();
     var ar = res.split('\n');
     var tmp, freq, volt;
     $(ar).each(function (i, item) {
         tmp = item.split(';');
         freq = parseInt(tmp[0]);
         volt = parseInt(tmp[2]);
-        if (freq > 0 && volt >= 0) {
+        if (freq > 0 && volt > 0) {
             //console.log('f=' + freq + ' v=' + volt);
-            DUT_port_values[freq] = volt;
+            portReference_values[freq] = volt;
+        }
+    });
+}
+
+function portDUT_fill() {
+    var res = $('#portDUT').val();
+    var ar = res.split('\n');
+    var tmp, freq, volt;
+    $(ar).each(function (i, item) {
+        tmp = item.split(';');
+        freq = parseInt(tmp[0]);
+        volt = parseInt(tmp[2]);
+        if (freq > 0 && volt > 0) {
+            //console.log('f=' + freq + ' v=' + volt);
+            portDUT_values[freq] = volt;
         }
     });
 }
 
 function portCorrection_fill() {
-    var res = $('#portCorrectionInput').val();
+    var res = $('#portCorrection').val();
     var ar = res.split('\n');
     var tmp, freq, volt;
     $(ar).each(function (i, item) {
         tmp = item.split(';');
         freq = parseInt(tmp[0]);
         volt = parseInt(tmp[2]);
-        if (freq > 0 && volt >= 0) {
+        if (freq > 0 && volt > 0) {
             //console.log('f=' + freq + ' v=' + volt);
             portCorrection_values[freq] = volt;
         }
@@ -65,49 +84,62 @@ function portCorrection_calc_correction_coef() {
             portCorrection_values_freqsRange.push(portCorrection_values[i]);
         }
     }
-    var portCorrection_values_freqsRange_max = Math.max.apply(null, portCorrection_values_freqsRange);
+    var portCorrection_values_freqsRange_min = Math.min.apply(null, portCorrection_values_freqsRange);
     for (i = freq_from; i <= freq_to; i++) {
         if (portCorrection_values[i]) {
-            portCorrection_correction_coef[i] = portCorrection_values_freqsRange_max / portCorrection_values[i];
+            portCorrection_correction_coef[i] = portCorrection_values_freqsRange_min / portCorrection_values[i];
         }
     }
 }
 
-function chart_DUT_draw() {
+function chart_portDUT_draw() {
     var i;
     var dataLabels = [];
-    var dataY_DUT_port_values = [];
+    var dataY_portDUT_values = [];
+    var dataY_portReference_values = [];
     for (i = freq_from; i <= freq_to; i++) {
-        if (DUT_port_values[i]) {
+        if (portDUT_values[i]) {
             dataLabels.push(i);
             if (isUsePortCorrection && portCorrection_correction_coef[i]) {
-                dataY_DUT_port_values.push(Math.round(DUT_port_values[i] * portCorrection_correction_coef[i]));
+                dataY_portDUT_values.push(Math.round(portDUT_values[i] * portCorrection_correction_coef[i]));
+                dataY_portReference_values.push(Math.round(portReference_values[i] * portCorrection_correction_coef[i]));
             } else {
-                dataY_DUT_port_values.push(DUT_port_values[i]);
+                dataY_portDUT_values.push(portDUT_values[i]);
+                dataY_portReference_values.push(portReference_values[i]);
             }
         }
     }
 
-    if (chart_DUT) {
-        chart_DUT.destroy();
+    if (chart_portDUT) {
+        chart_portDUT.destroy();
         //alert('destroy');
     }
 
-    var ctx = document.getElementById('chart_DUT').getContext('2d');
-    chart_DUT = new Chart(ctx, {
+    var ctx = document.getElementById('chart_portDUT').getContext('2d');
+    chart_portDUT = new Chart(ctx, {
         type: 'line',
         data: {
             labels: dataLabels,
             datasets: [
                 {
-                    label: 'DUT_port',
+                    label: 'portDUT',
                     fill: false,
                     backgroundColor: '#ff2600',
                     borderWidth: 3,
                     borderColor: '#ff2600',
                     pointStyle: 'circle',
                     radius: 1,
-                    data: dataY_DUT_port_values
+                    data: dataY_portDUT_values
+                },
+                {
+                    label: 'portReference',
+                    fill: false,
+                    backgroundColor: '#0026ff',
+                    borderWidth: 3,
+                    borderColor: '#0026ff',
+                    pointStyle: 'circle',
+                    radius: 1,
+                    data: dataY_portReference_values
                 }
             ]
         },
@@ -142,25 +174,25 @@ function chart_DUT_draw() {
         }
     });
 }
-function chart_correction_draw() {
+function chart_portCorrection_draw() {
     var i;
     var dataLabels = [];
     var dataY_portCorrection_values = [];
     for (i = freq_from; i <= freq_to; i++) {
-        if (portCorrection_values[i] || openPort_values[i]) {
+        if (portCorrection_values[i]) {
             dataLabels.push(i);
             dataY_portCorrection_values.push(portCorrection_values[i]);
         }
     }
 
 
-    if (chart_correction) {
-        chart_correction.destroy();
+    if (chart_portCorrection) {
+        chart_portCorrection.destroy();
         //alert('destroy');
     }
 
-    var ctx = document.getElementById('chart_correction').getContext('2d');
-    chart_correction = new Chart(ctx, {
+    var ctx = document.getElementById('chart_portCorrection').getContext('2d');
+    chart_portCorrection = new Chart(ctx, {
         type: 'line',
         data: {
             labels: dataLabels,

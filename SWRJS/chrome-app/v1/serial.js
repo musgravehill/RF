@@ -63,11 +63,14 @@ chrome.serial.onReceive.addListener(SERIAL_callback_onReceive);
 
 function SERIAL_onDataReceivedReady() {
     console.log(SERIAL_stringReceived);
-    if ($("#putSerialData_to_DUT_portInput").prop('checked')) {
-        $('#DUT_portInput').val($('#DUT_portInput').val() + SERIAL_stringReceived);
+    if ($("#putSerialData_to_portDUT").prop('checked')) {
+        $('#portDUT').val($('#portDUT').val() + SERIAL_stringReceived);
     }
-    if ($("#putSerialData_to_portCorrectionInput").prop('checked')) {
-        $('#portCorrectionInput').val($('#portCorrectionInput').val() + SERIAL_stringReceived);
+    if ($("#putSerialData_to_portCorrection").prop('checked')) {
+        $('#portCorrection').val($('#portCorrection').val() + SERIAL_stringReceived);
+    }
+    if ($("#putSerialData_to_portReference").prop('checked')) {
+        $('#portReference').val($('#portCorrection').val() + SERIAL_stringReceived);
     }
 }
 
@@ -89,11 +92,11 @@ function convertArrayBufferToString(buf) {
 
 function btn_sweep() {
     $('#btn_sweep').click(function () {
-        if ($("#putSerialData_to_DUT_portInput").prop('checked')) {
-            $('#DUT_portInput').val('');
+        if ($("#putSerialData_to_portDUT").prop('checked')) {
+            $('#portDUT').val('');
         }
-        if ($("#putSerialData_to_portCorrectionInput").prop('checked')) {
-            $('#portCorrectionInput').val('');
+        if ($("#putSerialData_to_portCorrection").prop('checked')) {
+            $('#portCorrection').val('');
         }
 
         freq_from = parseInt($('#freq_from').val()); //MHz

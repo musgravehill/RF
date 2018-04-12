@@ -31,18 +31,18 @@
             <div class="row">
                 <div class="col">
                     <b>DUT (device under test)</b><br>                    
-                    <input type="checkbox" id="putSerialData_to_DUT_portInput"> put serial data here                     
-                    <textarea id="DUT_portInput" class="form-control"></textarea>
+                    <input type="checkbox" id="putSerialData_to_portDUT"> put serial data here                     
+                    <textarea id="portDUT" class="form-control"></textarea>
                 </div>
                 <div class="col">
                     <b>Correction by short\open, 50R, 75R, etc.</b><br>
-                    <input type="checkbox" id="putSerialData_to_portCorrectionInput"> put serial data here
-                    <textarea id="portCorrectionInput" class="form-control"></textarea>
+                    <input type="checkbox" id="putSerialData_to_portCorrection"> put serial data here
+                    <textarea id="portCorrection" class="form-control"></textarea>
                 </div>
                 <div class="col">
                     <b>SWR 50R, 75R, etc.</b><br>
-                    <input type="checkbox" id="putSerialData_to_portCorrectionInput"> put serial data here
-                    <textarea id="portCorrectionInput" class="form-control"></textarea>
+                    <input type="checkbox" id="putSerialData_to_portReference"> put serial data here
+                    <textarea id="portReference" class="form-control"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -75,14 +75,14 @@
             <div class="row">
                 <div class="col">
                     <div class="chart-container" style="position: relative; height: 500px;"> <!-- style="position: relative; height: 300px;" -->
-                        <canvas id="chart_DUT"></canvas>
+                        <canvas id="chart_portDUT"></canvas>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="chart-container" style="position: relative; height: 500px;"> <!-- style="position: relative; height: 300px;" -->
-                        <canvas id="chart_correction"></canvas>
+                        <canvas id="chart_portCorrection"></canvas>
                     </div>
                 </div>
             </div>

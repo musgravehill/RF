@@ -39,7 +39,7 @@ function portReference_fill() {
     $(ar).each(function (i, item) {
         tmp = item.split(';');
         freq = parseInt(tmp[0]);
-        volt = parseInt(tmp[2]);
+        volt = parseInt(tmp[1]);
         if (freq > 0 && volt > 0) {
             //console.log('f=' + freq + ' v=' + volt);
             portReference_values[freq] = volt;
@@ -54,7 +54,7 @@ function portDUT_fill() {
     $(ar).each(function (i, item) {
         tmp = item.split(';');
         freq = parseInt(tmp[0]);
-        volt = parseInt(tmp[2]);
+        volt = parseInt(tmp[1]);
         if (freq > 0 && volt > 0) {
             //console.log('f=' + freq + ' v=' + volt);
             portDUT_values[freq] = volt;
@@ -69,7 +69,7 @@ function portCorrection_fill() {
     $(ar).each(function (i, item) {
         tmp = item.split(';');
         freq = parseInt(tmp[0]);
-        volt = parseInt(tmp[2]);
+        volt = parseInt(tmp[1]);
         if (freq > 0 && volt > 0) {
             //console.log('f=' + freq + ' v=' + volt);
             portCorrection_values[freq] = volt;

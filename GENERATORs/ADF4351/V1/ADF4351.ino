@@ -19,30 +19,33 @@ void ADF4351_sweep() {
     ADF4351_freq_inc();
     ADF4351_setConfig();
 
-    delay(50);
-
-    uint16_t ADC_in; //  max65k
-    Serial.print(ADF4351_frequency / 100000, DEC); //MHz
-    Serial.print(';');
-
-    /* ADC_in = 0;
-      for (byte i = 0; i < 10; i++) {
-         ADC_in += analogRead(A6);
-       }
-       ADC_in = ADC_in / 10.0;*/
-    Serial.print(-1, DEC);//0-1023
-    Serial.print(';');
+    delay(30);
 
     /*
       The ADC provides us with 10 Bit resolution. So to get 11 Bit resolution we need to oversample by:
       4^n,  (n= 11-10=1)    => 4 samples.
     */
+
+    uint16_t ADC_in; //  max65k
+    Serial.print(ADF4351_frequency / 100000, DEC); //MHz
+    Serial.print(';');
+
+    ADC_in = 0;
+    for (byte i = 0; i < 4; i++) {
+      ADC_in += analogRead(A6);
+    }
+    ADC_in = (ADC_in  >> 2) + 1;     //+1 for chart, charts draw if data>0
+    Serial.print(ADC_in, DEC);//0-1023
+    Serial.print(';');
+
+    /*
     ADC_in = 0;
     for (byte i = 0; i < 4; i++) {
       ADC_in += analogRead(A7);
     }
     ADC_in = (ADC_in  >> 2) + 1;     //+1 for chart, charts draw if data>0
-    Serial.print(ADC_in, DEC);
+    */
+    Serial.print(-1, DEC);
     Serial.print(';');
 
     Serial.print("\r\n");

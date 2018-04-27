@@ -250,16 +250,17 @@ void TS5823_sweep() {
       Serial.print(TS5823_frequency_MHz, DEC); //MHz
       Serial.print(';');
 
-      int ADC_in = 0;
-      Serial.print(0, DEC);//0-1023
-      Serial.print(';');
-      for (byte i = 0; i < 10; i++) {
+      int ADC_in = 0;      
+      for (byte i = 0; i < 4; i++) {
         ADC_in += analogRead(A6);
       }
-      ADC_in = ADC_in / 10.0;
+      ADC_in = ADC_in / 4.0;
       Serial.print(ADC_in, DEC);//0-1023
       Serial.print(';');
 
+      Serial.print(0, DEC);//0-1023
+      Serial.print(';');
+      
       Serial.print("\r\n");
       sweep_tmp = true;
     }

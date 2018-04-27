@@ -19,7 +19,7 @@ void setup() {
   TS5823_init();
   //  BUTTON_init();
   Serial.begin(57600);
-  analogReference(DEFAULT); // 3.3v
+  analogReference(DEFAULT); // 5v
 }
 
 void loop() {

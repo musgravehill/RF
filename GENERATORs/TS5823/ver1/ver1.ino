@@ -5,11 +5,13 @@
 #define TS5823_pin_4 7
 #define TS5823_pin_5 8
 
-boolean isSweep = true; //switch by button TODO set TS5823_frch = 1;
-boolean sweep_tmp = true;
+boolean isSweep = false;
+boolean sweep_tmp = false;
 uint8_t TS5823_frch = 1; //1-32
+uint16_t TS5823_frequency_MHz;
 
-uint16_t TS5823_frequency_MHz = 1;
+String SERIAL_data = "";
+boolean SERIAL_isDataReady = false;
 
 //================================== TIMEMACHINE =================================================================
 uint32_t TIMEMACHINE_prev_311ms = 0L;
@@ -24,6 +26,24 @@ void setup() {
 
 void loop() {
   TIMEMACHINE_loop();
+}
+
+void serialEvent() {
+  while (Serial.available()) {
+    char inChar = (char)Serial.read();
+
+    if (inChar == '[') {
+      SERIAL_data = "";
+      //SERIAL_isDataReady = false;
+    }
+    else if (inChar == ']') {
+      SERIAL_isDataReady = true;
+    }
+    else {
+      SERIAL_data += inChar;
+      //SERIAL_isDataReady = false;
+    }
+  }
 }
 
 

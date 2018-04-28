@@ -6,6 +6,12 @@ void TS5823_init() {
   pinMode(TS5823_pin_5, OUTPUT);
 }
 
+void TS5823_startSweep() {
+  isSweep = true;
+  sweep_tmp = true;
+  TS5823_frch = 1;
+}
+
 void TS5823_set_FR1() { //A
   digitalWrite(TS5823_pin_4, LOW); //ON switch
   digitalWrite(TS5823_pin_5, LOW); //ON switch
@@ -237,7 +243,6 @@ void TS5823_setNextFreq() {
   TS5823_frch++;
   if (TS5823_frch > 32) {
     isSweep = false;
-    TS5823_frch = 1;
   }
 }
 
@@ -250,7 +255,7 @@ void TS5823_sweep() {
       Serial.print(TS5823_frequency_MHz, DEC); //MHz
       Serial.print(';');
 
-      int ADC_in = 0;      
+      int ADC_in = 0;
       for (byte i = 0; i < 4; i++) {
         ADC_in += analogRead(A6);
       }
@@ -260,7 +265,7 @@ void TS5823_sweep() {
 
       Serial.print(0, DEC);//0-1023
       Serial.print(';');
-      
+
       Serial.print("\r\n");
       sweep_tmp = true;
     }

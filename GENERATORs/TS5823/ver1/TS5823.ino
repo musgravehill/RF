@@ -256,10 +256,10 @@ void TS5823_sweep() {
       Serial.print(';');
 
       int ADC_in = 0;
-      for (byte i = 0; i < 4; i++) {
+      for (byte i = 0; i < 10; i++) {
         ADC_in += analogRead(A6);
       }
-      ADC_in = ADC_in / 4.0;
+      ADC_in = ADC_in / 10.0;
       Serial.print(ADC_in, DEC);//0-1023
       Serial.print(';');
 

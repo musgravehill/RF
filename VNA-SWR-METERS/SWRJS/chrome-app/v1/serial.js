@@ -98,6 +98,9 @@ function btn_sweep() {
         if ($("#putSerialData_to_portCorrection").prop('checked')) {
             $('#portCorrection').val('');
         }
+		if ($("#putSerialData_to_portReference").prop('checked')) {
+            $('#portReference').val('');
+        }
 
         freq_from = parseInt($('#freq_from').val()); //MHz
         freq_to = parseInt($('#freq_to').val()); //MHz

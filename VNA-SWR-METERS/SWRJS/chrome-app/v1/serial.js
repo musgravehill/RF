@@ -70,7 +70,7 @@ function SERIAL_onDataReceivedReady() {
         $('#portCorrection').val($('#portCorrection').val() + SERIAL_stringReceived);
     }
     if ($("#putSerialData_to_portReference").prop('checked')) {
-        $('#portReference').val($('#portCorrection').val() + SERIAL_stringReceived);
+        $('#portReference').val($('#portReference').val() + SERIAL_stringReceived);
     }
 }
 

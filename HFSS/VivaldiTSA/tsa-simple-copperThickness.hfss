@@ -3007,10 +3007,112 @@ $begin 'AnsoftProject'
 				Default_Freq='2.4GHz'
 			$end 'PlotDefaults'
 			$begin 'FieldsPlotManagerID'
-				NextUniqueID=39
+				NextUniqueID=41
 				MoveBackwards=false
-				NumQuantityType=0
-				NumPlots=0
+				NumQuantityType=1
+				$begin 'QuantityFolder_1'
+					PlotFolder='E Field'
+					'Real time mode'=true
+					$begin 'ColorMapSettings'
+						ColorMapType='Spectrum'
+						SpectrumType='Rainbow'
+						UniformColor(127, 255, 255)
+						RampColor(255, 127, 127)
+					$end 'ColorMapSettings'
+					$begin 'Scale3DSettings'
+						unit=154
+						m_nLevels=15
+						minvalue=0.0195009876042604
+						maxvalue=2725.93408203125
+						log=false
+						IntrinsicMin=0.0195009876042604
+						IntrinsicMax=2725.93408203125
+						LimitFieldValuePrecision=false
+						FieldValuePrecisionDigits=4
+						ScaleType=0
+						UserSpecifyValues(0)
+					$end 'Scale3DSettings'
+					$begin 'Marker3DSettings'
+						MarkerType=9
+						MarkerMapSize=true
+						MarkerMapColor=false
+						MarkerSize=0.25
+					$end 'Marker3DSettings'
+					$begin 'Arrow3DSettings'
+						ArrowType=1
+						ArrowMapSize=true
+						ArrowMapColor=true
+						ShowArrowTail=true
+						ArrowSize=0.25
+					$end 'Arrow3DSettings'
+					$begin 'DeformScaleSettings'
+						ShowDeformation=true
+						MinScaleFactor=0
+						MaxScaleFactor=1
+						DeformationScale=0
+					$end 'DeformScaleSettings'
+				$end 'QuantityFolder_1'
+				NumPlots=2
+				$begin 'PlotDefinition_1'
+					PlotName='Mag_E1'
+					PlotDefinitionId=39
+					VersionID=0
+					SolutionId=2917
+					QuantityId=2
+					PlotFolder='E Field'
+					UserSpecifyName=0
+					UserSpecifyFolder=0
+					StreamlinePlot=false
+					IntrinsicVar='Freq=\'2.4GHz\' Phase=\'0deg\''
+					FieldPlotGeometry(1, 128, 2, 6, 6022, 5942, 5943, 5945, 5946, 5947)
+					FilterIds(0)
+					$begin 'PlotOnSurfaceSettings'
+						Filled=false
+						IsoValType='Fringe'
+						SmoothShade=true
+						AddGrid=false
+						MapTransparency=true
+						Refinement=0
+						Transparency=0
+						$begin 'Arrow3DSpacingSettings'
+							ArrowUniform=true
+							ArrowSpacing=2.3269829750061
+							MinArrowSpacing=1.5513219833374
+							MaxArrowSpacing=3.1026439666748
+						$end 'Arrow3DSpacingSettings'
+						GridColor(255, 255, 255)
+					$end 'PlotOnSurfaceSettings'
+				$end 'PlotDefinition_1'
+				$begin 'PlotDefinition_2'
+					PlotName='Mag_E2'
+					PlotDefinitionId=40
+					VersionID=0
+					SolutionId=2917
+					QuantityId=2
+					PlotFolder='E Field'
+					UserSpecifyName=0
+					UserSpecifyFolder=0
+					StreamlinePlot=false
+					IntrinsicVar='Freq=\'2.4GHz\' Phase=\'0deg\''
+					FieldPlotGeometry(1, 128, 2, 12, 7870, 7871, 7872, 7873, 7874, 7875, 7876, 7877, 7878, 7879, 7880, 7881)
+					FilterIds(0)
+					$begin 'PlotOnSurfaceSettings'
+						Filled=false
+						IsoValType='Fringe'
+						SmoothShade=true
+						AddGrid=false
+						MapTransparency=true
+						Refinement=0
+						Transparency=0
+						$begin 'Arrow3DSpacingSettings'
+							ArrowUniform=true
+							ArrowSpacing=2.3269829750061
+							MinArrowSpacing=1.5513219833374
+							MaxArrowSpacing=3.1026439666748
+						$end 'Arrow3DSpacingSettings'
+						GridColor(255, 255, 255)
+					$end 'PlotOnSurfaceSettings'
+				$end 'PlotDefinition_2'
 			$end 'FieldsPlotManagerID'
 			$begin 'Report3dInGeomWnd'
 				Report3dNum=1
@@ -3321,6 +3423,7 @@ $begin 'AnsoftProject'
 						SimValue('Mag_E', 1, 154, false, SimValueID=7938, 3, 0, 2, 0, false, false, 7462, 1, 0, 1, 1, '', 0, 0)
 						SimValue('Mag_E', 1, 154, false, SimValueID=7945, 3, 0, 2, 0, false, false, 7734, 1, 0, 1, 1, '', 0, 0)
 						SimValue('GainX', 1, 90, true, SimValueID=7946, 0, 0, 2, 0, false, false, 0, 1, 0, 1, 1, '', 0, 0)
+						SimValue('Mag_E', 1, 154, false, SimValueID=8043, 3, 0, 2, 0, false, false, 7870, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Freq'
@@ -3462,7 +3565,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						'3D Modeler'(Editor3d(View(WindowPos(3, -1, -1, -8, -30, 0, 0, 868, 284), OrientationMatrix(0.0138552980497479, -0.000987733481451869, 0.00321487267501652, 0, 0.00146205874625593, 0.0140427043661475, -0.00198552059009671, 0, -0.00302908290177584, 0.00225932896137238, 0.0137475822120905, 0, -0.64880383014679, -0.0948568880558014, -4.8042573928833, 1, 0, -1.42115771770477, 0.65864884853363, -0.82698917388916, 0.582935929298401, -0.804054260253906, 10.2550411224365), Drawings[5: 'FR4', 'Box1', 'plain', 'QWM_feedline', 'port1'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -8, -30, 0, 0, 868, 284), OrientationMatrix(0.0138552980497479, -0.000987733481451869, 0.00321487267501652, 0, 0.00146205874625593, 0.0140427043661475, -0.00198552059009671, 0, -0.00302908290177584, 0.00225932896137238, 0.0137475822120905, 0, -0.64880383014679, -0.0948568880558014, -4.8042573928833, 1, 0, -2.35922789573669, 1.59671902656555, -0.82698917388916, 0.582935929298401, -0.804054260253906, 10.2550411224365), Drawings[7: 'FR4', 'Box1', 'plain', 'QWM_feedline', 'port1', 'Mag_E1', 'Mag_E2'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -3484,7 +3587,7 @@ $begin 'AnsoftProject'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
 									ID=78
-									VersionID=951
+									VersionID=954
 									Name='VSWRt(QWM_feedline_T1)'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -3545,7 +3648,7 @@ $begin 'AnsoftProject'
 											$end '4'
 											$begin '5'
 												SubsweepType='Regular'
-												SubsweepChoiceType='Selected'
+												SubsweepChoiceType='Nominal'
 												SweepVariableName='MW'
 												ColumnValues(0.001, 0.0011, 0.0012, 0.0013, 0.0014, 0.0015, 0.00153, 0.0016, 0.0017)
 												ParameterType='DoubleParam'
@@ -3699,7 +3802,7 @@ $begin 'AnsoftProject'
 						NextUniqueID=83
 						MoveBackwards=false
 						$begin 'NextVersID'
-							NextUniqueID=953
+							NextUniqueID=955
 							MoveBackwards=false
 						$end 'NextVersID'
 					$end 'ReportManager'
@@ -4593,10 +4696,10 @@ $begin 'AnsoftProject'
 														DataSourceID=4
 														$begin 'BasicLayoutAttribute'
 															$begin 'LayoutRect'
-																Top=908
-																Left=790
-																Bottom=9709
-																Right=9019
+																Top=740
+																Left=542
+																Bottom=9771
+																Right=9269
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -4604,10 +4707,10 @@ $begin 'AnsoftProject'
 														DataSourceID=12
 														$begin 'BasicLayoutAttribute'
 															$begin 'LayoutRect'
-																Top=908
-																Left=790
-																Bottom=9709
-																Right=9019
+																Top=740
+																Left=542
+																Bottom=9771
+																Right=9269
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -4618,7 +4721,7 @@ $begin 'AnsoftProject'
 																Top=75
 																Left=75
 																Bottom=9925
-																Right=601
+																Right=412
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -4629,15 +4732,15 @@ $begin 'AnsoftProject'
 														$begin 'CartesianAxisLayoutAttribute'
 															$begin 'AxisRect'
 																Top=75
-																Left=9019
+																Left=9269
 																Bottom=9925
 																Right=9925
 															$end 'AxisRect'
 															$begin 'GridRect'
-																Top=908
-																Left=790
-																Bottom=9709
-																Right=9019
+																Top=740
+																Left=542
+																Bottom=9771
+																Right=9269
 															$end 'GridRect'
 														$end 'CartesianAxisLayoutAttribute'
 													$end 'SubMapItem'
@@ -4646,15 +4749,15 @@ $begin 'AnsoftProject'
 														$begin 'CartesianAxisLayoutAttribute'
 															$begin 'AxisRect'
 																Top=75
-																Left=626
-																Bottom=907
-																Right=9019
+																Left=437
+																Bottom=739
+																Right=9269
 															$end 'AxisRect'
 															$begin 'GridRect'
-																Top=908
-																Left=790
-																Bottom=9709
-																Right=9019
+																Top=740
+																Left=542
+																Bottom=9771
+																Right=9269
 															$end 'GridRect'
 														$end 'CartesianAxisLayoutAttribute'
 													$end 'SubMapItem'
@@ -4666,7 +4769,7 @@ $begin 'AnsoftProject'
 															X_spc=250000000
 															X_fwd=3
 															X_fpr=2
-															Y1_spc=1
+															Y1_spc=0.5
 															Y1_fwd=3
 															Y1_fpr=2
 														$end 'CartesianCurveGroupLayoutAttribute'
@@ -4812,11 +4915,11 @@ $begin 'AnsoftProject'
 									$begin 'Scale3DSettings'
 										unit=90
 										m_nLevels=15
-										minvalue=0.0058656662956589
-										maxvalue=1.90371526884461
+										minvalue=0.00627134885927706
+										maxvalue=1.76016478379657
 										log=false
-										IntrinsicMin=0.0058656662956589
-										IntrinsicMax=1.90371526884461
+										IntrinsicMin=0.00627134885927706
+										IntrinsicMax=1.76016478379657
 										LimitFieldValuePrecision=false
 										FieldValuePrecisionDigits=4
 										ScaleType=0
@@ -4849,13 +4952,13 @@ $begin 'AnsoftProject'
 													$begin 'MedCamera'
 														$begin 'svrc'
 															svid=4
-															view(20, cam(XYCam(false, true, true, true, -0.0331641435623169, 0.896831631660461, 0.019917219877243, 0.949927985668182, 0, 1, 0, 1, 1.0856580103636e-019, 4.0667568230564e+031)))
+															view(20, cam(XYCam(false, true, true, true, 0.115812599658966, 1.00135922431946, -0.142184972763062, 0.743375658988953, 0, 1, 0, 1, 1.0856580103636e-019, 4.0667568230564e+031)))
 														$end 'svrc'
 													$end 'MedCamera'
 												$end 'CurveMed'
 											$end 'DispType'
 										$end 'WrapperDoc'
-										WindowPos(WindowPos(5, -1, -1, -8, -30, 75, 75, 695, 421))
+										WindowPos(WindowPos(3, -1, -1, -8, -30, 75, 75, 695, 421))
 									$end 'ViewInfo'
 								$end 'Report2D'
 							$end 'WindowInfoList'

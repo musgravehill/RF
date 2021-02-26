@@ -2974,15 +2974,15 @@ $begin 'AnsoftProject'
 		$end 'AnalysisSetup'
 		$begin 'Optimetrics'
 			$begin 'OptimetricsSetups'
-				NextUniqueID=6
+				NextUniqueID=7
 				MoveBackwards=false
 				$begin 'ParametricSetup1'
-					ID=5
+					ID=6
 					SetupType='OptiParametric'
 					IsEnabled=true
 					NextUniqueID=1
 					MoveBackwards=false
-					GoalSetupVersion=1
+					GoalSetupVersion=0
 					Version=0
 					$begin 'ProdOptiSetupData'
 						SaveFields=false
@@ -2994,7 +2994,7 @@ $begin 'AnsoftProject'
 					$begin 'Sweeps'
 						$begin 'SweepDefinition'
 							Variable='MW'
-							Data='LIN 1mm 2mm 0.01mm'
+							Data='LIN 1mm 2mm 0.1mm'
 							OffsetF1=false
 							Synchronize=0
 						$end 'SweepDefinition'
@@ -3002,21 +3002,6 @@ $begin 'AnsoftProject'
 					$begin 'Sweep Operations'
 					$end 'Sweep Operations'
 					$begin 'Goals'
-						$begin 'Goal'
-							$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-								DesignID=0
-								SolutionID=498
-								$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-									ReportType=1
-									SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-								$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-							$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-							Calculation='VSWRt(QWM_feedline_T1)'
-							Name='VSWRt(QWM_feedline_T1)'
-							$begin 'Ranges'
-								Range(Var='Freq', Type='d', DiscreteValues='0.9GHz')
-							$end 'Ranges'
-						$end 'Goal'
 					$end 'Goals'
 				$end 'ParametricSetup1'
 			$end 'OptimetricsSetups'
@@ -3217,7 +3202,7 @@ $begin 'AnsoftProject'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='MW'
-								Column='1.53mm'
+								Column='1mm;1.01mm;1.53mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
@@ -3326,12 +3311,12 @@ $begin 'AnsoftProject'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='MW'
-								Column='1.53mm'
+								Column='1mm;1.01mm;1.53mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='QWM'
-								Column='8.71831049531541mm;9.36409192175054mm;10.1122788171026mm;11.1593224890896mm;14.4362974944304mm;14.5277309488205mm;15.6573259681997mm;15.6907644886624mm;17.12mm;17.8935270241401mm;19.583217261269mm;20.5315128025147mm;21.7290298165838mm;41.1mm;45.6mm'
+								Column='8.71831049531541mm;9.36409192175054mm;10.1122788171026mm;11.1593224890896mm;14.346431470687mm;14.4362974944304mm;14.5277309488205mm;15.6573259681997mm;15.6907644886624mm;17.12mm;17.89mm;17.8935270241401mm;19.583217261269mm;20.5315128025147mm;21.7290298165838mm;41.1mm;45.6mm'
 								Units='mm'
 							$end 'Sweep'
 						$end 'Sweeps'
@@ -3443,7 +3428,7 @@ $begin 'AnsoftProject'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='MW'
-								Column='1.53mm'
+								Column='1mm;1.01mm;1.53mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
@@ -3505,7 +3490,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						'3D Modeler'(Editor3d(View(WindowPos(3, -1, -1, -8, -30, 0, 0, 868, 284), OrientationMatrix(0.0138552980497479, -0.000987733481451869, 0.00321487267501652, 0, 0.00146205874625593, 0.0140427043661475, -0.00198552059009671, 0, -0.00302908290177584, 0.00225932896137238, 0.0137475822120905, 0, -0.64880383014679, -0.0948568880558014, -4.8042573928833, 1, 0, -1.42115771770477, 0.65864884853363, -0.82698917388916, 0.582935929298401, -0.804054260253906, 10.2550411224365), Drawings[5: 'FR4', 'Box1', 'plain', 'QWM_feedline', 'port1'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -8, -30, 0, 0, 868, 284), OrientationMatrix(0.0138552980497479, -0.000987733481451869, 0.00321487267501652, 0, 0.00146205874625593, 0.0140427043661475, -0.00198552059009671, 0, -0.00302908290177584, 0.00225932896137238, 0.0137475822120905, 0, -0.64880383014679, -0.0948568880558014, -4.8042573928833, 1, 0, -2.35922789573669, 1.59671902656555, -0.82698917388916, 0.582935929298401, -0.804054260253906, 10.2550411224365), Drawings[5: 'FR4', 'Box1', 'plain', 'QWM_feedline', 'port1'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -3527,7 +3512,7 @@ $begin 'AnsoftProject'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
 									ID=78
-									VersionID=938
+									VersionID=943
 									Name='VSWRt(QWM_feedline_T1)'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -3588,12 +3573,15 @@ $begin 'AnsoftProject'
 											$end '4'
 											$begin '5'
 												SubsweepType='Regular'
-												SubsweepChoiceType='Nominal'
+												SubsweepChoiceType='Selected'
 												SweepVariableName='MW'
+												ColumnValues(0.001)
+												ParameterType='DoubleParam'
+												Units='mm'
 											$end '5'
 											$begin '6'
 												SubsweepType='Regular'
-												SubsweepChoiceType='Selected'
+												SubsweepChoiceType='Nominal'
 												SweepVariableName='QWM'
 												ColumnValues(0.00871831049531541, 0.00936409192175054, 0.0101122788171026, 0.0111593224890896, 0.0144362974944304, 0.0145277309488205, 0.0156573259681997, 0.0156907644886624, 0.01712, 0.0178935270241401, 0.019583217261269, 0.0217290298165838, 0.0411, 0.0456)
 												ParameterType='DoubleParam'
@@ -3739,7 +3727,7 @@ $begin 'AnsoftProject'
 						NextUniqueID=83
 						MoveBackwards=false
 						$begin 'NextVersID'
-							NextUniqueID=940
+							NextUniqueID=944
 							MoveBackwards=false
 						$end 'NextVersID'
 					$end 'ReportManager'
@@ -4633,10 +4621,10 @@ $begin 'AnsoftProject'
 														DataSourceID=4
 														$begin 'BasicLayoutAttribute'
 															$begin 'LayoutRect'
-																Top=908
-																Left=790
-																Bottom=9709
-																Right=9019
+																Top=572
+																Left=348
+																Bottom=9834
+																Right=9467
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -4644,10 +4632,10 @@ $begin 'AnsoftProject'
 														DataSourceID=12
 														$begin 'BasicLayoutAttribute'
 															$begin 'LayoutRect'
-																Top=908
-																Left=790
-																Bottom=9709
-																Right=9019
+																Top=572
+																Left=348
+																Bottom=9834
+																Right=9467
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -4658,7 +4646,7 @@ $begin 'AnsoftProject'
 																Top=75
 																Left=75
 																Bottom=9925
-																Right=601
+																Right=264
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -4669,15 +4657,15 @@ $begin 'AnsoftProject'
 														$begin 'CartesianAxisLayoutAttribute'
 															$begin 'AxisRect'
 																Top=75
-																Left=9019
+																Left=9467
 																Bottom=9925
 																Right=9925
 															$end 'AxisRect'
 															$begin 'GridRect'
-																Top=908
-																Left=790
-																Bottom=9709
-																Right=9019
+																Top=572
+																Left=348
+																Bottom=9834
+																Right=9467
 															$end 'GridRect'
 														$end 'CartesianAxisLayoutAttribute'
 													$end 'SubMapItem'
@@ -4686,15 +4674,15 @@ $begin 'AnsoftProject'
 														$begin 'CartesianAxisLayoutAttribute'
 															$begin 'AxisRect'
 																Top=75
-																Left=626
-																Bottom=907
-																Right=9019
+																Left=289
+																Bottom=571
+																Right=9467
 															$end 'AxisRect'
 															$begin 'GridRect'
-																Top=908
-																Left=790
-																Bottom=9709
-																Right=9019
+																Top=572
+																Left=348
+																Bottom=9834
+																Right=9467
 															$end 'GridRect'
 														$end 'CartesianAxisLayoutAttribute'
 													$end 'SubMapItem'
@@ -4703,10 +4691,10 @@ $begin 'AnsoftProject'
 													$begin 'SubMapItem'
 														DataSourceID=4
 														$begin 'CartesianCurveGroupLayoutAttribute'
-															X_spc=250000000
+															X_spc=500000000
 															X_fwd=3
 															X_fpr=2
-															Y1_spc=2
+															Y1_spc=0.5
 															Y1_fwd=3
 															Y1_fpr=2
 														$end 'CartesianCurveGroupLayoutAttribute'
@@ -4889,13 +4877,13 @@ $begin 'AnsoftProject'
 													$begin 'MedCamera'
 														$begin 'svrc'
 															svid=4
-															view(20, cam(XYCam(false, true, true, true, 0.0732459500432014, 1.09339106082916, -0.153456628322601, 0.866707921028137, 0, 1, 0, 1, 1.0856580103636e-019, 4.0667568230564e+031)))
+															view(20, cam(XYCam(false, true, true, true, -0.0264855921268463, 1.12382578849792, -0.0513749718666077, 1.09895753860474, 0, 1, 0, 1, 1.0856580103636e-019, 4.0667568230564e+031)))
 														$end 'svrc'
 													$end 'MedCamera'
 												$end 'CurveMed'
 											$end 'DispType'
 										$end 'WrapperDoc'
-										WindowPos(WindowPos(5, -1, -1, -8, -30, 75, 75, 695, 421))
+										WindowPos(WindowPos(3, -1, -1, -8, -30, 75, 75, 695, 421))
 									$end 'ViewInfo'
 								$end 'Report2D'
 							$end 'WindowInfoList'

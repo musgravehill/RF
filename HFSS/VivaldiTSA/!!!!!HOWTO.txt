@@ -1,2 +1,16 @@
 For tapper and feedline: set thickness 0.05mm copper foil and set material=copper. 
 Or simple: set Ideal E conductor without thickness.
+
+INIT.hfss  with sma-connector, port, etc from prev project.
+tsa-simple---compper-thickness  - simple TSA, but has copper foil thickness 0.049mm
+
+Автор пишет, что TL=lambda/2 === sL. Но на картинке у него TL в 2 раза больше, чем sL. ЧТО ЗА???
+
+Я выбрал так: TL=lambda.  sL=lambda/4. Если сделать, как у автора, то 1\4-волновый кусок не помещается на вивальди.
+
+Как сделать вход волны: рисем прямоугольник между землей и полоской, чтобы прямоугольник касался их. Если земля и полоска имеют толщину (не ideal E conductor), то прямоугольник Порта должен закрывать их торцы. Потом делаем Assign exitation - lumped port. Reference = GND. А полоска или штырек автоматом станут Терминалом. Потом смотрим Port field display - на порта будет нарисованы стрелки. Стрелки должны идти от полоски на землю.
+
+
+Как задать толщину copperThickness плоской ХУ- детали: выбрать ее мышкой на рисунке (не в дереве, а на 3Д-рисунке), правый клик - EDIT - SURFACE - thickness sheet.
+
+In Video "Howto design a Vivaldi antenna in HFSS" author say about simple feedline, but then draw Г-feedline.

@@ -3040,7 +3040,7 @@ $begin 'AnsoftProject'
 						StopForElapsTime=false
 						StopForSlowImprovement=false
 						StopForGrdTolerance=false
-						MaxNumIteration=10
+						MaxNumIteration=50
 						MaxSolTimeInSec=3600
 						RelGradientTolerance=0
 						MinNumIteration=10
@@ -3118,8 +3118,6 @@ $begin 'AnsoftProject'
 			$begin 'PlotDefaults'
 				Default_SolutionId=498
 				Default_PlotFolder='Automatic'
-				Default_Phase='0deg'
-				Default_Freq='0.7GHz'
 			$end 'PlotDefaults'
 			$begin 'FieldsPlotManagerID'
 				NextUniqueID=41
@@ -3193,8 +3191,7 @@ $begin 'AnsoftProject'
 					ID=498
 					Name='Sweep'
 					$begin 'SimDataExtractor'
-						SimValue('VSWRt(QWM_feedline_T1)', 1, 90, false, SimValueID=8152, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('St(QWM_feedline_T1,QWM_feedline_T1)', 2, 90, false, SimValueID=8166, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('VSWRt(QWM_feedline_T1)', 1, 90, false, SimValueID=8452, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Freq'
@@ -3351,56 +3348,6 @@ $begin 'AnsoftProject'
 								Increment=0.0872664625997165
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='s'
-								Column='0.4mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='rate'
-								Column='27'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='TL'
-								Column='50mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='sL'
-								Column='23mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='ext'
-								Column='2.22mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='subT'
-								Column='0.8mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='copperThickness'
-								Column='0.05mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='MW'
-								Column='2.22mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='QWM'
-								Column='22mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feedOffsetX'
-								Column='2.65mm'
-								Units='mm'
-							$end 'Sweep'
 						$end 'Sweeps'
 						IsPortOnly=false
 					$end 'SimDataExtractor'
@@ -3409,9 +3356,6 @@ $begin 'AnsoftProject'
 					ID=2917
 					Name='LastAdaptive'
 					$begin 'SimDataExtractor'
-						SimValue('GainTotal', 1, 90, true, SimValueID=8153, 0, 0, 2, 0, false, false, 0, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Mag_E', 1, 154, false, SimValueID=8155, 3, 0, 2, 0, false, false, 6022, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Mag_E', 1, 154, false, SimValueID=8156, 3, 0, 2, 0, false, false, 7870, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Freq'
@@ -3454,56 +3398,6 @@ $begin 'AnsoftProject'
 								Increment=0.0872664625997165
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='s'
-								Column='0.4mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='rate'
-								Column='27'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='TL'
-								Column='50mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='sL'
-								Column='23mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='ext'
-								Column='2.22mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='subT'
-								Column='0.8mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='copperThickness'
-								Column='0.05mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='MW'
-								Column='2.22mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='QWM'
-								Column='22mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feedOffsetX'
-								Column='2.65mm'
-								Units='mm'
-							$end 'Sweep'
 						$end 'Sweeps'
 						IsPortOnly=false
 					$end 'SimDataExtractor'
@@ -3517,7 +3411,6 @@ $begin 'AnsoftProject'
 					ID=8160
 					Name='AdaptivePass'
 					$begin 'SimDataExtractor'
-						SimValue('VSWRt(QWM_feedline_T1)', 1, 90, false, SimValueID=8421, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Pass'
@@ -3565,56 +3458,6 @@ $begin 'AnsoftProject'
 								Increment=0.0872664625997165
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='s'
-								Column='0.4mm;0.406558427686392mm;0.5mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='rate'
-								Column='26.5671373638112;27;40.17'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='TL'
-								Column='50mm;50.0054933317057mm;80mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='sL'
-								Column='22.6500305185095mm;23mm;25mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='ext'
-								Column='1mm;2.22mm;2.22503585924863mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='subT'
-								Column='0.8mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='copperThickness'
-								Column='0.05mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='MW'
-								Column='1.53mm;2.22mm;2.22736320078127mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='QWM'
-								Column='17.89mm;21.9538737144078mm;22mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feedOffsetX'
-								Column='-2.66453525910038e-015mm;2.65mm;2.65190588091677mm'
-								Units='mm'
-							$end 'Sweep'
 						$end 'Sweeps'
 						IsPortOnly=false
 					$end 'SimDataExtractor'
@@ -3623,7 +3466,6 @@ $begin 'AnsoftProject'
 					ID=8161
 					Name='LastAdaptive'
 					$begin 'SimDataExtractor'
-						SimValue('VSWRt(QWM_feedline_T1)', 1, 90, false, SimValueID=8420, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Freq'
@@ -3666,56 +3508,6 @@ $begin 'AnsoftProject'
 								Increment=0.0872664625997165
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='s'
-								Column='0.4mm;0.406558427686392mm;0.5mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='rate'
-								Column='26.5671373638112;27;40.17'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='TL'
-								Column='50mm;50.0054933317057mm;80mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='sL'
-								Column='22.6500305185095mm;23mm;25mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='ext'
-								Column='1mm;2.22mm;2.22503585924863mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='subT'
-								Column='0.8mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='copperThickness'
-								Column='0.05mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='MW'
-								Column='1.53mm;2.22mm;2.22736320078127mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='QWM'
-								Column='17.89mm;21.9538737144078mm;22mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feedOffsetX'
-								Column='-2.66453525910038e-015mm;2.65mm;2.65190588091677mm'
-								Units='mm'
-							$end 'Sweep'
 						$end 'Sweeps'
 						IsPortOnly=false
 					$end 'SimDataExtractor'
@@ -3724,15 +3516,15 @@ $begin 'AnsoftProject'
 					ID=8162
 					Name='Sweep'
 					$begin 'SimDataExtractor'
-						SimValue('VSWRt(QWM_feedline_T1)', 1, 90, false, SimValueID=8277, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(QWM_feedline_T1),MW)', 2, 90, false, SimValueID=8294, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(QWM_feedline_T1),QWM)', 2, 90, false, SimValueID=8295, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(QWM_feedline_T1),TL)', 2, 90, false, SimValueID=8296, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(QWM_feedline_T1),ext)', 2, 90, false, SimValueID=8297, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(QWM_feedline_T1),feedOffsetX)', 2, 90, false, SimValueID=8298, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(QWM_feedline_T1),rate)', 2, 90, false, SimValueID=8299, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(QWM_feedline_T1),s)', 2, 90, false, SimValueID=8300, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(QWM_feedline_T1),sL)', 2, 90, false, SimValueID=8301, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('VSWRt(QWM_feedline_T1)', 1, 90, false, SimValueID=8453, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('partial(VSWRt(QWM_feedline_T1),MW)', 2, 90, false, SimValueID=8454, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('partial(VSWRt(QWM_feedline_T1),QWM)', 2, 90, false, SimValueID=8455, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('partial(VSWRt(QWM_feedline_T1),TL)', 2, 90, false, SimValueID=8456, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('partial(VSWRt(QWM_feedline_T1),ext)', 2, 90, false, SimValueID=8457, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('partial(VSWRt(QWM_feedline_T1),feedOffsetX)', 2, 90, false, SimValueID=8458, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('partial(VSWRt(QWM_feedline_T1),rate)', 2, 90, false, SimValueID=8459, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('partial(VSWRt(QWM_feedline_T1),s)', 2, 90, false, SimValueID=8460, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('partial(VSWRt(QWM_feedline_T1),sL)', 2, 90, false, SimValueID=8461, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'PostprocessSweep'
 								Variable='Freq'
@@ -3781,27 +3573,27 @@ $begin 'AnsoftProject'
 							$end 'PostprocessSweep'
 							$begin 'Sweep'
 								Variable='s'
-								Column='0.406558427686392mm;0.5mm'
+								Column='0.339735099337748mm;0.406558427686392mm;0.413394573809015mm;0.452958769493698mm;0.5mm;0.969685964537492mm;1.41395001068148mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='rate'
-								Column='26.5671373638112;40.17'
+								Column='26.5671373638112;40.17;40.8675005340739;52.8563917966246;63.7984981841487;70.1967036957915;72.5573104037599'
 								Units=''
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='TL'
-								Column='50.0054933317057mm;80mm'
+								Column='50.0054933317057mm;57.8096865749077mm;60.129703665273mm;79.9075289162877mm;80mm;91.3702810754723mm;96.4937284463027mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='sL'
-								Column='22.6500305185095mm;25mm'
+								Column='10.0437376018555mm;11.2008987701041mm;19.2845744193854mm;22.6500305185095mm;25mm;43.4734473708304mm;51.2372127445296mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='ext'
-								Column='1mm;2.22503585924863mm'
+								Column='1mm;1.08956419568468mm;1.35022278511918mm;2.22503585924863mm;2.35715048677023mm;4.27162236396374mm;6.29618976409192mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
@@ -3816,17 +3608,17 @@ $begin 'AnsoftProject'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='MW'
-								Column='1.53mm;2.22736320078127mm'
+								Column='0.459212317270425mm;0.837831049531541mm;1.04517990661336mm;1.47152958769494mm;1.53mm;2.22736320078127mm;3.64413006988739mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='QWM'
-								Column='17.89mm;21.9538737144078mm'
+								Column='10.9311954100162mm;11.8855214087344mm;12.2103756828517mm;15.1212829981384mm;17.89mm;21.9538737144078mm;32.5015192114017mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feedOffsetX'
-								Column='-2.66453525910038e-015mm;2.65190588091677mm'
+								Column='-1.77755058442946mm;-2.66453525910038e-015mm;2.65190588091677mm;6.91015350810266mm;9.64766380809961mm;13.2659382915738mm;14.1540269173254mm'
 								Units='mm'
 							$end 'Sweep'
 						$end 'Sweeps'
@@ -3897,7 +3689,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -8, -30, 2, -1, 960, 762), OrientationMatrix(0.0142414635047317, 0.000585774541832507, 0.00032965381979011, 0, 0.000229413461056538, 0.00234072050079703, -0.0140617024153471, 0, -0.000631761504337192, 0.0140515081584454, 0.00232886779122055, 0, -0.659194827079773, -2.09979462623596, -4.65418195724487, 1, 0, -0.938085556030273, 0.585177659988403, -2.74092221260071, -1.31273913383484, -11.7627010345459, 21.062894821167), Drawings[5: 'FR4', 'Box1', 'plain', 'QWM_feedline', 'port1'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						'3D Modeler'(Editor3d(View(WindowPos(1, -1, -1, -8, -30, 2, -1, 960, 762), OrientationMatrix(0.014247109182179, -0.000227338401600719, -0.000488208956085145, 0, 0.0002468666061759, 0.0142436726018786, 0.000567385868635029, 0, 0.000478541478514671, -0.000575203157495707, 0.0142372716218233, 0, -0.659347414970398, -2.07784056663513, -4.63209915161133, 1, 0, -0.999491393566132, 0.646583497524261, -2.74092221260071, -1.31273913383484, -11.7674789428711, 21.0580406188965), Drawings[5: 'FR4', 'Box1', 'plain', 'QWM_feedline', 'port1'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -4659,6 +4451,30 @@ $begin 'AnsoftProject'
 																	ModifyPosition=false
 																$end 'OverlayLayoutAttribute'
 															$end 'Dock_0'
+															$begin 'Dock_1'
+																$begin 'OverlayLayoutAttribute'
+																	$begin 'BoundingRect'
+																		Top=5000
+																		Left=0
+																		Bottom=10000
+																		Right=10000
+																	$end 'BoundingRect'
+																	ModifySize=false
+																	ModifyPosition=false
+																$end 'OverlayLayoutAttribute'
+															$end 'Dock_1'
+															$begin 'Dock_2'
+																$begin 'OverlayLayoutAttribute'
+																	$begin 'BoundingRect'
+																		Top=0
+																		Left=0
+																		Bottom=5000
+																		Right=10000
+																	$end 'BoundingRect'
+																	ModifySize=false
+																	ModifyPosition=false
+																$end 'OverlayLayoutAttribute'
+															$end 'Dock_2'
 														$end 'DockableOverlayLayoutAttribute'
 													$end 'SubMapItem'
 												$end 'MainMapItem'
@@ -4711,7 +4527,7 @@ $begin 'AnsoftProject'
 									$end 'Graph2D'
 								$end 'Graph2DsV2'
 								$begin 'PlotDisplayDataManager'
-									NextUniqueID=25
+									NextUniqueID=35
 									MoveBackwards=false
 									$begin 'PlotHeaderDataSource'
 										CompanyName=''
@@ -4748,6 +4564,36 @@ $begin 'AnsoftProject'
 														YAxis='Y1'
 													$end 'CurveCartesianAttribute'
 												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=25
+													$begin 'CurveCartesianAttribute'
+														YAxis='Y1'
+													$end 'CurveCartesianAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=27
+													$begin 'CurveCartesianAttribute'
+														YAxis='Y1'
+													$end 'CurveCartesianAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=29
+													$begin 'CurveCartesianAttribute'
+														YAxis='Y1'
+													$end 'CurveCartesianAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=31
+													$begin 'CurveCartesianAttribute'
+														YAxis='Y1'
+													$end 'CurveCartesianAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=33
+													$begin 'CurveCartesianAttribute'
+														YAxis='Y1'
+													$end 'CurveCartesianAttribute'
+												$end 'SubMapItem'
 											$end 'MainMapItem'
 											$begin 'MainMapItem'
 												$begin 'SubMapItem'
@@ -4777,6 +4623,86 @@ $begin 'AnsoftProject'
 														TraceType='Continuous'
 														SymbolType='HollowCircle'
 														SymbolColor(R=128, G=0, B=128)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=25
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=1
+															LineColor(R=0, G=0, B=200)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='VerticalDownTriangle'
+														SymbolColor(R=192, G=192, B=192)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=27
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=1
+															LineColor(R=80, G=0, B=80)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='HollowVerticalEllipse'
+														SymbolColor(R=111, G=111, B=111)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=29
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=1
+															LineColor(R=128, G=128, B=0)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='VerticalEllipse'
+														SymbolColor(R=240, G=130, B=19)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=31
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=1
+															LineColor(R=200, G=0, B=128)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='HollowVerticalDownTriangle'
+														SymbolColor(R=128, G=0, B=0)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=33
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=1
+															LineColor(R=15, G=160, B=180)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='Circle'
+														SymbolColor(R=0, G=128, B=128)
 														ShowSymbols=false
 														SymbolFrequency=15
 														ShowArrows=false
@@ -5227,10 +5153,10 @@ $begin 'AnsoftProject'
 													$begin 'SubMapItem'
 														DataSourceID=4
 														$begin 'CartesianCurveGroupLayoutAttribute'
-															X_spc=200000000
+															X_spc=250000000
 															X_fwd=3
 															X_fpr=2
-															Y1_spc=2
+															Y1_spc=2.5
 															Y1_fwd=4
 															Y1_fpr=2
 														$end 'CartesianCurveGroupLayoutAttribute'
@@ -5252,6 +5178,30 @@ $begin 'AnsoftProject'
 																	ModifyPosition=false
 																$end 'OverlayLayoutAttribute'
 															$end 'Dock_0'
+															$begin 'Dock_1'
+																$begin 'OverlayLayoutAttribute'
+																	$begin 'BoundingRect'
+																		Top=5000
+																		Left=0
+																		Bottom=10000
+																		Right=10000
+																	$end 'BoundingRect'
+																	ModifySize=false
+																	ModifyPosition=false
+																$end 'OverlayLayoutAttribute'
+															$end 'Dock_1'
+															$begin 'Dock_2'
+																$begin 'OverlayLayoutAttribute'
+																	$begin 'BoundingRect'
+																		Top=0
+																		Left=0
+																		Bottom=5000
+																		Right=10000
+																	$end 'BoundingRect'
+																	ModifySize=false
+																	ModifyPosition=false
+																$end 'OverlayLayoutAttribute'
+															$end 'Dock_2'
 														$end 'DockableOverlayLayoutAttribute'
 													$end 'SubMapItem'
 												$end 'MainMapItem'
@@ -5264,6 +5214,11 @@ $begin 'AnsoftProject'
 									$begin 'SourceIDMap'
 										IDMapItem(86, 0, -1, 21)
 										IDMapItem(86, 1, -1, 23)
+										IDMapItem(86, 2, -1, 25)
+										IDMapItem(86, 3, -1, 27)
+										IDMapItem(86, 4, -1, 29)
+										IDMapItem(86, 5, -1, 31)
+										IDMapItem(86, 6, -1, 33)
 									$end 'SourceIDMap'
 									$begin 'TraceCharacteristicsMgr'
 									$end 'TraceCharacteristicsMgr'
@@ -5279,7 +5234,7 @@ $begin 'AnsoftProject'
 									$begin 'AllTransSrcDwg'
 										$begin 'PT'
 											ID=1
-											TransSrcDwg(-1, 0, 19, 1, 15, 2, 16, 5, 6, 11, 12, 21, 22, 23, 24)
+											TransSrcDwg(-1, 0, 19, 1, 15, 2, 16, 5, 6, 11, 12, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34)
 										$end 'PT'
 									$end 'AllTransSrcDwg'
 									$begin 'AllPtSVID'
@@ -5294,26 +5249,6 @@ $begin 'AnsoftProject'
 							ReportID=85
 							$begin 'WindowInfoList'
 								$begin 'Report2D'
-									$begin 'ViewInfo'
-										$begin 'WrapperView'
-											ID(20)
-										$end 'WrapperView'
-										$begin 'WrapperDoc'
-											HiddenDrawings()
-											$begin 'DispType'
-												PlotType=1
-												$begin 'CurveMed'
-													$begin 'MedCamera'
-														$begin 'svrc'
-															svid=4
-															view(20, cam(XYCam(false, true, true, true, -0.243859931826591, 1.44562017917633, -0.36018431186676, 1.32929587364197, 0, 1, 0, 1, 7.71432881361002e-039, 5.96942355804197e-039)))
-														$end 'svrc'
-													$end 'MedCamera'
-												$end 'CurveMed'
-											$end 'DispType'
-										$end 'WrapperDoc'
-										WindowPos(WindowPos(5, -1, -1, -8, -30, 25, 25, 1228, 542))
-									$end 'ViewInfo'
 								$end 'Report2D'
 							$end 'WindowInfoList'
 						$end 'TEST'
@@ -5321,26 +5256,6 @@ $begin 'AnsoftProject'
 							ReportID=87
 							$begin 'WindowInfoList'
 								$begin 'Report2D'
-									$begin 'ViewInfo'
-										$begin 'WrapperView'
-											ID(20)
-										$end 'WrapperView'
-										$begin 'WrapperDoc'
-											HiddenDrawings()
-											$begin 'DispType'
-												PlotType=1
-												$begin 'CurveMed'
-													$begin 'MedCamera'
-														$begin 'svrc'
-															svid=4
-															view(20, cam(XYCam(false, true, true, true, 0.147396475076675, 0.936953902244568, -0.132332965731621, 0.657224535942078, 0, 1, 0, 1, 7.71432881361002e-039, 5.96942355804197e-039)))
-														$end 'svrc'
-													$end 'MedCamera'
-												$end 'CurveMed'
-											$end 'DispType'
-										$end 'WrapperDoc'
-										WindowPos(WindowPos(3, -1, -1, -8, -30, 25, 25, 1047, 542))
-									$end 'ViewInfo'
 								$end 'Report2D'
 							$end 'WindowInfoList'
 						$end 'opti'

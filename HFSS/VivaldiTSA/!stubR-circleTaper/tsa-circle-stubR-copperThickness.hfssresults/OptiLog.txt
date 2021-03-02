@@ -1,41 +1,62 @@
 Start Setting up the engine.
-The problem is defined in a 6 dimensional parameter space.
+The problem is defined in a 8 dimensional parameter space.
 Set up the Filter CF calculation data (optional)
 Get the interface for FEM solutions
 Get the interface for CF( experiment ) solutions
 Create an empty engine.
 The problem is constrained into the box:
-  box lower limits 0.4 3 1 0 0 8 
-  box upper limits 4 20 30 25 25 25 
+  box lower limits 0.4 3 1 0 0 30 8 0.1 
+  box upper limits 4 20 30 25 25 55 25 2 
 The problem is focused into the box:
-  box lower limits 0.4 3 1 0 0 8 
-  box upper limits 4 20 30 25 25 25 
+  box lower limits 0.4 3 1 0 0 30 8 0.1 
+  box upper limits 4 20 30 25 25 55 25 2 
 There is 0 solved experiment!
-Domain Limit 1 0 0 0 0 0  * X < 4
-Domain Limit -1 0 0 0 0 0  * X < -0.4
-Domain Limit 0 1 0 0 0 0  * X < 20
-Domain Limit 0 -1 0 0 0 0  * X < -3
-Domain Limit 0 0 1 0 0 0  * X < 30
-Domain Limit 0 0 -1 0 0 0  * X < -1
-Domain Limit 0 0 0 1 0 0  * X < 25
-Domain Limit 0 0 0 -1 0 0  * X < -0
-Domain Limit 0 0 0 0 1 0  * X < 25
-Domain Limit 0 0 0 0 -1 0  * X < -0
-Domain Limit 0 0 0 0 0 1  * X < 25
-Domain Limit 0 0 0 0 0 -1  * X < -8
+Domain Limit 1 0 0 0 0 0 0 0  * X < 4
+Domain Limit -1 0 0 0 0 0 0 0  * X < -0.4
+Domain Limit 0 1 0 0 0 0 0 0  * X < 20
+Domain Limit 0 -1 0 0 0 0 0 0  * X < -3
+Domain Limit 0 0 1 0 0 0 0 0  * X < 30
+Domain Limit 0 0 -1 0 0 0 0 0  * X < -1
+Domain Limit 0 0 0 1 0 0 0 0  * X < 25
+Domain Limit 0 0 0 -1 0 0 0 0  * X < -0
+Domain Limit 0 0 0 0 1 0 0 0  * X < 25
+Domain Limit 0 0 0 0 -1 0 0 0  * X < -0
+Domain Limit 0 0 0 0 0 1 0 0  * X < 55
+Domain Limit 0 0 0 0 0 -1 0 0  * X < -30
+Domain Limit 0 0 0 0 0 0 1 0  * X < 25
+Domain Limit 0 0 0 0 0 0 -1 0  * X < -8
+Domain Limit 0 0 0 0 0 0 0 1  * X < 2
+Domain Limit 0 0 0 0 0 0 0 -1  * X < -0.1
 There are 0 Box-Constraints.
 There are 0 Box-Exclusion-Constraints.
 There are 0 Linear-Constraints.
 There are 0 User-Defined-Constraints.
 The maximum number of FEM analysis is 20.
 Optimization will stop when the relative gradient is less than 1e-008.
-The analysis starts from 1.53 10 1 2 4 16 
+The analysis starts from 1.53 10 1 2 4 50 16 0.5 
 Finished setting up the engine.
 Adjust the grid spacing
-SnapLevel is set from 0 0 0 0 0 0 to 4 4 4 4 4 4 
+SnapLevel is set from 0 0 0 0 0 0 0 0 to 4 4 4 4 4 4 4 4 
 Experiments are not going to snapped
 Starting the optimization from here! 
- 1.53 10 1 2 4 16 
+ 1.53 10 1 2 4 50 16 0.5 
 ActiveGridIs not Active 
-SnapFrom 0.313889 0.411765 0 0.08 0.16 0.470588   To  0.313889 0.411765 0 0.08 0.16 0.470588 
-the num of output in derivAvailable = 18
+SnapFrom 0.313889 0.411765 0 0.08 0.16 0.8 0.470588 0.210526   To  0.313889 0.411765 0 0.08 0.16 0.8 0.470588 0.210526 
+the num of output in derivAvailable = 3
+Experiment#1 ( DV = 0 ) at 
+   **************** Time Stamp Tue Mar 02 23:06:33 2021
+
+X 1.53 10 1 2 4 50 16 0.5 DesignChar = 
+[
+11738 : VSWRt(feed_T1)[Freq=0.9GHz] = 3.57624736014943
+11738 : VSWRt(feed_T1)[Freq=1.8GHz] = 1.24155408700928
+11738 : VSWRt(feed_T1)[Freq=2.4GHz] = 2.65106980046396
+ ] 
+CostFunctionValue = 1.87859
+Begin Transfer the derivatives if any!
+dVarExternal_dVarInternal 3.6 17 29 25 25 25 17 1.9 
+the num of output in derivAvailable = 3
+Done with transfer of the derivatives
+ActiveGridIs not Active 
+SnapFrom 0.720716 0.877035 0.0125278 0.221682 0.2845 0.316114 0.93949 0.494211   To  0.720716 0.877035 0.0125278 0.221682 0.2845 0.316114 0.93949 0.494211 
+the num of output in derivAvailable = 3

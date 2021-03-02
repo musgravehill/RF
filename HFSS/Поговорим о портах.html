@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "https://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<!-- saved from url=(0062)https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah -->
+<html lang="ru" dir="ltr" xmlns:og="http://ogp.me/ns#" class="js"><head profile="http://www.w3.org/1999/xhtml/vocab"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./Поговорим о портах_files/analytics.js.Без названия"></script><script async="" src="https://cdn.api.twitter.com/1/urls/count.json?url=https%3A%2F%2Fcae-club.ru%2Fpublications%2Fansys-hfss-pogovorim-o-portah&amp;callback=jQuery110208162240156636031_1614716160030&amp;_=1614716160031"></script>
+  
+  <meta name="viewport" content="width=device-width">  
+  
+  <!-- Link faveicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="https://cae-expert.ru/sites/all/themes/bootstrap/images/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://cae-expert.ru/sites/all/themes/bootstrap/images/favicon/favicon-32x32.png"> 
+		<link rel="manifest" href="https://cae-expert.ru/sites/all/themes/bootstrap/images/favicon/site.webmanifest">
+		<link rel="mask-icon" href="https://cae-expert.ru/sites/all/themes/bootstrap/images/favicon/safari-pinned-tab.svg" color="#000000">
+		<meta name="msapplication-TileColor" content="#000000">
+		<meta name="theme-color" content="#ffffff">		 
+		<link rel="icon" type="image/png" sizes="48x48" href="https://cae-expert.ru/sites/all/themes/bootstrap/images/favicon/favicon-48x48.png"> 
+  <!-- ./Link faveicon -->
+  <!-- For yandex browser tab -->
+		
+  
+<script async="" src="./Поговорим о портах_files/tag.js.Без названия"></script><script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  extensions: ['tex2jax.js'],
+  jax: ['input/TeX','output/HTML-CSS'],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+    processEscapes: true,
+    processClass: 'tex2jax',
+    ignoreClass: 'html'
+  },
+  showProcessingMessages: false,
+  messageStyle: 'none'
+});
+</script><meta property="og:image" content="https://cae-club.ru/sites/default/files/images/articles/22.jpg">
+<link rel="shortcut icon" href="https://cae-club.ru/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="description" content="В программе ANSYS HFSS доступны для использования несколько типов источников возбуждений: волновой порт, сосредоточенный порт, Флоке порт, плоская волна, источник тока и напряжения и т.д. Но чаще всего используются волновой и сосредоточенный порты. Но несмотря на это часто у пользователей ANSYS HFSS возникают вопросы о правильности применения и установки этих типов источников">
+<meta name="robots" content="follow, index">
+<link rel="image_src" href="https://cae-club.ru/sites/default/files/logo_cae_og.png">
+<link rel="canonical" href="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah">
+<link rel="shortlink" href="https://cae-club.ru/node/9208">
+<meta property="og:site_name" content="Клуб пользователей ANSYS">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah">
+<meta property="og:title" content="ANSYS HFSS. Поговорим о портах.">
+<meta property="og:description" content="В программе ANSYS HFSS доступны для использования несколько типов источников возбуждений: волновой порт, сосредоточенный порт, Флоке порт, плоская волна, источник тока и напряжения и т.д. Но чаще всего используются волновой и сосредоточенный порты. Но несмотря на это часто у пользователей ANSYS HFSS возникают вопросы о правильности применения и установки этих типов источников возбуждений. Поэтому в этой небольшой статье речь пойдёт именно о них. Рисунок 1. Общий вид установки сосредоточенных и волновых портов.">
+  <title>ANSYS HFSS. Поговорим о портах. | Клуб пользователей ANSYS</title>
+  <link type="text/css" rel="stylesheet" href="./Поговорим о портах_files/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Поговорим о портах_files/css_2Od8T1qp7C6erFwiiZyoz2I13sT7mRYj2ndwBZlDWMU.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Поговорим о портах_files/css_oKghuShc6geu7snoGd4SD3ZN5w5tXulUzZNuK9VVL8c.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Поговорим о портах_files/bootstrap.min.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Поговорим о портах_files/css_q31ydNTQrOCRmzFYMpPasjmhRxwJHnGa5Cqn1URex3Y.css" media="all">
+  <!-- HTML5 element support for IE6-8 -->
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <script src="./Поговорим о портах_files/jquery.min.js.Без названия"></script>
+<script>window.jQuery || document.write("<script src='/sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js'>\x3C/script>")</script>
+<script src="./Поговорим о портах_files/js_vSmhpx_T-AShyt_WMW5_TcwwxJP1imoVOa8jvwL_mxE.js.Без названия"></script>
+<script src="./Поговорим о портах_files/js__7Mjvj_fIAGoauK0xklylKBUIHrCcijyT8yucEi2E0o.js.Без названия"></script>
+<script src="./Поговорим о портах_files/bootstrap.min.js.Без названия"></script>
+<script src="./Поговорим о портах_files/js_RSPWvmLwUQfa2AeuLtqrGECPL5vic_zaFRWMWLpmsrg.js.Без названия"></script>
+<script src="./Поговорим о портах_files/js_MMSB7iwX_PMPGKjmzvqjXD-n_KGwlGkdfFSXUsTptVg.js.Без названия"></script>
+<script src="./Поговорим о портах_files/MathJax.js.Без названия"></script>
+<script src="./Поговорим о портах_files/js_tLg0faYnCNiuOnb_1qzxhTiYjVNXRwudTd6ZnHMQx-4.js.Без названия"></script>
+<script src="./Поговорим о портах_files/js_3ojyrjKJ2fMzo4QRVC2-YIlZo3PmBfgcWAlyn_CEkuE.js.Без названия"></script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"caeclub","theme_token":"k_tBPs-AFFmaTuLLeO5acfW-fkgirRGgIyBaN4Drx3s","jquery_version":"1.10","js":{"sites\/all\/themes\/bootstrap\/js\/bootstrap.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.10.2\/jquery.min.js":1,"0":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery.form\/4\/jquery.form.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1,"\/\/netdna.bootstrapcdn.com\/bootstrap\/3.0.2\/js\/bootstrap.min.js":1,"sites\/all\/modules\/admin_menu\/admin_devel\/admin_devel.js":1,"sites\/all\/modules\/mathjax\/mathjax.js":1,"public:\/\/languages\/ru_SR2axCAPan4uOm0FdymvlGulnbMshFZzbX3rf72gZJo.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_load.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_inline.js":1,"sites\/all\/modules\/jsquote\/js\/jsquote.js":1,"sites\/all\/modules\/quote\/quote.js":1,"sites\/all\/modules\/views\/js\/base.js":1,"sites\/all\/themes\/bootstrap\/js\/misc\/_progress.js":1,"sites\/all\/modules\/views\/js\/ajax_view.js":1,"misc\/textarea.js":1,"modules\/filter\/filter.js":1,"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/mathjax\/2.7.2\/MathJax.js?config=TeX-AMS-MML_HTMLorMML":1,"sites\/all\/themes\/caeclub\/likely\/likely.js":1,"sites\/all\/themes\/caeclub\/js\/jquery.sticky.js":1,"sites\/all\/themes\/caeclub\/js\/caeclub-radon.js":1,"sites\/all\/themes\/bootstrap\/js\/misc\/ajax.js":1,"sites\/all\/themes\/bootstrap\/js\/modules\/views\/js\/ajax_view.js":1},"css":{"modules\/system\/system.base.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/logintoboggan\/logintoboggan.css":1,"sites\/all\/modules\/youtube\/css\/youtube.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/quote\/quote.css":1,"sites\/all\/modules\/rate\/rate.css":1,"sites\/all\/modules\/yandex_metrics\/css\/yandex_metrics.css":1,"sites\/all\/libraries\/fontawesome\/css\/font-awesome.css":1,"\/\/netdna.bootstrapcdn.com\/bootswatch\/3.0.2\/cosmo\/bootstrap.min.css":1,"sites\/all\/themes\/bootstrap\/css\/overrides.css":1,"sites\/all\/themes\/caeclub\/css\/style.css":1,"sites\/all\/themes\/caeclub\/likely\/likely.css":1,"sites\/all\/themes\/caeclub\/css\/custom.css":1,"sites\/all\/themes\/caeclub\/css\/mobile.css":1}},"colorbox":{"transition":"elastic","speed":"350","opacity":"0.85","slideshow":false,"slideshowAuto":true,"slideshowSpeed":"2500","slideshowStart":"start slideshow","slideshowStop":"stop slideshow","current":"{current} \u0438\u0437 {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"\u0417\u0430\u043a\u0440\u044b\u0442\u044c","overlayClose":true,"maxWidth":"98%","maxHeight":"98%","initialWidth":"300","initialHeight":"250","fixed":true,"scrolling":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"quote_nest":"2","views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:2528b55b048d23e9243b6f57cdd4dad0":{"view_name":"_2","view_display_id":"block","view_args":"","view_path":"node\/9208","view_base_path":null,"view_dom_id":"2528b55b048d23e9243b6f57cdd4dad0","pager_element":0}}},"better_exposed_filters":{"views":{"_2":{"displays":{"block":{"filters":[]}}},"front_topics":{"displays":{"block":{"filters":[]}}},"front_video":{"displays":{"block":{"filters":[]}}}}},"ckeditor":{"input_formats":{"2":{"customConfig":"\/sites\/all\/modules\/ckeditor\/ckeditor.config.js?","defaultLanguage":"ru","toolbar":"[\n    [\u0027Source\u0027],\n    [\u0027Cut\u0027,\u0027Copy\u0027,\u0027Paste\u0027,\u0027PasteText\u0027,\u0027PasteFromWord\u0027,\u0027-\u0027,\u0027SpellChecker\u0027,\u0027Scayt\u0027],\n    [\u0027Undo\u0027,\u0027Redo\u0027,\u0027Find\u0027,\u0027Replace\u0027,\u0027-\u0027,\u0027SelectAll\u0027],\n    [\u0027Image\u0027,\u0027OCUpload\u0027,\u0027Flash\u0027,\u0027Table\u0027,\u0027HorizontalRule\u0027,\u0027Smiley\u0027,\u0027SpecialChar\u0027,\u0027Iframe\u0027],\n    \u0027\/\u0027,\n    [\u0027Bold\u0027,\u0027Italic\u0027,\u0027Underline\u0027,\u0027Strike\u0027,\u0027-\u0027,\u0027Subscript\u0027,\u0027Superscript\u0027,\u0027-\u0027,\u0027RemoveFormat\u0027],\n    [\u0027NumberedList\u0027,\u0027BulletedList\u0027,\u0027-\u0027,\u0027Outdent\u0027,\u0027Indent\u0027,\u0027Blockquote\u0027,\u0027CreateDiv\u0027],\n    [\u0027JustifyLeft\u0027,\u0027JustifyCenter\u0027,\u0027JustifyRight\u0027,\u0027JustifyBlock\u0027,\u0027-\u0027,\u0027BidiLtr\u0027,\u0027BidiRtl\u0027,\u0027-\u0027,\u0027Language\u0027],\n    [\u0027Link\u0027,\u0027Unlink\u0027,\u0027Anchor\u0027],\n    \u0027\/\u0027,\n    [\u0027Format\u0027,\u0027Font\u0027,\u0027FontSize\u0027],\n    [\u0027TextColor\u0027,\u0027BGColor\u0027],\n    [\u0027Maximize\u0027,\u0027ShowBlocks\u0027],\n    [\u0027DrupalBreak\u0027,\u0027Mathjax\u0027]\n]","enterMode":1,"shiftEnterMode":2,"toolbarStartupExpanded":true,"width":"100%","skin":"moono","format_tags":"p;div;pre;address;h1;h2;h3;h4;h5;h6","show_toggle":"t","default":"t","ss":"2","contentsLangDirection":"ltr","loadPlugins":{"autogrow":{"name":"autogrow","desc":"Auto Grow plugin. See \u003Ca href=\u0022http:\/\/ckeditor.com\/addon\/autogrow\u0022\u003Eaddon page\u003C\/a\u003E for more details.","path":"\/\/cdn.ckeditor.com\/4.4.3\/full-all\/plugins\/autogrow\/","buttons":false,"default":"f"},"drupalbreaks":{"name":"drupalbreaks","desc":"Plugin for inserting Drupal teaser and page breaks.","path":"\/sites\/all\/modules\/ckeditor\/plugins\/drupalbreaks\/","buttons":{"DrupalBreak":{"label":"DrupalBreak","icon":"images\/drupalbreak.png"}},"default":"t"},"mathjax":{"name":"mathjax","desc":"Plugin for inserting Mathematical Formula (MathJax). See \u003Ca href=\u0022http:\/\/ckeditor.com\/addon\/mathjax\u0022\u003Eaddon page\u003C\/a\u003E for more details. See \u003Ca href=\u0022\/admin\/help\/ckeditor#mathjax\u0022\u003Ehelp\u003C\/a\u003E for additional instructions.","path":"\/\/cdn.ckeditor.com\/4.4.3\/full-all\/plugins\/mathjax\/","buttons":{"Mathjax":{"icon":"icons\/mathjax.png","label":"Insert Mathematical Formulas"}},"default":"f"},"mediaembed":{"name":"mediaembed","desc":"Plugin for embedding HTML snippets","path":"\/sites\/all\/modules\/ckeditor\/plugins\/mediaembed\/","buttons":{"MediaEmbed":{"label":"MediaEmbed","icon":"images\/icon.png"}},"default":"f"},"ocupload":{"name":"OCUpload","desc":"One Click Upload","path":"\/sites\/all\/modules\/ocupload\/js\/","buttons":{"OCUpload":{"icon":"..\/img\/icon-ckeditor.png","label":"One Click Upload"}}},"tableresize":{"name":"tableresize","desc":"Table Resize plugin. See \u003Ca href=\u0022http:\/\/ckeditor.com\/addon\/tableresize\u0022\u003Eaddon page\u003C\/a\u003E for more details.","path":"\/\/cdn.ckeditor.com\/4.4.3\/full-all\/plugins\/tableresize\/","buttons":false,"default":"t"}},"scayt_autoStartup":false,"language":"ru","scayt_sLang":"en_US","stylesCombo_stylesSet":"drupal:\/sites\/all\/modules\/ckeditor\/ckeditor.styles.js","contentsCss":["\/sites\/all\/modules\/ckeditor\/css\/ckeditor.css?qonz1v","\/\/cdn.ckeditor.com\/4.7.0\/full-all\/contents.css?qonz1v"]},"user_html":{"customConfig":"\/sites\/all\/modules\/ckeditor\/ckeditor.config.js?","defaultLanguage":"ru","toolbar":"[\n    [\u0027Bold\u0027,\u0027Italic\u0027,\u0027Underline\u0027,\u0027-\u0027,\u0027NumberedList\u0027,\u0027BulletedList\u0027,\u0027-\u0027,\u0027Link\u0027,\u0027Unlink\u0027,\u0027-\u0027,\u0027JustifyLeft\u0027,\u0027JustifyCenter\u0027,\u0027JustifyRight\u0027,\u0027-\u0027,\u0027Subscript\u0027,\u0027Superscript\u0027,\u0027Mathjax\u0027,\u0027-\u0027,\u0027Table\u0027,\u0027OCUpload\u0027,\u0027Blockquote\u0027,\u0027CodeSnippet\u0027,\u0027RemoveFormat\u0027]\n]","enterMode":1,"shiftEnterMode":2,"toolbarStartupExpanded":true,"width":"100%","skin":"moono","format_tags":"p;div;pre;address;h1;h2;h3;h4;h5;h6","show_toggle":"t","default":"t","allowedContent":true,"ss":"2","contentsLangDirection":"ltr","loadPlugins":{"codesnippet":{"name":"codesnippet","desc":"Plugin for inserting Code Snippets. See \u003Ca href=\u0022http:\/\/ckeditor.com\/addon\/codesnippet\u0022\u003Eaddon page\u003C\/a\u003E for more details. See \u003Ca href=\u0022\/admin\/help\/ckeditor#codesnippet\u0022\u003Ehelp\u003C\/a\u003E for additional instructions.","path":"\/\/cdn.ckeditor.com\/4.7.0\/full-all\/plugins\/codesnippet\/","buttons":{"CodeSnippet":{"icon":"icons\/codesnippet.png","label":"Insert Code Snippet"}},"default":"f"},"image2":{"name":"image2","desc":"Enhanced Image plugin. See \u003Ca href=\u0022http:\/\/ckeditor.com\/addon\/image2\u0022\u003Eaddon page\u003C\/a\u003E for more details.","path":"\/\/cdn.ckeditor.com\/4.7.0\/full-all\/plugins\/image2\/","buttons":{"Enhanced Image":{"icon":"icons\/image.png","label":"Insert Enhanced Image"}},"default":"t"},"mathjax":{"name":"mathjax","desc":"Plugin for inserting Mathematical Formula (MathJax). See \u003Ca href=\u0022http:\/\/ckeditor.com\/addon\/mathjax\u0022\u003Eaddon page\u003C\/a\u003E for more details. See \u003Ca href=\u0022\/admin\/help\/ckeditor#mathjax\u0022\u003Ehelp\u003C\/a\u003E for additional instructions.","path":"\/\/cdn.ckeditor.com\/4.7.0\/full-all\/plugins\/mathjax\/","buttons":{"Mathjax":{"icon":"icons\/mathjax.png","label":"Insert Mathematical Formulas"}},"default":"f"},"mediaembed":{"name":"mediaembed","desc":"Plugin for embedding HTML snippets","path":"\/sites\/all\/modules\/ckeditor\/plugins\/mediaembed\/","buttons":{"MediaEmbed":{"label":"MediaEmbed","icon":"images\/icon.png"}},"default":"f"},"ocupload":{"name":"OCUpload","desc":"One Click Upload","path":"\/sites\/all\/modules\/ocupload\/js\/","buttons":{"OCUpload":{"icon":"..\/img\/icon-ckeditor.png","label":"One Click Upload"}}}},"scayt_autoStartup":false,"language":"ru","scayt_sLang":"en_US","output_pre_indent":true,"custom_formatting":{"indent":true,"breakBeforeOpen":true,"breakAfterOpen":true,"breakBeforeClose":true,"breakAfterClose":true},"js_conf":{"allowedContent":true,"image2_alignClasses":"[\u0027align-left\u0027, \u0027align-center\u0027, \u0027align-right\u0027]"},"stylesCombo_stylesSet":"drupal:\/sites\/all\/modules\/ckeditor\/ckeditor.styles.js","contentsCss":["\/sites\/all\/modules\/ckeditor\/css\/ckeditor.css?qonz1v","\/\/cdn.ckeditor.com\/4.7.0\/full-all\/contents.css?qonz1v"]}},"plugins":[],"textarea_default_format":{"edit-comment-body-und-0-value":"5"}},"urlIsAjaxTrusted":{"\/comment\/reply\/9208":true},"bootstrap":{"anchorsFix":1,"anchorsSmoothScrolling":1,"popoverEnabled":1,"popoverOptions":{"animation":1,"html":0,"placement":"right","selector":"","trigger":"click","title":"","content":"","delay":0,"container":"body"},"tooltipEnabled":1,"tooltipOptions":{"animation":1,"html":0,"placement":"auto left","selector":"","trigger":"hover focus","delay":0,"container":"body"}}});</script>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-9208 node-type-article navbar-is-fixed-top" style=""><div id="MathJax_Message" style="display: none;"></div>
+  <div id="skip-link">
+    <a href="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah#main-content" class="element-invisible element-focusable">Перейти к основному содержанию</a>
+  </div>
+    <header id="navbar" role="banner" class="navbar navbar-fixed-top navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+            <a class="logo navbar-btn pull-left" href="https://cae-club.ru/" title="Главная">
+        <img src="./Поговорим о портах_files/cae-club_logo_0.png" alt="Главная">
+      </a>
+      
+      
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+          <div class="navbar-collapse collapse">
+        <nav role="navigation">
+                      <ul class="menu nav navbar-nav"><li class="first leaf"><a href="https://cae-club.ru/blog" title="">Блог</a></li>
+<li class="leaf"><a href="https://cae-club.ru/forum" title="">Форум</a></li>
+<li class="leaf"><a href="https://cae-club.ru/videos">Видео</a></li>
+<li class="leaf"><a href="https://cae-club.ru/ysearch" title="">Поиск</a></li>
+<li class="last leaf"><a href="http://www.cae-expert.ru/" title="Единый центр поддержки продуктов ANSYS в России и странах СНГ ">cae-expert.ru</a></li>
+</ul>                                      </nav>
+      </div>
+      </div>
+</header>
+<div class="main_area">
+<a href="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah#" class="aside-open"></a>
+<aside class="left_nav">
+    <a class="fa fa-sign-in" href="https://cae-club.ru/user"></a>
+ <div style="position:fixed; width: 70px; bottom:70px; background-color:#ffcc00">
+    <a id="top" href="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah#" class="fa fa-chevron-up" style="display: block;"></a>
+    <script type="text/javascript">
+(function($){
+  $(document).ready(function(){
+  var top_show = 200;
+  var delay = 1000;
+  $(document).ready(function() {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > top_show) $('#top').fadeIn();
+      else $('#top').fadeOut();
+    });
+    $('#top').click(function () {
+      $('body, html').animate({
+        scrollTop: 0
+      }, delay);
+    });
+  });
+ });
+})(jQuery);
+</script>
+ </div>
+</aside>
+
+<div class="main-container container">
+
+  <header role="banner" id="page-header">
+    
+      </header> <!-- /#page-header -->
+
+  <div class="row">
+
+    
+    <section class="col-sm-9">
+            <ol class="breadcrumb"><li class="first"><a href="https://cae-club.ru/blog">Блог</a></li>
+<li class="active last">ANSYS HFSS. Поговорим о портах.</li>
+</ol>      <a id="main-content"></a>
+                    <h1 class="page-header">ANSYS HFSS. Поговорим о портах.</h1>
+                                                          <div class="region region-content">
+    <section id="block-system-main" class="block block-system clearfix">
+
+      
+  <div id="node-9208" class="node node-article">
+
+    <div class="user-picture">
+    <img src="./Поговорим о портах_files/ava_user.png" alt="Аватар пользователя Evgeny Butorov" title="Аватар пользователя Evgeny Butorov">  </div>
+
+      
+      <span class="submitted">
+      Опубликовано 31 марта, 2017 - 13:48 пользователем <span class="username">Evgeny Butorov</span>    </span>
+  
+  <span class="node-more-info">
+          <span>
+        <i class="fa fa-comment" aria-hidden="true"></i>
+        <a href="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah#comments" title="Показать комментарии" alt="Показать комментарии">2</a>
+      </span>
+    
+          <span>
+        <i class="fa fa-eye" aria-hidden="true"></i>
+        7028      </span>
+      </span>
+
+  <div class="content clearfix"> 
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><div class="tex2jax"><p>
+	В программе ANSYS HFSS доступны для использования несколько типов источников возбуждений: волновой порт, сосредоточенный порт, Флоке порт, плоская волна, источник тока и напряжения и т.д. Но чаще всего используются волновой и сосредоточенный порты. Но несмотря на это часто у пользователей ANSYS HFSS возникают вопросы о правильности применения и установки этих типов источников возбуждений. Поэтому в этой небольшой статье речь пойдёт именно о них.
+</p>
+<p>
+	<a class="colorbox init-colorbox-processed cboxElement" href="https://cae-club.ru/sites/default/files/styles/1600x1600/public/images/12_6.jpg?itok=7KREALPB" target="_blank" rel="nofollow"><img alt="" src="./Поговорим о портах_files/12_6.jpg"></a>
+</p>
+<p>
+	Рисунок 1. Общий вид установки сосредоточенных и волновых портов.
+</p>
+<p>
+	<strong><u>Wave</u></strong> <strong><u>Port</u></strong><strong><u> (волновой порт)</u></strong>
+</p>
+<p>
+	Волновые порты представляют собой места в геометрии, через которую сигналы возбуждения вводятся и выводятся из анализируемой структуры. Они используются, когда моделируются волноводные структуры, любые линии передач и другие устройства планарного исполнения. HFSS предполагает, что каждый волновой порт, который вы задаете, связан с полубесконечным волноводом, который имеет то же самое сечение и свойства материала, как и порт. При расчете S-параметров, HFSS предполагает, что структура возбуждена типами волн (модами), связанными с этими сечениями. Установка волновых портов несколько изменяется в зависимости от типа решения задачи, т.е. является ли решение модальным (modal) или терминальным (terminal), а также от типа самой задачи. Если для волноводных структур (закрытые линии) размеры волнового порта определяются поперечным сечением этих структур и установка порта не представляет никаких сложностей, то для линий передач таких как микрополосковая, полосковая, копланарная, щелевая и т.д. размеры портов должны быть чётко определены во избежание ошибок в вычислениях. Ниже приведены правила установки источника возбуждения типа волновой порт для некоторых случаев.
+</p>
+<p>
+	<a class="colorbox init-colorbox-processed cboxElement" href="https://cae-club.ru/sites/default/files/styles/1600x1600/public/images/6_11.jpg?itok=e7qMNKkq" target="_blank" rel="nofollow"><img alt="" src="./Поговорим о портах_files/6_11.jpg"></a>
+</p>
+<p>
+	Рисунок 2. Пример установки волнового порта на закрытые типы линий (круглый волновод, коаксиал, прямоугольный волновод).
+</p>
+<p>
+	<a class="colorbox init-colorbox-processed cboxElement" href="https://cae-club.ru/sites/default/files/styles/1600x1600/public/images/5_19.jpg?itok=K4ODTP3c" target="_blank" rel="nofollow"><img alt="" src="./Поговорим о портах_files/5_19.jpg"></a>
+</p>
+<p>
+	Рисунок 3. Рекомендуемые размеры волнового порта для микрополосковой линии, полосковой (размер h ограничен верхней и нижней металлизацией), копланарной&nbsp; и т.д.
+</p>
+<p>
+	<strong><u>Lumped</u></strong> <strong><u>Port</u></strong><strong><u> (сосредоточенный порт)</u></strong>
+</p>
+<p>
+	Сосредоточенные порты аналогичны традиционным волновым портам, но могут быть расположены внутри структуры и иметь комплексный импеданс, заданный пользователем. Сосредоточенные порты рассчитывают S-параметры сразу на портах. Они используются, в основном когда выполняется моделирование микрополосковых структур. Их установки так же меняются в зависимости от метода решения модальный или терминальный. Дискретные порты могут быть заданы на прямоугольнике между краем линии и земляным полигоном, их размеры практически всегда определяются размерами линии.&nbsp;
+</p>
+<p>
+	Ниже приведены примеры установки источника возбуждения такого типа для различных случаев.
+</p>
+<p>
+	<a class="colorbox init-colorbox-processed cboxElement" href="https://cae-club.ru/sites/default/files/styles/1600x1600/public/images/7_6.jpg?itok=sJmmqjNw" target="_blank" rel="nofollow"><img alt="" src="./Поговорим о портах_files/7_6.jpg"></a>
+</p>
+<p>
+	Рисунок 4. Примеры установки сосредоточенного порта.
+</p>
+<p>
+	<strong><u>Что общего и чем отличаются</u></strong>
+</p>
+<p>
+	Подитожим и систематизируем всё что было написано выше о двух типах портов. Ниже приведённая таблица отражает основные возможности волнового и сосредоточенного портов.&nbsp;
+</p>
+<p>
+	<a class="colorbox init-colorbox-processed cboxElement" href="https://cae-club.ru/sites/default/files/styles/1600x1600/public/images/3_27.jpg?itok=kHaa-UCP" target="_blank" rel="nofollow"><img alt="" src="./Поговорим о портах_files/3_27.jpg"></a>
+</p>
+<p>
+	Рисунок 5. Таблица сравнения волнового и сосредоточенного портов.
+</p>
+<p>
+	Для полноты картины внесу некоторые пояснения.
+</p>
+<p>
+	Первое. Для сосредоточенного порта заявлена невозможность применения инструмента De-embed, но при настройке этого порта есть возможность устанавливать флаг – De-embed тем самым активируя эту функцию, что у многих пользователей вызывает недоумение. Внесу ясность – в случае установки флага для сосредоточенного порта эта функция исключает индуктивность порта. Надо сказать, что применение De-embed влияет на характеристики анализируемого устройства не всегда, а только в некоторых случаях, когда распределенная индуктивность порта уж очень велика (зависит от геометрии и частоты анализа).
+</p>
+<p>
+	Второе. В таблице в графе “применение” для волнового порта указано – “внешний”. Это подразумевает что данный тип порта устанавливается на границу анализируемой области и всей остальной, где расчёта уже не ведётся. Но в некоторых задачах можно при желании обойти это правило. Для этого нужно расположить на одну из сторон (туда где не предполагается распространение волны) небольшое тело типа PEC или металл и использовать волновой порт уже внутри области расчёта.
+</p>
+<p>
+	<a class="colorbox init-colorbox-processed cboxElement" href="https://cae-club.ru/sites/default/files/styles/1600x1600/public/images/4_16.jpg?itok=pfC6XK6Z" target="_blank" rel="nofollow"><img alt="" src="./Поговорим о портах_files/4_16.jpg"></a>
+</p>
+<p>
+	Рисунок 6. Демонстрация установки волнового порта внутри расчётной области.
+</p>
+<p>
+	<strong><u>Заключение.</u></strong>
+</p>
+<p>
+	Важно, что компания ANSYS гарантирует что независимо от того какой из двух видов портов будет использоваться результаты моделирования будут точными. Выбирайте удобный порт именно для вашей задачи, соблюдайте рекомендованные правила его установки и ваши расчёты будут соответствовать измерениям.
+</p></div></div></div></div><div class="field field-name-taxonomy-vocabulary-3 field-type-taxonomy-term-reference field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://cae-club.ru/tip-kontenta/chasto-zadavaemye-voprosy">Часто задаваемые вопросы</a></div></div></div><div class="field field-name-taxonomy-vocabulary-4 field-type-taxonomy-term-reference field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://cae-club.ru/programmnye-produkty/vysokochastotnye-ustroystva">Высокочастотные устройства</a></div></div></div>	
+	 
+	 	<meta property="og:image" content="https://cae-club.ru/sites/default/files/images/articles/22.jpg"> 
+  </div>
+
+  <div class="likely likely_visible likely_ready">
+    <div class="likely__widget likely__widget_twitter"><span class="likely__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M15.96 3.42c-.04.153-.144.31-.237.414l-.118.058v.118l-.59.532-.237.295c-.05.036-.398.21-.413.237V6.49h-.06v.473h-.058v.294h-.058v.296h-.06v.235h-.06v.237h-.058c-.1.355-.197.71-.295 1.064h-.06v.116h-.06c-.02.1-.04.197-.058.296h-.06c-.04.118-.08.237-.118.355h-.06c-.038.118-.078.236-.117.353l-.118.06-.06.235-.117.06v.116l-.118.06v.12h-.06c-.02.057-.038.117-.058.175l-.118.06v.117c-.06.04-.118.08-.177.118v.118l-.237.177v.118l-.59.53-.532.592h-.117c-.06.078-.118.156-.177.236l-.177.06-.06.117h-.118l-.06.118-.176.06v.058h-.118l-.06.118-.353.12-.06.117c-.078.02-.156.04-.235.058v.06c-.118.038-.236.078-.354.118v.058H8.76v.06h-.12v.06h-.176v.058h-.118v.06H8.17v.058H7.99v.06l-.413.058v.06h-.237c-.667.22-1.455.293-2.36.293h-.886v-.058h-.53v-.06H3.27v-.06h-.295v-.06H2.68v-.057h-.177v-.06h-.236v-.058H2.09v-.06h-.177v-.058h-.177v-.06H1.56v-.058h-.12v-.06l-.294-.06v-.057c-.118-.04-.236-.08-.355-.118v-.06H.674v-.058H.555v-.06H.437v-.058H.32l-.06-.12H.142v-.058c-.13-.08-.083.026-.177-.118H1.56v-.06c.294-.04.59-.077.884-.117v-.06h.177v-.058h.237v-.06h.118v-.06h.177v-.057h.118v-.06h.177v-.058l.236-.06v-.058l.236-.06c.02-.038.04-.078.058-.117l.237-.06c.02-.04.04-.077.058-.117h.118l.06-.118h.118c.036-.025.047-.078.118-.118V12.1c-1.02-.08-1.84-.54-2.303-1.183-.08-.058-.157-.118-.236-.176v-.117l-.118-.06v-.117c-.115-.202-.268-.355-.296-.65.453.004.987.008 1.354-.06v-.06c-.254-.008-.47-.08-.65-.175v-.058H2.32v-.06c-.08-.02-.157-.04-.236-.058l-.06-.118h-.117l-.118-.178h-.12c-.077-.098-.156-.196-.235-.294l-.118-.06v-.117l-.177-.12c-.35-.502-.6-1.15-.59-2.006h.06c.204.234.948.377 1.357.415v-.06c-.257-.118-.676-.54-.827-.768V5.9l-.118-.06c-.04-.117-.08-.236-.118-.354h-.06v-.118H.787c-.04-.196-.08-.394-.118-.59-.06-.19-.206-.697-.118-1.005h.06V3.36h.058v-.177h.06v-.177h.057V2.83h.06c.04-.118.078-.236.117-.355h.118v.06c.12.097.237.196.355.295v.118l.118.058c.08.098.157.197.236.295l.176.06.354.413h.118l.177.236h.118l.06.117h.117c.04.06.08.118.118.177h.118l.06.118.235.06.06.117.356.12.06.117.53.176v.06h.118v.058l.236.06v.06c.118.02.236.04.355.058v.06h.177v.058h.177v.06h.176v.058h.236v.06l.472.057v.06l1.417.18v-.237c-.1-.112-.058-.442-.057-.65 0-.573.15-.99.354-1.358v-.117l.118-.06.06-.235.176-.118v-.118c.14-.118.276-.236.414-.355l.06-.117h.117l.12-.177.235-.06.06-.117h.117v-.058H9.7v-.058h.177v-.06h.177v-.058h.177v-.06h.296v-.058h1.063v.058h.294v.06h.177v.058h.178v.06h.177v.058h.118v.06h.118l.06.117c.08.018.158.038.236.058.04.06.08.118.118.177h.118l.06.117c.142.133.193.163.472.178.136-.12.283-.05.472-.118v-.06h.177v-.058h.177v-.06l.236-.058v-.06h.177l.59-.352v.176h-.058l-.06.295h-.058v.117h-.06v.118l-.117.06v.118l-.177.118v.117l-.118.06-.354.412h-.117l-.177.236h.06c.13-.112.402-.053.59-.117l1.063-.353z"></path></svg></span><span class="likely__button likely__button_twitter"></span></div>
+    <div class="likely__widget likely__widget_facebook"><span class="likely__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M13 0H3C1 0 0 1 0 3v10c0 2 1 3 3 3h5V9H6V7h2V5c0-2 2-2 2-2h3v2h-3v2h3l-.5 2H10v7h3c2 0 3-1 3-3V3c0-2-1-3-3-3z"></path></svg></span><span class="likely__button likely__button_facebook"></span><span class="likely__counter likely__counter_facebook likely__counter_empty"></span></div>
+    <div class="likely__widget likely__widget_gplus"><span class="likely__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M16 7h-2V5h-1v2h-2v1h2v2h1V8h2z"></path><path d="M5.334 16c-1.47-.012-2.593-.337-3.335-.968C1.24 14.44.853 13.71.853 12.86c0-.41.125-.87.37-1.363.242-.502.68-.947 1.302-1.315.676-.39 1.4-.654 2.152-.786.55-.08 1.014-.133 1.41-.16-.062-.102-.12-.206-.174-.31-.148-.236-.227-.534-.227-.878 0-.21.03-.385.093-.537l.002-.005c-.11.007-.217.01-.32.01-1.15-.015-2.04-.387-2.65-1.107-.625-.655-.945-1.44-.945-2.326 0-1.06.45-2.034 1.334-2.893C3.814.68 4.455.347 5.11.192 5.733.063 6.334 0 6.895 0H11.8L9.82 1.16l-.75.02c.16.172.31.366.456.597.145.228.278.504.394.82.1.327.148.704.148 1.124-.013.78-.19 1.414-.523 1.886-.16.222-.326.424-.503.612-.196.193-.4.374-.614.563-.096.104-.2.235-.295.38-.1.14-.145.283-.145.456 0 .156.043.282.127.374.11.14.206.247.3.343l.674.552c.44.362.83.765 1.163 1.204.334.47.508 1.084.522 1.824 0 1.056-.465 2-1.383 2.806-.94.824-2.305 1.254-4.054 1.28h-.004zm1.168-5.782c-.135 0-.36.015-.672.046-.4.056-.822.152-1.246.282-.09.033-.23.09-.41.17-.17.076-.346.188-.522.334-.16.143-.302.33-.42.55-.132.23-.196.5-.196.83 0 .645.286 1.167.875 1.592.574.433 1.38.66 2.397.673.898-.014 1.588-.21 2.05-.586.44-.365.652-.82.652-1.39 0-.46-.152-.864-.45-1.205-.336-.345-.887-.786-1.63-1.307l-.428.01zM5.636 1.13c-.485.015-.878.206-1.2.587-.273.403-.403.854-.39 1.366 0 .703.21 1.444.618 2.205.193.345.444.64.747.875.29.227.623.343.992.343.472-.02.858-.187 1.175-.512.132-.204.23-.445.27-.68.027-.246.042-.47.042-.648 0-.767-.2-1.552-.593-2.334-.177-.36-.41-.656-.695-.88-.275-.197-.6-.307-.966-.32z"></path></svg></span><span class="likely__button likely__button_gplus"></span><span class="likely__counter likely__counter_gplus likely__counter_empty"></span></div>
+    <div class="likely__widget likely__widget_vkontakte"><span class="likely__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M13 0H3C1 0 0 1 0 3v10c0 2 1 3 3 3h10c2 0 3-1 3-3V3c0-2-1-3-3-3zm.452 11.394l-1.603.022s-.345.068-.8-.243c-.598-.41-1.164-1.48-1.604-1.342-.446.144-.432 1.106-.432 1.106s.003.206-.1.315c-.11.12-.326.144-.326.144H7.87s-1.582.095-2.975-1.356c-1.52-1.583-2.862-4.723-2.862-4.723s-.078-.206.006-.305c.094-.112.35-.12.35-.12l1.716-.01s.162.026.277.11c.095.07.15.202.15.202s.276.7.643 1.335c.716 1.238 1.05 1.508 1.293 1.376.353-.193.247-1.75.247-1.75s.006-.565-.178-.817c-.145-.194-.415-.25-.534-.267-.096-.014.062-.238.267-.338.31-.15.853-.16 1.497-.153.502.004.646.035.842.083.59.143.39.694.39 2.016 0 .422-.075 1.018.23 1.215.13.085.453.013 1.256-1.352.38-.647.666-1.407.666-1.407s.062-.136.16-.194c.098-.06.232-.04.232-.04l1.804-.012s.542-.065.63.18c.092.257-.203.857-.94 1.84-1.21 1.612-1.345 1.46-.34 2.394.96.89 1.16 1.325 1.192 1.38.4.66-.44.71-.44.71z"></path></svg></span><span class="likely__button likely__button_vkontakte"></span><span class="likely__counter likely__counter_vkontakte likely__counter_empty"></span></div>
+    <div class="likely__widget likely__widget_odnoklassniki"><span class="likely__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M8 6.107c.888 0 1.607-.72 1.607-1.607 0-.888-.72-1.607-1.607-1.607s-1.607.72-1.607 1.607c0 .888.72 1.607 1.607 1.607zM13 0H3C1 0 0 1 0 3v10c0 2 1 3 3 3h10c2 0 3-1 3-3V3c0-2-1-3-3-3zM8 .75c2.07 0 3.75 1.68 3.75 3.75 0 2.07-1.68 3.75-3.75 3.75S4.25 6.57 4.25 4.5C4.25 2.43 5.93.75 8 .75zm3.826 12.634c.42.42.42 1.097 0 1.515-.21.208-.483.313-.758.313-.274 0-.548-.105-.758-.314L8 12.59 5.69 14.9c-.42.418-1.098.418-1.516 0s-.42-1.098 0-1.516L6.357 11.2c-1.303-.386-2.288-1.073-2.337-1.11-.473-.354-.57-1.025-.214-1.5.354-.47 1.022-.567 1.496-.216.03.022 1.4.946 2.698.946 1.31 0 2.682-.934 2.693-.943.474-.355 1.146-.258 1.5.213.355.474.26 1.146-.214 1.5-.05.036-1.035.723-2.338 1.11l2.184 2.184z"></path></svg></span><span class="likely__button likely__button_odnoklassniki"></span><span class="likely__counter likely__counter_odnoklassniki likely__counter_empty"></span></div>
+  </div>
+
+  <div class="clearfix">
+          <div class="links"><ul class="links list-inline"><li class="comment-add first active"><a href="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah#comment-form" title="Поделитесь своими мыслями и мнением относительно данной публикации." class="active">Добавить комментарий</a></li>
+<li class="quote"><a href="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah#" title="Цитировать это сообщение в своем ответе">цитата</a></li>
+<li class="statistics_counter last"><span>7028 просмотров</span></li>
+</ul></div>
+    
+    <div id="comments" class="comment-wrapper">
+          <h2 class="title">Комментарии</h2>
+      
+  <a id="comment-18549"></a>
+<div class="comment clearfix">
+  
+      <div class="user-picture">
+    <img src="./Поговорим о портах_files/picture-5143-1511959157.jpg" width="70" height="70" alt="Аватар пользователя Olha" title="Аватар пользователя Olha">  </div>
+  <div class="submitted">
+        Опубликовано 29 ноября, 2017 - 17:38 пользователем <span class="username">Olha</span>    <a href="https://cae-club.ru/comment/18549#comment-18549" class="permalink" rel="bookmark">#</a>  </div>
+  <div class="content">
+    <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div class="tex2jax"><p>
+	На каком расстоянии желательно размещать тело РЕС от волнового порта?&nbsp; И РЕС&nbsp;задается как граничное условие или просто как материал? Если первое, то мне шфсс выдает, что волновой порт находится внутри и отказывается считать. А Если создать слой РЕС и "вставить" его со стороны, куда волна не распространяется,&nbsp; то после начала расчета выдает ошибку, что порт не имеет расчета внутри материала или снаружи. Исходя из вышенаписанной статьи, что я делаю не так?
+</p>
+<p>
+	Считаю запредельный волновод, пытаюсь возбудить его волновым портом и сам волновод находится внутри коробки PML. Т.к. волновой порт нельзя ставить внутри, я использовала распределенный порт, но, мне кажется, он дает неточный расчет.&nbsp;
+</p></div></div></div></div>      </div>
+
+  <ul class="links list-inline"><li class="comment-reply first"><a href="https://cae-club.ru/comment/reply/9208/18549">ответить</a></li>
+<li class="quote last"><a href="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah#" title="Цитировать это сообщение в своем ответе">цитата</a></li>
+</ul></div>
+<a id="comment-18560"></a>
+<div class="comment clearfix">
+  
+      <div class="user-picture">
+    <img src="./Поговорим о портах_files/picture-5143-1511959157.jpg" width="70" height="70" alt="Аватар пользователя Olha" title="Аватар пользователя Olha">  </div>
+  <div class="submitted">
+        Опубликовано 1 декабря, 2017 - 15:12 пользователем <span class="username">Olha</span>    <a href="https://cae-club.ru/comment/18560#comment-18560" class="permalink" rel="bookmark">#</a>  </div>
+  <div class="content">
+    <div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div class="tex2jax"><p>
+	Разобралась. Вроде, пока что, работает. Спасибо за мысль!!
+</p></div></div></div></div>      </div>
+
+  <ul class="links list-inline"><li class="comment-reply first"><a href="https://cae-club.ru/comment/reply/9208/18560">ответить</a></li>
+<li class="quote last"><a href="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah#" title="Цитировать это сообщение в своем ответе">цитата</a></li>
+</ul></div>
+
+      <h2 class="title comment-form">Добавить комментарий</h2>
+    <form class="comment-form" action="https://cae-club.ru/comment/reply/9208" method="post" id="comment-form" accept-charset="UTF-8"><div><div><a href="https://cae-club.ru/user/login?destination=node/9208%23comment-form">Войдите</a> или <a href="https://cae-club.ru/user/register?destination=node/9208%23comment-form">зарегистрируйтесь</a>, чтобы отправлять комментарии</div><div class="form-type-textfield form-item-name form-item form-group">
+  <label for="edit-name">Email-адрес <span class="form-required" title="Это поле обязательно для заполнения.">*</span></label>
+ <input class="col-xs-6 form-control form-text required" type="text" id="edit-name" name="name" value="" size="60" maxlength="60">
+</div>
+<div class="form-type-password form-item-pass form-item form-group">
+  <label for="edit-pass">Пароль <span class="form-required" title="Это поле обязательно для заполнения.">*</span></label>
+ <input class="form-control form-text required" type="password" id="edit-pass" name="pass" size="60" maxlength="128">
+</div>
+<div class="field-type-text-long field-name-comment-body field-widget-text-textarea form-wrapper form-group" id="edit-comment-body"><div id="comment-body-add-more-wrapper"><div class="text-format-wrapper"><div class="form-type-textarea form-item-comment-body-und-0-value form-item form-group">
+  <label for="edit-comment-body-und-0-value">Комментарий <span class="form-required" title="Это поле обязательно для заполнения.">*</span></label>
+ <div class="form-textarea-wrapper resizable textarea-processed resizable-textarea"><textarea class="text-full form-control form-textarea required" id="edit-comment-body-und-0-value" name="comment_body[und][0][value]" cols="60" rows="5"></textarea><div class="grippie"></div></div>
+</div>
+<div class="filter-wrapper form-wrapper form-group" id="edit-comment-body-und-0-format"></div></div>
+</div></div><input type="hidden" name="form_build_id" value="form-5xBw-frbCahv4BxTXwN_JBUA4Bm-CRnXFucwvaIowkI">
+<input type="hidden" name="form_id" value="comment_node_article_form">
+<button class="btn btn-primary form-submit" id="edit-submit" name="op" value="Сохранить" type="submit">Сохранить</button>
+</div></form>  </div>
+  </div>
+
+</div>
+
+</section> <!-- /.block -->
+  </div>
+    </section>
+
+          <aside class="col-sm-3" role="complementary">
+          <div class="region region-sidebar-second">
+    <section id="block-views-front-topics-block" class="block block-views clearfix">
+
+        <h2 class="block-title">Последние темы форума</h2>
+    
+  <div class="view view-front-topics view-id-front_topics view-display-id-block view-dom-id-e20c848e016c22a10397469c10fdd560">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field views-field-title">        <h3 class="field-content"><a href="https://cae-club.ru/forum/import-istorii-nagruzheniya-iz-excel">Импорт истории нагружения из excel</a></h3>  </div>  
+  <span class="views-field views-field-created">        <span class="field-content">02.03.21 | 13:10</span>  </span>  
+  <span class="views-field views-field-name">        <span class="field-content"><span class="username">vikotis</span></span>  </span>  
+  <span class="views-field views-field-comment-count">        <span class="field-content">0</span>  </span>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-title">        <h3 class="field-content"><a href="https://cae-club.ru/forum/pinch">Pinch</a></h3>  </div>  
+  <span class="views-field views-field-created">        <span class="field-content">02.03.21 | 11:46</span>  </span>  
+  <span class="views-field views-field-name">        <span class="field-content"><span class="username">kol1978</span></span>  </span>  
+  <span class="views-field views-field-comment-count">        <span class="field-content">0</span>  </span>  </div>
+  <div class="views-row views-row-3 views-row-odd views-row-last">
+      
+  <div class="views-field views-field-title">        <h3 class="field-content"><a href="https://cae-club.ru/forum/vozmozhno-primitivnyy-vopros-kakie-kursy-luchshepravilnee">Возможно примитивный вопрос - какие курсы лучше/правильнее проходить первыми?</a></h3>  </div>  
+  <span class="views-field views-field-created">        <span class="field-content">01.03.21 | 06:51</span>  </span>  
+  <span class="views-field views-field-name">        <span class="field-content"><span class="username">dashwind</span></span>  </span>  
+  <span class="views-field views-field-comment-count">        <span class="field-content">3</span>  </span>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>
+</section> <!-- /.block -->
+<section id="block-views-front-video-block" class="block block-views clearfix">
+
+        <h2 class="block-title"><a href="https://cae-club.ru/videos">Видео</a></h2>
+    
+  <div class="view view-front-video view-id-front_video view-display-id-block view-dom-id-a47822aa122bf44160195076eaad365c">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+      
+  <div class="views-field views-field-title">        <h3 class="field-content"><a href="https://cae-club.ru/videos/rfid-sistemy-na-bortu-kvadrokopterov">RFID-системы на борту квадрокоптеров</a></h3>  </div>  
+  <div class="views-field views-field-field-youtube-upload">        <div class="field-content"><img src="./Поговорим о портах_files/10PF0ZqJNZY.jpg" alt="" title="RFID-системы на борту квадрокоптеров"></div>  </div>  
+  <div class="views-field views-field-created">        <span class="field-content">15.04.20 | 19:17</span>  </div>  
+  <div class="views-field views-field-taxonomy-vocabulary-4">        <div class="field-content"><a href="https://cae-club.ru/programmnye-produkty/vysokochastotnye-ustroystva">Высокочастотные устройства</a>, <a href="https://cae-club.ru/programmnye-produkty/specializirovannye-prilozheniya">Специализированные приложения</a>, <a href="https://cae-club.ru/programmnye-produkty/prochee">Прочее</a></div>  </div>  
+  <span class="views-field views-field-name">        <span class="field-content"><span class="username">Денисов Дмитрий</span></span>  </span>  
+  <span class="views-field views-field-comment-count">        <span class="field-content">0</span>  </span>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>
+</section> <!-- /.block -->
+<div id="block-block-39-sticky-wrapper" class="sticky-wrapper is-sticky" style="height: 141px;"><section id="block-block-39" class="block block-block clearfix" style="width: 280px; position: fixed; top: 75px; z-index: auto;">
+
+      
+  <div class="tex2jax"><p class="rtecenter">
+	<strong><em>Оставляйте свои <a href="https://cae-club.ru/publications/ansys-hfss-pogovorim-o-portah#comments" rel="nofollow">комментарии</a> и вопросы под статьей. </em></strong>
+</p>
+<p class="rtecenter">
+	<em>Для нас это будет значить, что материалы интересны, и нам стоит продолжать писать новые.</em>
+</p></div>
+</section></div> <!-- /.block -->
+  </div>
+      </aside>  <!-- /#sidebar-second -->
+    
+  </div>
+</div>
+</div>
+<footer class="footer container">
+    <div class="region region-footer">
+    <section id="block-block-41" class="block block-block clearfix">
+
+      
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./Поговорим о портах_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-138420807-2');
+setTimeout(function(){gtag('event', location.pathname,
+{'event_category': 'Новый посетитель'});}, 15000);
+</script>
+</section> <!-- /.block -->
+  </div>
+</footer>
+    <div class="region region-page-bottom">
+    <div class="ym-counter"><!-- Yandex.Metrika counter --> <script type="text/javascript"> (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(29008610, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/29008610" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter --></div>  </div>
+<script src="./Поговорим о портах_files/js_Pt2ePzkzsI3FGe9-keW7FdzrjmsxNOnCpezNnvKeOWI.js.Без названия"></script>
+
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div><iframe name="ym-native-frame" title="ym-native-frame" frameborder="0" aria-hidden="true" style="opacity: 0 !important; width: 0px !important; height: 0px !important; position: absolute !important; left: 100% !important; bottom: 100% !important; border: 0px !important;" src="./Поговорим о портах_files/saved_resource.html"></iframe><ym-measure class="ym-viewport" style="display: block; inset: 0px; height: 100vh; width: 100vw; position: fixed; transform: translate(0px, -100%); transform-origin: 0px 0px;"></ym-measure><ym-measure class="ym-zoom" style="bottom: 100%; position: fixed; width: 100vw;"></ym-measure></body></html>

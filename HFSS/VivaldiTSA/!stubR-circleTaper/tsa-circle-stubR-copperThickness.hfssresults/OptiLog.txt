@@ -1,62 +1,81 @@
 Start Setting up the engine.
-The problem is defined in a 8 dimensional parameter space.
+The problem is defined in a 9 dimensional parameter space.
 Set up the Filter CF calculation data (optional)
 Get the interface for FEM solutions
 Get the interface for CF( experiment ) solutions
 Create an empty engine.
 The problem is constrained into the box:
-  box lower limits 0.4 3 1 0 0 30 8 0.1 
-  box upper limits 4 20 30 25 25 55 25 2 
+  box lower limits 0.4 3 1 0 0 8 0.1 0 0 
+  box upper limits 4 20 30 25 25 25 2 50 15 
 The problem is focused into the box:
-  box lower limits 0.4 3 1 0 0 30 8 0.1 
-  box upper limits 4 20 30 25 25 55 25 2 
+  box lower limits 0.4 3 1 0 0 8 0.1 0 0 
+  box upper limits 4 20 30 25 25 25 2 50 15 
 There is 0 solved experiment!
-Domain Limit 1 0 0 0 0 0 0 0  * X < 4
-Domain Limit -1 0 0 0 0 0 0 0  * X < -0.4
-Domain Limit 0 1 0 0 0 0 0 0  * X < 20
-Domain Limit 0 -1 0 0 0 0 0 0  * X < -3
-Domain Limit 0 0 1 0 0 0 0 0  * X < 30
-Domain Limit 0 0 -1 0 0 0 0 0  * X < -1
-Domain Limit 0 0 0 1 0 0 0 0  * X < 25
-Domain Limit 0 0 0 -1 0 0 0 0  * X < -0
-Domain Limit 0 0 0 0 1 0 0 0  * X < 25
-Domain Limit 0 0 0 0 -1 0 0 0  * X < -0
-Domain Limit 0 0 0 0 0 1 0 0  * X < 55
-Domain Limit 0 0 0 0 0 -1 0 0  * X < -30
-Domain Limit 0 0 0 0 0 0 1 0  * X < 25
-Domain Limit 0 0 0 0 0 0 -1 0  * X < -8
-Domain Limit 0 0 0 0 0 0 0 1  * X < 2
-Domain Limit 0 0 0 0 0 0 0 -1  * X < -0.1
+Domain Limit 1 0 0 0 0 0 0 0 0  * X < 4
+Domain Limit -1 0 0 0 0 0 0 0 0  * X < -0.4
+Domain Limit 0 1 0 0 0 0 0 0 0  * X < 20
+Domain Limit 0 -1 0 0 0 0 0 0 0  * X < -3
+Domain Limit 0 0 1 0 0 0 0 0 0  * X < 30
+Domain Limit 0 0 -1 0 0 0 0 0 0  * X < -1
+Domain Limit 0 0 0 1 0 0 0 0 0  * X < 25
+Domain Limit 0 0 0 -1 0 0 0 0 0  * X < -0
+Domain Limit 0 0 0 0 1 0 0 0 0  * X < 25
+Domain Limit 0 0 0 0 -1 0 0 0 0  * X < -0
+Domain Limit 0 0 0 0 0 1 0 0 0  * X < 25
+Domain Limit 0 0 0 0 0 -1 0 0 0  * X < -8
+Domain Limit 0 0 0 0 0 0 1 0 0  * X < 2
+Domain Limit 0 0 0 0 0 0 -1 0 0  * X < -0.1
+Domain Limit 0 0 0 0 0 0 0 1 0  * X < 50
+Domain Limit 0 0 0 0 0 0 0 -1 0  * X < -0
+Domain Limit 0 0 0 0 0 0 0 0 1  * X < 15
+Domain Limit 0 0 0 0 0 0 0 0 -1  * X < -0
 There are 0 Box-Constraints.
 There are 0 Box-Exclusion-Constraints.
 There are 0 Linear-Constraints.
 There are 0 User-Defined-Constraints.
-The maximum number of FEM analysis is 20.
+The maximum number of FEM analysis is 50.
 Optimization will stop when the relative gradient is less than 1e-008.
-The analysis starts from 1.53 10 1 2 4 50 16 0.5 
+The analysis starts from 1.53 10 1 2 4 16 0.5 20 15 
 Finished setting up the engine.
 Adjust the grid spacing
-SnapLevel is set from 0 0 0 0 0 0 0 0 to 4 4 4 4 4 4 4 4 
+SnapLevel is set from 0 0 0 0 0 0 0 0 0 to 4 4 4 4 4 4 4 4 4 
 Experiments are not going to snapped
 Starting the optimization from here! 
- 1.53 10 1 2 4 50 16 0.5 
+ 1.53 10 1 2 4 16 0.5 20 15 
 ActiveGridIs not Active 
-SnapFrom 0.313889 0.411765 0 0.08 0.16 0.8 0.470588 0.210526   To  0.313889 0.411765 0 0.08 0.16 0.8 0.470588 0.210526 
+SnapFrom 0.313889 0.411765 0 0.08 0.16 0.470588 0.210526 0.4 1   To  0.313889 0.411765 0 0.08 0.16 0.470588 0.210526 0.4 1 
 the num of output in derivAvailable = 3
 Experiment#1 ( DV = 0 ) at 
-   **************** Time Stamp Tue Mar 02 23:06:33 2021
+   **************** Time Stamp Tue Mar 02 23:39:37 2021
 
-X 1.53 10 1 2 4 50 16 0.5 DesignChar = 
+X 1.53 10 1 2 4 16 0.5 20 15 DesignChar = 
 [
-11738 : VSWRt(feed_T1)[Freq=0.9GHz] = 3.57624736014943
-11738 : VSWRt(feed_T1)[Freq=1.8GHz] = 1.24155408700928
-11738 : VSWRt(feed_T1)[Freq=2.4GHz] = 2.65106980046396
+11738 : VSWRt(feed_T1)[Freq=0.9GHz] = 2.48622104098388
+11738 : VSWRt(feed_T1)[Freq=1.8GHz] = 1.36001606865717
+11738 : VSWRt(feed_T1)[Freq=2.4GHz] = 1.65024966182553
  ] 
-CostFunctionValue = 1.87859
+CostFunctionValue = 0.0788036
 Begin Transfer the derivatives if any!
-dVarExternal_dVarInternal 3.6 17 29 25 25 25 17 1.9 
+dVarExternal_dVarInternal 3.6 17 29 25 25 17 1.9 50 15 
 the num of output in derivAvailable = 3
 Done with transfer of the derivatives
 ActiveGridIs not Active 
-SnapFrom 0.720716 0.877035 0.0125278 0.221682 0.2845 0.316114 0.93949 0.494211   To  0.720716 0.877035 0.0125278 0.221682 0.2845 0.316114 0.93949 0.494211 
+SnapFrom 0.461919 0.102994 0.239982 0.560041 0.496879 0.29851 0.503214 0.616819 0.592227   To  0.461919 0.102994 0.239982 0.560041 0.496879 0.29851 0.503214 0.616819 0.592227 
+the num of output in derivAvailable = 3
+Experiment#2 ( DV = 0 ) at 
+   **************** Time Stamp Tue Mar 02 23:50:13 2021
+
+X 2.06290810876797 4.75089266640217 7.95948667867061 14.0010223700674 12.4219641712699 13.074663533433 1.05610675374615 30.8409375286111 8.88340403454695 DesignChar = 
+[
+11738 : VSWRt(feed_T1)[Freq=0.9GHz] = 6.21351241850374
+11738 : VSWRt(feed_T1)[Freq=1.8GHz] = 4.44642610099736
+11738 : VSWRt(feed_T1)[Freq=2.4GHz] = 8.10704118722412
+ ] 
+CostFunctionValue = 20.3449
+Begin Transfer the derivatives if any!
+dVarExternal_dVarInternal 3.6 17 29 25 25 17 1.9 50 15 
+the num of output in derivAvailable = 3
+Done with transfer of the derivatives
+ActiveGridIs not Active 
+SnapFrom 0.732527 0.161131 0.492004 0.416238 0.416737 0.0979115 0.354742 0.532679 0.77427   To  0.732527 0.161131 0.492004 0.416238 0.416737 0.0979115 0.354742 0.532679 0.77427 
 the num of output in derivAvailable = 3

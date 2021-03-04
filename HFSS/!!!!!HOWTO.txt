@@ -27,19 +27,26 @@ Difference between the interpolating , fast and discrete sweep type in hfss ?
 In Video "Howto design a Vivaldi antenna in HFSS" author say about simple feedline, but then draw Г-feedline.
  
  
-Name	Value	Description
-Name	"VSWRt(feed_T1):ext='4.29691123010637mm' MW='0.849835014509997mm' rate='78.6210095980467' rstubOffsetY='2.23063688478931mm' rstubR='30mm' s='0.791731002506735mm' slotL='40.6556254509973mm' TL='89.5251650276164mm' [Curve31]"	
+feedOffset_X ,feed_addon_L-feed_W ,-subT-copperThickness 
+stubR_R
 
-Name	Value	Description
-Name	"VSWRt(feed_T1):ext='1.1790349351892mm' MW='0.680625433624874mm' rate='83.3917552608581' rstubOffsetY='2.32028051925373mm' rstubR='28.7942405004562mm' s='0.676908673084194mm' slotL='39.1384526950683mm' TL='87.2618971493162mm' [Curve19]"	
+0.7071*(feedOffset_X) +0.7071*(feed_addon_L-feed_W) ,-0.7071*(feedOffset_X)+0.7071*(feed_addon_L-feed_W) ,-subT-copperThickness
+stubR_R+0.1mm
+ 
+ 
+-feed_W/2+ feedOffset_X, 0, -subT-copperThickness 
+feed_W    feed_addon_L   
+ 
+-feed_W/2+ feedOffset_X, -feed_L, -subT-copperThickness 
+ feed_W   feed_L
+ 
+-feed_SMA_W/2+ feedOffset_X, -TL/2, -subT-copperThickness 
+feed_SMA_W    TL/2-feed_L
 
+ 
 
-
-
-
-
-
-
-
+ 
+Name	"VSWRt(feed_T1):ext='4.39188409291335mm' feed_addon_L='4.34328478348166mm' feed_L='35mm' feed_SMA_W='3.71617241977492mm' feed_W='0.7490234375mm' feedOffset_X='0.241277781223356mm' s='1.79717934398722mm' slotL='43.0618294054802mm' stubR_R='14.103048123557mm' [Curve1]"	
+ 
 
 

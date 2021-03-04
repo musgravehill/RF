@@ -1,45 +1,205 @@
 Start Setting up the engine.
-The problem is defined in a 8 dimensional parameter space.
+The problem is defined in a 3 dimensional parameter space.
 Set up the Filter CF calculation data (optional)
 Get the interface for FEM solutions
 Get the interface for CF( experiment ) solutions
 Create an empty engine.
 The problem is constrained into the box:
-  box lower limits 10 0.5 20 18 2.5 0.1 0.1 0.1 
-  box upper limits 70 10 70 80 30 20 10 20 
+  box lower limits 0.1 0.1 0.1 
+  box upper limits 20 8 16 
 The problem is focused into the box:
-  box lower limits 10 0.5 20 18 2.5 0.1 0.1 0.1 
-  box upper limits 70 10 70 80 30 20 10 20 
+  box lower limits 0.1 0.1 0.1 
+  box upper limits 20 8 16 
 There is 0 solved experiment!
-Domain Limit 1 0 0 0 0 0 0 0  * X < 70
-Domain Limit -1 0 0 0 0 0 0 0  * X < -10
-Domain Limit 0 1 0 0 0 0 0 0  * X < 10
-Domain Limit 0 -1 0 0 0 0 0 0  * X < -0.5
-Domain Limit 0 0 1 0 0 0 0 0  * X < 70
-Domain Limit 0 0 -1 0 0 0 0 0  * X < -20
-Domain Limit 0 0 0 1 0 0 0 0  * X < 80
-Domain Limit 0 0 0 -1 0 0 0 0  * X < -18
-Domain Limit 0 0 0 0 1 0 0 0  * X < 30
-Domain Limit 0 0 0 0 -1 0 0 0  * X < -2.5
-Domain Limit 0 0 0 0 0 1 0 0  * X < 20
-Domain Limit 0 0 0 0 0 -1 0 0  * X < -0.1
-Domain Limit 0 0 0 0 0 0 1 0  * X < 10
-Domain Limit 0 0 0 0 0 0 -1 0  * X < -0.1
-Domain Limit 0 0 0 0 0 0 0 1  * X < 20
-Domain Limit 0 0 0 0 0 0 0 -1  * X < -0.1
+Domain Limit 1 0 0  * X < 20
+Domain Limit -1 0 0  * X < -0.1
+Domain Limit 0 1 0  * X < 8
+Domain Limit 0 -1 0  * X < -0.1
+Domain Limit 0 0 1  * X < 16
+Domain Limit 0 0 -1  * X < -0.1
 There are 0 Box-Constraints.
 There are 0 Box-Exclusion-Constraints.
 There are 0 Linear-Constraints.
 There are 0 User-Defined-Constraints.
 The maximum number of FEM analysis is 1000.
 Optimization will stop when the relative gradient is less than 1e-008.
-The analysis starts from 13 1.53 32 22 5 4 1 2 
+The analysis starts from 8 2 0.7 
 Finished setting up the engine.
 Adjust the grid spacing
-SnapLevel is set from 0 0 0 0 0 0 0 0 to 4 4 4 4 4 4 4 4 
+SnapLevel is set from 0 0 0 to 4 4 4 
 Experiments are not going to snapped
 Starting the optimization from here! 
- 13 1.53 32 22 5 4 1 2 
+ 8 2 0.7 
 ActiveGridIs not Active 
-SnapFrom 0.05 0.108421 0.24 0.0645161 0.0909091 0.19598 0.0909091 0.0954774   To  0.05 0.108421 0.24 0.0645161 0.0909091 0.19598 0.0909091 0.0954774 
-the num of output in derivAvailable = 18
+SnapFrom 0.396985 0.240506 0.0377358   To  0.396985 0.240506 0.0377358 
+the num of output in derivAvailable = 1
+Experiment#1 ( DV = 0 ) at 
+   **************** Time Stamp Thu Mar 04 16:51:48 2021
+
+X 8 2 0.7 DesignChar = 
+[
+16987 : VSWRt(port1_T1)[Freq=1.8GHz] = 2.85261721495662
+ ] 
+CostFunctionValue = 2.85262
+Begin Transfer the derivatives if any!
+dVarExternal_dVarInternal 19.9 7.9 15.9 
+the num of output in derivAvailable = 1
+Done with transfer of the derivatives
+ActiveGridIs not Active 
+SnapFrom 0.649022 0.459797 0.0962246   To  0.649022 0.459797 0.0962246 
+the num of output in derivAvailable = 1
+Experiment#2 ( DV = 0 ) at 
+   **************** Time Stamp Thu Mar 04 16:54:25 2021
+
+X 13.0155384990997 3.73239692373424 1.6299707022309 DesignChar = 
+[
+16987 : VSWRt(port1_T1)[Freq=1.8GHz] = 7.44370634148259
+ ] 
+CostFunctionValue = 7.44371
+Begin Transfer the derivatives if any!
+dVarExternal_dVarInternal 19.9 7.9 15.9 
+the num of output in derivAvailable = 1
+Done with transfer of the derivatives
+ActiveGridIs not Active 
+SnapFrom 0.42291 0.0677258 0.278451   To  0.42291 0.0677258 0.278451 
+the num of output in derivAvailable = 1
+Experiment#3 ( DV = 0 ) at 
+   **************** Time Stamp Thu Mar 04 16:56:39 2021
+
+X 8.51591692861721 0.635033722952971 4.52736442152165 DesignChar = 
+[
+16987 : VSWRt(port1_T1)[Freq=1.8GHz] = 3.19457851858068
+ ] 
+CostFunctionValue = 3.19458
+Begin Transfer the derivatives if any!
+dVarExternal_dVarInternal 19.9 7.9 15.9 
+the num of output in derivAvailable = 1
+Done with transfer of the derivatives
+ActiveGridIs not Active 
+SnapFrom 0.495483 0.320053 0.463606   To  0.495483 0.320053 0.463606 
+the num of output in derivAvailable = 1
+Experiment#4 ( DV = 0 ) at 
+   **************** Time Stamp Thu Mar 04 16:59:29 2021
+
+X 9.96011993774224 2.62841731009857 7.47134159367656 DesignChar = 
+[
+16987 : VSWRt(port1_T1)[Freq=1.8GHz] = 1.7422776384813
+ ] 
+CostFunctionValue = 1.74228
+Begin Transfer the derivatives if any!
+dVarExternal_dVarInternal 19.9 7.9 15.9 
+the num of output in derivAvailable = 1
+Done with transfer of the derivatives
+ActiveGridIs not Active 
+SnapFrom 0.557436 0.450306 0.119022   To  0.557436 0.450306 0.119022 
+the num of output in derivAvailable = 1
+Experiment#5 ( DV = 0 ) at 
+   **************** Time Stamp Thu Mar 04 17:01:41 2021
+
+X 11.1929761650441 3.65741599780267 1.99244819483016 DesignChar = 
+[
+16987 : VSWRt(port1_T1)[Freq=1.8GHz] = 2.36006734642148
+ ] 
+CostFunctionValue = 2.36007
+Begin Transfer the derivatives if any!
+dVarExternal_dVarInternal 19.9 7.9 15.9 
+the num of output in derivAvailable = 1
+Done with transfer of the derivatives
+ActiveGridIs not Active 
+SnapFrom 0.669164 0.737943 0.117282   To  0.669164 0.737943 0.117282 
+the num of output in derivAvailable = 1
+Experiment#6 ( DV = 0 ) at 
+   **************** Time Stamp Thu Mar 04 17:03:42 2021
+
+X 13.4163686025575 5.92974791711173 1.96478926969207 DesignChar = 
+[
+16987 : VSWRt(port1_T1)[Freq=1.8GHz] = 25.2526288039556
+ ] 
+CostFunctionValue = 25.2526
+Begin Transfer the derivatives if any!
+dVarExternal_dVarInternal 19.9 7.9 15.9 
+the num of output in derivAvailable = 1
+Done with transfer of the derivatives
+The available sample DoF (6) allows for a Model of 1 degree and 1 interactions
+
+
+Fitting the model for output #0
+Maximum model is:  degree = 1 interaction = 1 terms = 4+1   idealDoF=5 < availableDoF=6
+The ideal sample size (with function and possible derivatives) 5, the num DoF in sample is 5
+Func Val Range [0] = 1.74228 -- 7.44371
+Func Deriv Range = 0 -- 0
+Fit is for 5 sample DoF out of 6 DoF in selected sample and the model has 4 terms (DoF-s)
+solving full-rank linear system of size = 5 x 4 of rank = 4
+condition number used in SVD r_cond = 1e-009
+condition number based on: singVals[0]/singVals[n-1] = 27.0606
+solveLinearSystem: iter = 1
+PolyParModel1D - X[0] = 0 
+PolyParModel1D - X[1] = 0 
+PolyParModel1D - X[2] = 0 
+The available sample DoF (6) allows for a Model of 1 degree and 1 interactions
+
+
+Fitting the model for output #0
+Maximum model is:  degree = 1 interaction = 1 terms = 4+1   idealDoF=5 < availableDoF=6
+The ideal sample size (with function and possible derivatives) 5, the num DoF in sample is 5
+Func Val Range [0] = 1.74228 -- 7.44371
+Func Deriv Range = 0 -- 0
+Fit is for 5 sample DoF out of 6 DoF in selected sample and the model has 4 terms (DoF-s)
+solving full-rank linear system of size = 5 x 4 of rank = 4
+condition number used in SVD r_cond = 1e-009
+condition number based on: singVals[0]/singVals[n-1] = 27.0606
+solveLinearSystem: iter = 1
+PolyParModel1D - X[0] = 0 
+PolyParModel1D - X[1] = 0 
+PolyParModel1D - X[2] = 0 
+OptAlg:: Calculating the second order approximation of the Cost...
+OptAlg:: Done.
+
+Updated Second order model!
+=-=-=-=-=-=-=-=-=-=-=-=-=-=
+X0 9.96011993774224 2.62841731009857 7.47134159367656 
+F0 = 1.74228
+Grad 1.57991 -1.73738 -0.424145 
+Hess[3,3] = 
+row#0:-3.77909e-014 5.31009e-013 1.47125e-013 
+row#1:5.31009e-013 -1.1192e-012 -1.27218e-012 
+row#2:1.47125e-013 -1.27218e-012 -2.44023e-013 
+
+
+End Updated Second order model!
+Not enough iterates!
+SNLP_Search::TrustSearch Start from the current minimum of 1.74228 
+Trust Radius in TrustSearch = 1 
+TrustVector 19.9 7.9 15.9 
+Update the quadratic model for the problem:
+The available sample DoF (6) allows for a Model of 1 degree and 1 interactions
+
+
+Fitting the model for output #0
+Maximum model is:  degree = 1 interaction = 1 terms = 4+1   idealDoF=5 < availableDoF=6
+The ideal sample size (with function and possible derivatives) 5, the num DoF in sample is 5
+Func Val Range [0] = 1.74228 -- 7.44371
+Func Deriv Range = 0 -- 0
+Fit is for 5 sample DoF out of 6 DoF in selected sample and the model has 4 terms (DoF-s)
+solving full-rank linear system of size = 5 x 4 of rank = 4
+condition number used in SVD r_cond = 1e-009
+condition number based on: singVals[0]/singVals[n-1] = 27.0606
+solveLinearSystem: iter = 1
+PolyParModel1D - X[0] = 0 
+PolyParModel1D - X[1] = 0 
+PolyParModel1D - X[2] = 0 
+The model of the experiment in the ObjectiveSurrogateVM@00000000033CA6C0 :
+VectorModel::Nothing to report!
+Done 
+Propose new evaluation by NLP solution:
+TR in proposeNLP = 1 
+Entering restoration
+Time Left = 60000FilterSQP::Restoration phase found feasible QP subroblem!
+The iterate is feasible 
+Time Left = 59938Time Left = 59938Time Left = 59938Time Left = 59938Time Left = 59907Time Left = 59907Time Left = 59907Time Left = 59907Time Left = 59891Time Left = 59891Time Left = 59891Time Left = 59875Time Left = 59875Time Left = 59875Time Left = 59875Time Left = 59875Time Left = 59875Time Left = 59860Time Left = 59860Time Left = 59860Time Left = 59860Time Left = 59860Time Left = 59797Time Left = 59797Time Left = 59782Time Left = 59782Time Left = 59782Time Left = 59782Time Left = 59766Time Left = 59766Time Left = 59766Time Left = 59766BF_SQP ended with: Convergence detected before the next iteration
+Done 
+Proposed step From 0.495483 0.320053 0.463606 
+Proposed step To 0 1 1 
+ActiveGridIs not Active 
+SnapFrom 0 1 1   To  0 1 1 
+the num of output in derivAvailable = 1

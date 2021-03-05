@@ -4438,10 +4438,10 @@ $begin 'AnsoftProject'
 					ID=10
 					SetupType='OptiOptimization'
 					IsEnabled=true
-					NextUniqueID=6
+					NextUniqueID=7
 					MoveBackwards=false
 					GoalSetupVersion=0
-					Version=5
+					Version=6
 					$begin 'ProdOptiSetupData'
 						SaveFields=false
 						CopyMesh=false
@@ -4462,7 +4462,7 @@ $begin 'AnsoftProject'
 						StopForElapsTime=false
 						StopForSlowImprovement=false
 						StopForGrdTolerance=false
-						MaxNumIteration=100
+						MaxNumIteration=1000
 						MaxSolTimeInSec=3600
 						RelGradientTolerance=0
 						MinNumIteration=10
@@ -4495,7 +4495,7 @@ $begin 'AnsoftProject'
 							Calculation='VSWRt(port1_T1)'
 							Name='VSWRt(port1_T1)'
 							$begin 'Ranges'
-								Range(Var='Freq', Type='d', DiscreteValues='0.8GHz,0.9GHz,1GHz,1.1GHz,1.2GHz,1.3GHz,1.4GHz,1.5GHz,1.6GHz,1.7GHz,1.8GHz,1.9GHz,2GHz,2.1GHz,2.2GHz,2.3GHz,2.4GHz,2.5GHz')
+								Range(Var='Freq', Type='d', DiscreteValues='0.9GHz,1.8GHz,2.4GHz')
 							$end 'Ranges'
 							Condition='<='
 							$begin 'GoalValue'
@@ -4545,7 +4545,7 @@ $begin 'AnsoftProject'
 			FieldType='NoIncidentWave'
 			UseIncidentVoltage=true
 			IncludePortPostProcessing=false
-			SourceEntry(ID=74, Index=0, Terminal=false, Terminated=false, Magnitude='0V', Phase='0deg')
+			SourceEntry(ID=74, Index=0, Terminal=false, Terminated=false, Magnitude='1V', Phase='0deg')
 			SourceEntry(ID=74, Index=0, Terminal=true, Terminated=false, Resistance='50ohm', Reactance='0ohm')
 			$begin 'Contexts'
 				NextUniqueID=1
@@ -4555,8 +4555,6 @@ $begin 'AnsoftProject'
 		$begin 'PortFieldDisplay'
 			$begin 'PortFieldDisplay'
 				ScaleFactor=5
-				Solution='OPTI : LastAdaptive'
-				Frequency='1.8GHz'
 			$end 'PortFieldDisplay'
 		$end 'PortFieldDisplay'
 		$begin 'FieldsReporter'
@@ -4690,7 +4688,7 @@ $begin 'AnsoftProject'
 							$end 'PostprocessSweep'
 							$begin 'Sweep'
 								Variable='s'
-								Column='0.5mm'
+								Column='0.278199102755821mm;0.5mm;0.784928434095279mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
@@ -4720,37 +4718,37 @@ $begin 'AnsoftProject'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='slotL'
-								Column='41.63mm'
+								Column='41.63mm;43.3314004943999mm;68.4450819421979mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_W'
-								Column='0.5mm'
+								Column='0.5mm;4.72116763817255mm;5.31261635181738mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feedOffset_X'
-								Column='1mm'
+								Column='1mm;9.54802087466048mm;17.2048097170934mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_addon_L'
-								Column='1mm'
+								Column='1mm;6.08977019562365mm;6.43275246436964mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_L'
-								Column='25mm'
+								Column='21.9590746787927mm;25mm;33.8191778313547mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_SMA_W'
-								Column='1.53mm'
+								Column='0.50068666646321mm;1.53mm;4.34395886104923mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='stubR_R'
-								Column='26mm'
+								Column='15.4407483138524mm;24.1594897305216mm;26mm'
 								Units='mm'
 							$end 'Sweep'
 						$end 'Sweeps'
@@ -4805,7 +4803,7 @@ $begin 'AnsoftProject'
 							$end 'PostprocessSweep'
 							$begin 'Sweep'
 								Variable='s'
-								Column='0.5mm'
+								Column='0.278199102755821mm;0.5mm;0.784928434095279mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
@@ -4835,37 +4833,37 @@ $begin 'AnsoftProject'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='slotL'
-								Column='41.63mm'
+								Column='41.63mm;43.3314004943999mm;68.4450819421979mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_W'
-								Column='0.5mm'
+								Column='0.5mm;4.72116763817255mm;5.31261635181738mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feedOffset_X'
-								Column='1mm'
+								Column='1mm;9.54802087466048mm;17.2048097170934mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_addon_L'
-								Column='1mm'
+								Column='1mm;6.08977019562365mm;6.43275246436964mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_L'
-								Column='25mm'
+								Column='21.9590746787927mm;25mm;33.8191778313547mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_SMA_W'
-								Column='1.53mm'
+								Column='0.50068666646321mm;1.53mm;4.34395886104923mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='stubR_R'
-								Column='26mm'
+								Column='15.4407483138524mm;24.1594897305216mm;26mm'
 								Units='mm'
 							$end 'Sweep'
 						$end 'Sweeps'
@@ -4876,16 +4874,7 @@ $begin 'AnsoftProject'
 					ID=14459
 					Name='Sweep'
 					$begin 'SimDataExtractor'
-						SimValue('St(port1_T1,port1_T1)', 2, 90, false, SimValueID=14496, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('VSWRt(port1_T1)', 1, 90, false, SimValueID=14497, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(port1_T1),feedOffset_X)', 2, 90, false, SimValueID=14514, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(port1_T1),feed_L)', 2, 90, false, SimValueID=14515, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(port1_T1),feed_SMA_W)', 2, 90, false, SimValueID=14516, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(port1_T1),feed_W)', 2, 90, false, SimValueID=14517, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(port1_T1),feed_addon_L)', 2, 90, false, SimValueID=14518, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(port1_T1),s)', 2, 90, false, SimValueID=14519, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(port1_T1),slotL)', 2, 90, false, SimValueID=14520, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('partial(VSWRt(port1_T1),stubR_R)', 2, 90, false, SimValueID=14521, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('VSWRt(port1_T1)', 1, 90, false, SimValueID=14499, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'PostprocessSweep'
 								Variable='Freq'
@@ -4934,7 +4923,7 @@ $begin 'AnsoftProject'
 							$end 'PostprocessSweep'
 							$begin 'Sweep'
 								Variable='s'
-								Column='0.5mm'
+								Column='0.256889553514206mm;0.27371288186285mm;0.278199102755821mm;0.41315958128605mm;0.491454817346721mm;0.5mm;0.557306131168554mm;0.649113437299722mm;0.784928434095279mm;0.820284127323222mm;0.985045930356761mm;1.09837641529588mm;1.34607989745781mm;1.44215979491562mm;1.6020615253151mm;1.99423200170904mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
@@ -4964,37 +4953,37 @@ $begin 'AnsoftProject'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='slotL'
-								Column='41.63mm'
+								Column='20.7446516312143mm;22.3682363353374mm;28.9327677236244mm;37.4794763023774mm;41.63mm;42.3395489364299mm;43.3314004943999mm;49.2275765251625mm;53.0347605822932mm;53.5734122745445mm;57.2219000824mm;59.9807733390301mm;61.3205359050264mm;65.9715567491684mm;66.2660603656117mm;68.4450819421979mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_W'
-								Column='0.5mm'
+								Column='0.5mm;0.522659993285928mm;1.154164250618mm;1.73325296792505mm;1.9699240089114mm;2.73258156071657mm;2.90081484420301mm;3.87061677907651mm;4.28444776757103mm;4.72116763817255mm;4.88894314401685mm;5.31261635181738mm;5.69806512649922mm;6.35177159947508mm;6.74912259285257mm;7.26389355143895mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feedOffset_X'
-								Column='1mm'
+								Column='-9.59715567491684mm;-6.2572099978637mm;-5.48814355906858mm;-3.54075746940519mm;-2.6334421826838mm;-1.98339793084506mm;-0.974456007568591mm;-0.267647328104495mm;0.232245857112339mm;1mm;4.94827112643818mm;6.79219946897793mm;9.54802087466048mm;11.8094424268319mm;14.1935483870968mm;17.2048097170934mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_addon_L'
-								Column='1mm'
+								Column='1mm;1.49415570543535mm;4.76828821680349mm;4.89672536393323mm;5.58877834406568mm;6.08977019562365mm;6.43275246436964mm;6.44000061037019mm;7.24425489059114mm;7.43821527756584mm;7.76032288583026mm;7.96559038056581mm;8.0195165868099mm;8.10243537705619mm;8.84928434095279mm;9.23256630146184mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_L'
-								Column='25mm'
+								Column='2.79509872737815mm;3.07214575640126mm;3.67085787530137mm;8.684682760094mm;10.8823816644795mm;12.4668416394543mm;14.045075838496mm;15.8111209448531mm;18.9136326181829mm;21.9590746787927mm;22.9074678792688mm;23.3920407727287mm;25mm;26.4966277047029mm;30.7042146061586mm;33.8191778313547mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='feed_SMA_W'
-								Column='1.53mm'
+								Column='0.50068666646321mm;1.53mm;1.65451521347697mm;1.81839960936308mm;1.87401959288308mm;1.98777733695486mm;2.45768608661153mm;2.68153935361797mm;3.16701254310739mm;3.45014801477096mm;3.53712576677755mm;4.12056337168493mm;4.34395886104923mm;6.31171605578784mm;7.20278023621326mm;7.45570238349559mm'
 								Units='mm'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='stubR_R'
-								Column='26mm'
+								Column='3.27439191869869mm;3.70039979247414mm;8.42686239204077mm;8.6526383251442mm;9.74691000091556mm;9.75844599749748mm;11.2103335673086mm;11.6396374401074mm;15.4407483138524mm;20.2158268990143mm;24.1594897305216mm;25.7506332590716mm;26mm;28.2819605090487mm;28.59755241554mm;29.0276802880947mm'
 								Units='mm'
 							$end 'Sweep'
 						$end 'Sweeps'
@@ -5042,7 +5031,7 @@ $begin 'AnsoftProject'
 				IntrinsicVarVals=''
 			$end 'Setup_0'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR6473487616147572642.tmp'
+		CacheHeaderFile='HDR7D43439216149498622.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		$begin 'Instance'
@@ -5051,7 +5040,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -8, -30, 2, -1, 960, 722), OrientationMatrix(-0.0142229553312063, -7.41310868761502e-005, 0.000980480457656085, 0, -1.60717245307751e-005, 0.0142306452617049, 0.000840550172142684, 0, -0.000983642414212227, 0.000837537168990821, -0.0141971437260509, 0, 0.736198306083679, -4.45591115951538, -5.41662788391113, 1, 0, -0.36060357093811, 1.95919489860535, -5.77719688415527, -3.65097522735596, -11.5519428253174, 22.3456172943115), Drawings[5: 'FR4', 'Box1', 'plain', 'port1', 'feed'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -8, -30, 2, -1, 960, 722), OrientationMatrix(-0.0142231658101082, -1.3688104445464e-005, 0.000980481738224626, 0, 4.44165998487733e-005, 0.014230583794415, 0.000840551278088242, 0, -0.000980074750259519, 0.000841707806102932, -0.0141971632838249, 0, 0.737296104431152, -4.45564556121826, -5.41662788391113, 1, 0, -0.87997031211853, 3.50347685813904, -6.62042427062988, -3.02821350097656, -11.5519714355469, 22.345645904541), Drawings[5: 'FR4', 'Box1', 'plain', 'port1', 'feed'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -5073,7 +5062,7 @@ $begin 'AnsoftProject'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
 									ID=100
-									VersionID=1784
+									VersionID=1790
 									Name='VSWRt(port1_T1)'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -5184,7 +5173,7 @@ $begin 'AnsoftProject'
 						NextUniqueID=102
 						MoveBackwards=false
 						$begin 'NextVersID'
-							NextUniqueID=1785
+							NextUniqueID=1791
 							MoveBackwards=false
 						$end 'NextVersID'
 					$end 'ReportManager'
@@ -5206,7 +5195,7 @@ $begin 'AnsoftProject'
 									$end 'Graph2D'
 								$end 'Graph2DsV2'
 								$begin 'PlotDisplayDataManager'
-									NextUniqueID=45
+									NextUniqueID=71
 									MoveBackwards=false
 									$begin 'PlotHeaderDataSource'
 										CompanyName=''
@@ -5215,6 +5204,20 @@ $begin 'AnsoftProject'
 									$end 'PlotHeaderDataSource'
 									StockNameIDMap(AxisX=1, AxisY1=2, AxisY2=8, AxisY3=9, AxisY4=10, Grid=11, Header=0, Legend=5, XYHorizScroller=7)
 									$begin 'SourceList'
+										$begin 'ListItem'
+											$begin 'CartesianXMarkerDataSource'
+												CartesianXMarkerID=63
+												CursorName='MX1'
+												XValue=900469275.726245
+											$end 'CartesianXMarkerDataSource'
+										$end 'ListItem'
+										$begin 'ListItem'
+											$begin 'CartesianXMarkerDataSource'
+												CartesianXMarkerID=65
+												CursorName='MX2'
+												XValue=1806704420.59636
+											$end 'CartesianXMarkerDataSource'
+										$end 'ListItem'
 									$end 'SourceList'
 									$begin 'DocAttributes'
 										$begin 'PlotAttributeStoreMap'
@@ -5231,6 +5234,78 @@ $begin 'AnsoftProject'
 												$end 'SubMapItem'
 											$end 'MainMapItem'
 											$begin 'MainMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=63
+													$begin 'CartesianLineMarkerRenderAttribute'
+														CursorBoxBg(R=255, G=255, B=0)
+														MarkerIsLocked=false
+														ShowCurveIntersectionsOnScreen=true
+														$begin 'Font'
+															$begin 'FontAttribute'
+																$begin 'Font'
+																	Height=-12
+																	Width=0
+																	Escapement=0
+																	Orientation=0
+																	Weight=400
+																	Italic=0
+																	Underline=0
+																	StrikeOut=0
+																	CharSet=0
+																	OutPrecision=7
+																	ClipPrecision=48
+																	Quality=6
+																	PitchAndFamily=0
+																	FaceName='Arial'
+																$end 'Font'
+																Color(R=0, G=0, B=0)
+															$end 'FontAttribute'
+														$end 'Font'
+														$begin 'CursorOutline'
+															$begin 'LineRenderAttribute'
+																LineStyle='Dash'
+																LineWidth=1
+																LineColor(R=128, G=128, B=128)
+															$end 'LineRenderAttribute'
+														$end 'CursorOutline'
+													$end 'CartesianLineMarkerRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=65
+													$begin 'CartesianLineMarkerRenderAttribute'
+														CursorBoxBg(R=128, G=255, B=255)
+														MarkerIsLocked=false
+														ShowCurveIntersectionsOnScreen=true
+														$begin 'Font'
+															$begin 'FontAttribute'
+																$begin 'Font'
+																	Height=-12
+																	Width=0
+																	Escapement=0
+																	Orientation=0
+																	Weight=400
+																	Italic=0
+																	Underline=0
+																	StrikeOut=0
+																	CharSet=0
+																	OutPrecision=7
+																	ClipPrecision=48
+																	Quality=6
+																	PitchAndFamily=0
+																	FaceName='Arial'
+																$end 'Font'
+																Color(R=0, G=0, B=0)
+															$end 'FontAttribute'
+														$end 'Font'
+														$begin 'CursorOutline'
+															$begin 'LineRenderAttribute'
+																LineStyle='Dash'
+																LineWidth=1
+																LineColor(R=128, G=128, B=128)
+															$end 'LineRenderAttribute'
+														$end 'CursorOutline'
+													$end 'CartesianLineMarkerRenderAttribute'
+												$end 'SubMapItem'
 											$end 'MainMapItem'
 											$begin 'MainMapItem'
 												$begin 'SubMapItem'
@@ -5289,6 +5364,36 @@ $begin 'AnsoftProject'
 												$end 'SubMapItem'
 												$begin 'SubMapItem'
 													DataSourceID=43
+													$begin 'CurveCartesianAttribute'
+														YAxis='Y1'
+													$end 'CurveCartesianAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=57
+													$begin 'CurveCartesianAttribute'
+														YAxis='Y1'
+													$end 'CurveCartesianAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=59
+													$begin 'CurveCartesianAttribute'
+														YAxis='Y1'
+													$end 'CurveCartesianAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=61
+													$begin 'CurveCartesianAttribute'
+														YAxis='Y1'
+													$end 'CurveCartesianAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=67
+													$begin 'CurveCartesianAttribute'
+														YAxis='Y1'
+													$end 'CurveCartesianAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=69
 													$begin 'CurveCartesianAttribute'
 														YAxis='Y1'
 													$end 'CurveCartesianAttribute'
@@ -5450,6 +5555,86 @@ $begin 'AnsoftProject'
 														TraceType='Continuous'
 														SymbolType='HollowCircle'
 														SymbolColor(R=128, G=128, B=0)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=57
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=1
+															LineColor(R=255, G=0, B=0)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='HorizontalLeftTriangle'
+														SymbolColor(R=0, G=25, B=185)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=59
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=1
+															LineColor(R=128, G=64, B=100)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='HollowCircle'
+														SymbolColor(R=128, G=0, B=128)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=61
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=1
+															LineColor(R=0, G=0, B=200)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='VerticalDownTriangle'
+														SymbolColor(R=192, G=192, B=192)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=67
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=1
+															LineColor(R=80, G=0, B=80)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='HollowVerticalEllipse'
+														SymbolColor(R=111, G=111, B=111)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=69
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=1
+															LineColor(R=128, G=128, B=0)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='VerticalEllipse'
+														SymbolColor(R=240, G=130, B=19)
 														ShowSymbols=false
 														SymbolFrequency=15
 														ShowArrows=false
@@ -5823,17 +6008,17 @@ $begin 'AnsoftProject'
 									$end 'DocDefaultAttributes'
 									$begin 'PerViewPlotAttributeStoreMap'
 										$begin 'MapItem'
-											ItemID=20
+											ItemID=56
 											$begin 'PlotAttributeStoreMap'
 												$begin 'MainMapItem'
 													$begin 'SubMapItem'
 														DataSourceID=4
 														$begin 'BasicLayoutAttribute'
 															$begin 'LayoutRect'
-																Top=578
+																Top=545
 																Left=390
-																Bottom=9832
-																Right=9430
+																Bottom=9672
+																Right=8965
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -5841,10 +6026,10 @@ $begin 'AnsoftProject'
 														DataSourceID=12
 														$begin 'BasicLayoutAttribute'
 															$begin 'LayoutRect'
-																Top=578
+																Top=545
 																Left=390
-																Bottom=9832
-																Right=9430
+																Bottom=9672
+																Right=8965
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -5862,28 +6047,19 @@ $begin 'AnsoftProject'
 												$end 'MainMapItem'
 												$begin 'MainMapItem'
 													$begin 'SubMapItem'
-														DataSourceID=32
-														$begin 'CartesianYMarkerLayoutAttribute'
-															TextBoxHeight=122
-															TextBoxRightX(Y1=197)
-														$end 'CartesianYMarkerLayoutAttribute'
-													$end 'SubMapItem'
-												$end 'MainMapItem'
-												$begin 'MainMapItem'
-													$begin 'SubMapItem'
 														DataSourceID=15
 														$begin 'CartesianAxisLayoutAttribute'
 															$begin 'AxisRect'
 																Top=75
-																Left=9430
+																Left=8965
 																Bottom=9925
-																Right=9925
+																Right=9460
 															$end 'AxisRect'
 															$begin 'GridRect'
-																Top=578
+																Top=545
 																Left=390
-																Bottom=9832
-																Right=9430
+																Bottom=9672
+																Right=8965
 															$end 'GridRect'
 														$end 'CartesianAxisLayoutAttribute'
 													$end 'SubMapItem'
@@ -5893,14 +6069,14 @@ $begin 'AnsoftProject'
 															$begin 'AxisRect'
 																Top=75
 																Left=321
-																Bottom=577
-																Right=9430
+																Bottom=544
+																Right=8965
 															$end 'AxisRect'
 															$begin 'GridRect'
-																Top=578
+																Top=545
 																Left=390
-																Bottom=9832
-																Right=9430
+																Bottom=9672
+																Right=8965
 															$end 'GridRect'
 														$end 'CartesianAxisLayoutAttribute'
 													$end 'SubMapItem'
@@ -5909,7 +6085,7 @@ $begin 'AnsoftProject'
 													$begin 'SubMapItem'
 														DataSourceID=4
 														$begin 'CartesianCurveGroupLayoutAttribute'
-															X_spc=500000000
+															X_spc=250000000
 															X_fwd=3
 															X_fpr=2
 															Y1_spc=1
@@ -5920,12 +6096,21 @@ $begin 'AnsoftProject'
 												$end 'MainMapItem'
 												$begin 'MainMapItem'
 													$begin 'SubMapItem'
-														DataSourceID=30
+														DataSourceID=64
+														$begin 'CartesianXMarkerLayoutAttribute'
+															TextBoxMaxY=9511
+															TextBoxHeight=207
+															LineMaxYXInGrid=390
+															LineMaxYXOutOfGrid=8965
+														$end 'CartesianXMarkerLayoutAttribute'
+													$end 'SubMapItem'
+													$begin 'SubMapItem'
+														DataSourceID=66
 														$begin 'CartesianXMarkerLayoutAttribute'
 															TextBoxMaxY=9718
 															TextBoxHeight=207
 															LineMaxYXInGrid=390
-															LineMaxYXOutOfGrid=9172
+															LineMaxYXOutOfGrid=8965
 														$end 'CartesianXMarkerLayoutAttribute'
 													$end 'SubMapItem'
 												$end 'MainMapItem'
@@ -5936,10 +6121,10 @@ $begin 'AnsoftProject'
 															$begin 'Dock_0'
 																$begin 'OverlayLayoutAttribute'
 																	$begin 'BoundingRect'
-																		Top=4844
-																		Left=373
-																		Bottom=9840
-																		Right=1341
+																		Top=4758
+																		Left=382
+																		Bottom=9758
+																		Right=978
 																	$end 'BoundingRect'
 																	ModifySize=true
 																	ModifyPosition=true
@@ -5965,6 +6150,11 @@ $begin 'AnsoftProject'
 										IDMapItem(100, 7, -1, 39)
 										IDMapItem(100, 8, -1, 41)
 										IDMapItem(100, 9, -1, 43)
+										IDMapItem(100, 10, -1, 57)
+										IDMapItem(100, 11, -1, 59)
+										IDMapItem(100, 12, -1, 61)
+										IDMapItem(100, 13, -1, 67)
+										IDMapItem(100, 14, -1, 69)
 									$end 'SourceIDMap'
 									$begin 'TraceCharacteristicsMgr'
 									$end 'TraceCharacteristicsMgr'
@@ -5980,7 +6170,7 @@ $begin 'AnsoftProject'
 									$begin 'AllTransSrcDwg'
 										$begin 'PT'
 											ID=1
-											TransSrcDwg(-1, 0, 19, 1, 15, 2, 16, 5, 6, 11, 12, 21, 22, 23, 24, 25, 26, 27, 28, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44)
+											TransSrcDwg(-1, 0, 19, 1, 15, 2, 16, 5, 6, 11, 12, 21, 22, 23, 24, 25, 26, 27, 28, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 57, 58, 59, 60, 61, 62, 67, 68, 69, 70)
 										$end 'PT'
 									$end 'AllTransSrcDwg'
 									$begin 'AllPtSVID'
@@ -5997,7 +6187,7 @@ $begin 'AnsoftProject'
 								$begin 'Report2D'
 									$begin 'ViewInfo'
 										$begin 'WrapperView'
-											ID(20)
+											ID(56)
 										$end 'WrapperView'
 										$begin 'WrapperDoc'
 											HiddenDrawings()
@@ -6007,13 +6197,13 @@ $begin 'AnsoftProject'
 													$begin 'MedCamera'
 														$begin 'svrc'
 															svid=4
-															view(20, cam(XYCam(false, true, true, true, -0.116943746805191, 1.30157673358917, -0.20682430267334, 1.21169638633728, 0, 1, 0, 1, 0, 0)))
+															view(56, cam(XYCam(false, true, true, true, -0.201483815908432, 0.952658712863922, -0.00631711632013321, 0.175527453422546, 0, 1, 0, 1, 0, 0)))
 														$end 'svrc'
 													$end 'MedCamera'
 												$end 'CurveMed'
 											$end 'DispType'
 										$end 'WrapperDoc'
-										WindowPos(WindowPos(3, -1, -1, -8, -30, 175, 175, 1148, 677))
+										WindowPos(WindowPos(3, -1, -1, -8, -30, 75, 75, 1240, 577))
 									$end 'ViewInfo'
 								$end 'Report2D'
 							$end 'WindowInfoList'

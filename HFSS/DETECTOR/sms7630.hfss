@@ -185,14 +185,14 @@ $begin 'AnsoftProject'
 				$end 'DatasetDefinitions'
 			$end 'DesignDatasets'
 			$begin 'Properties'
-				VariableProp('feed_W', 'UD', '', '19.83mm', oa(i=true, int=false, Min='6mm', Max='20mm', MinStep='0.08mm', MaxStep='0.8mm', MinFocus='6mm', MaxFocus='20mm'))
-				VariableProp('feed_H', 'UD', '', '4.51mm', oa(i=true, int=false, Min='0.5mm', Max='18mm', MinStep='0.06mm', MaxStep='0.6mm', MinFocus='0.5mm', MaxFocus='18mm'))
+				VariableProp('feed_W', 'UD', '', '19.83mm', oa(i=true, int=false, Min='19mm', Max='20mm', MinStep='0.08mm', MaxStep='0.8mm', MinFocus='19mm', MaxFocus='20mm'))
+				VariableProp('feed_H', 'UD', '', '4.51mm', oa(i=true, int=false, Min='4mm', Max='5mm', MinStep='0.06mm', MaxStep='0.6mm', MinFocus='4mm', MaxFocus='5mm'))
 				VariableProp('subT', 'UD', '', '0.8mm')
-				VariableProp('stub_H', 'UD', '', '18.18mm', oa(i=true, int=false, Min='1mm', Max='25mm', MinStep='0.12mm', MaxStep='1.2mm', MinFocus='1mm', MaxFocus='25mm'))
-				VariableProp('stub_W', 'UD', '', '0.86mm', oa(i=true, int=false, Min='0.5mm', Max='6mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='0.5mm', MaxFocus='6mm'))
+				VariableProp('stub_H', 'UD', '', '18.18mm', oa(i=true, int=false, Min='17mm', Max='19mm', MinStep='0.12mm', MaxStep='1.2mm', MinFocus='17mm', MaxFocus='19mm'))
+				VariableProp('stub_W', 'UD', '', '0.86mm', oa(i=true, int=false, Min='0.5mm', Max='1mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='0.5mm', MaxFocus='1mm'))
 				VariableProp('via_stub_R', 'UD', '', '0.4mm')
-				VariableProp('line_H', 'UD', '', '2.99mm', oa(i=true, int=false, Min='0.5mm', Max='4mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='0.5mm', MaxFocus='4mm'))
-				VariableProp('line_W', 'UD', '', '8.05mm', oa(i=true, int=false, Min='0.5mm', Max='15mm', MinStep='0.05mm', MaxStep='0.5mm', MinFocus='0.5mm', MaxFocus='15mm'))
+				VariableProp('line_H', 'UD', '', '2.99mm', oa(i=true, int=false, Min='2mm', Max='4mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='2mm', MaxFocus='4mm'))
+				VariableProp('line_W', 'UD', '', '8.05mm', oa(i=true, int=false, Min='7mm', Max='9mm', MinStep='0.05mm', MaxStep='0.5mm', MinFocus='7mm', MaxFocus='9mm'))
 				VariableProp('via_diode_R', 'UD', '', '0.1mm')
 				VariableProp('pcb_X', 'UD', '', '50mm')
 				VariableProp('pcb_Y', 'UD', '', '35mm')
@@ -2498,27 +2498,27 @@ $begin 'AnsoftProject'
 		$end 'AnalysisSetup'
 		$begin 'Optimetrics'
 			$begin 'OptimetricsSetups'
-				NextUniqueID=1
+				NextUniqueID=2
 				MoveBackwards=false
 				$begin 'OptimizationSetup1'
-					ID=0
+					ID=1
 					SetupType='OptiOptimization'
 					IsEnabled=true
-					NextUniqueID=4
+					NextUniqueID=1
 					MoveBackwards=false
 					GoalSetupVersion=0
-					Version=3
+					Version=0
 					$begin 'ProdOptiSetupData'
 						SaveFields=false
 						CopyMesh=false
 					$end 'ProdOptiSetupData'
 					$begin 'StartingPoint'
-						feed_H='6mm'
-						feed_W='8mm'
-						line_H='1mm'
-						line_W='5mm'
-						stub_H='12mm'
-						stub_W='1mm'
+						feed_H='4.51mm'
+						feed_W='19.83mm'
+						line_H='2.99mm'
+						line_W='8.05mm'
+						stub_H='18.18mm'
+						stub_W='0.86mm'
 					$end 'StartingPoint'
 					Optimizer='Genetic Algorithm'
 					$begin 'AnalysisStopOptions'
@@ -2535,12 +2535,12 @@ $begin 'AnsoftProject'
 					PriorPSetup=-1
 					PreSolvePSetup=true
 					$begin 'Variables'
-						feed_H(i=true, int=false, Min='0.5mm', Max='18mm', MinStep='0.06mm', MaxStep='0.6mm', MinFocus='0.5mm', MaxFocus='18mm')
-						feed_W(i=true, int=false, Min='6mm', Max='20mm', MinStep='0.08mm', MaxStep='0.8mm', MinFocus='6mm', MaxFocus='20mm')
-						line_H(i=true, int=false, Min='0.5mm', Max='4mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='0.5mm', MaxFocus='4mm')
-						line_W(i=true, int=false, Min='0.5mm', Max='15mm', MinStep='0.05mm', MaxStep='0.5mm', MinFocus='0.5mm', MaxFocus='15mm')
-						stub_H(i=true, int=false, Min='1mm', Max='25mm', MinStep='0.12mm', MaxStep='1.2mm', MinFocus='1mm', MaxFocus='25mm')
-						stub_W(i=true, int=false, Min='0.5mm', Max='6mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='0.5mm', MaxFocus='6mm')
+						feed_H(i=true, int=false, Min='4mm', Max='5mm', MinStep='0.06mm', MaxStep='0.6mm', MinFocus='4mm', MaxFocus='5mm')
+						feed_W(i=true, int=false, Min='19mm', Max='20mm', MinStep='0.08mm', MaxStep='0.8mm', MinFocus='19mm', MaxFocus='20mm')
+						line_H(i=true, int=false, Min='2mm', Max='4mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='2mm', MaxFocus='4mm')
+						line_W(i=true, int=false, Min='7mm', Max='9mm', MinStep='0.05mm', MaxStep='0.5mm', MinFocus='7mm', MaxFocus='9mm')
+						stub_H(i=true, int=false, Min='17mm', Max='19mm', MinStep='0.12mm', MaxStep='1.2mm', MinFocus='17mm', MaxFocus='19mm')
+						stub_W(i=true, int=false, Min='0.5mm', Max='1mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='0.5mm', MaxFocus='1mm')
 					$end 'Variables'
 					$begin 'LCS'
 					$end 'LCS'
@@ -2557,13 +2557,13 @@ $begin 'AnsoftProject'
 							Calculation='VSWRt(feed_T1)'
 							Name='VSWRt(feed_T1)'
 							$begin 'Ranges'
-								Range(Var='Freq', Type='d', DiscreteValues='5.6GHz,5.7GHz,5.8GHz,5.9GHz,6GHz')
+								Range(Var='Freq', Type='d', DiscreteValues='5.5GHz,5.6GHz,5.7GHz,5.8GHz,5.9GHz,6GHz,6.1GHz')
 							$end 'Ranges'
 							Condition='<='
 							$begin 'GoalValue'
 								GoalValueType='Independent'
 								Format='Real/Imag'
-								bG(v='[1.5;]')
+								bG(v='[1.2;]')
 							$end 'GoalValue'
 							Weight='[1;]'
 						$end 'Goal'
@@ -3515,7 +3515,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						'3D Modeler'(Editor3d(View(WindowPos(3, -1, -1, -8, -30, 0, 0, 1075, 284), OrientationMatrix(-0.238267347216606, -1.48007500171661, 0.0431888811290264, 0, 1.47332334518433, -0.232661545276642, 0.156228631734848, 0, -0.147623151540756, 0.0672324523329735, 1.49052500724792, 0, 205.679626464844, -37.7868118286133, 302.903564453125, 1, 0, 186.461059570313, 260.005706787109, -78.7387390136719, -24.724063873291, -832.047607421875, 221.121704101563), Drawings[12: 'FR4', 'gndcopper', 'Box1', 'VIA_stub', 'feed', 'diodePad1', 'diodePad2', 'diode_Rs', 'diode_Ls', 'via_diode', 'port', 'Mag_E1'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						'3D Modeler'(Editor3d(View(WindowPos(3, -1, -1, -8, -30, 0, 0, 1075, 284), OrientationMatrix(-0.238267347216606, -1.48007500171661, 0.0431888811290264, 0, 1.47332334518433, -0.232661545276642, 0.156228631734848, 0, -0.147623151540756, 0.0672324523329735, 1.49052500724792, 0, 205.679626464844, -37.7868118286133, 302.903564453125, 1, 0, 177.390075683594, 271.435913085938, -82.1291351318359, -21.4382171630859, -832.047607421875, 221.121704101563), Drawings[12: 'FR4', 'gndcopper', 'Box1', 'VIA_stub', 'feed', 'diodePad1', 'diodePad2', 'diode_Rs', 'diode_Ls', 'via_diode', 'port', 'Mag_E1'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'

@@ -51,13 +51,31 @@ Name	"VSWRt(port1_T1):slot_H='4.33657638201949mm' slot_W='3.55531341408794mm' [C
    
  
    
-DETECTOR swr=1.1
-Name	"VSWRt(feed_T1):feed_H='4.51783806878872mm' feed_W='19.8308053834651mm' line_H='2.99166844691305mm' line_W='8.05511642811365mm' stub_H='18.1838740195929mm' stub_W='0.864741966002381mm' [Curve11]"	
+DETECTOR simple swr=1.1
+Name	Value	Description
+Name	"VSWRt(feed_T1):feed_H='4.9693902386377mm' feed_W='19.2930255015529mm' line_H='2.35657076828695mm' line_W='8.063532614299mm' stub_H='18.3013580521993mm' stub_W='0.576846545849823mm' [Curve30]"
+
  
+
  
-Name	"VSWRt(feed_T1):feed_H='4.95739616077151mm' feed_W='19.4713278603473mm' line_H='3.04416028321177mm' line_W='8.0541703543199mm' stub_H='18.4701986754967mm' stub_W='0.928769798883023mm' [Curve4]"	
+DETECTOR smaline swr=1.2 
+Name	"VSWRt(port_T1):feed_H='6.04617450483718mm' feed_W='18.4134647663808mm' line_H='2.04725791192358mm' line_W='10.0473647267067mm' smaLine_X='2.31583605456709mm' smaLine_Y='6.2793359172338mm' stub_H='18.7925351725822mm' stub_W='5.27828302865688mm' [Curve108]"	
  
-	
+Name	"VSWRt(port_T1):feed_H='3.65712454603717mm' feed_W='19.2977385784478mm' line_H='0.657612842188787mm' line_W='13.6340983306375mm' smaLine_X='2.13473921933653mm' smaLine_Y='19.6800134281442mm' stub_H='5.54188665425581mm' stub_W='7.69649342326121mm' [Curve119]"	
+
+Name	"VSWRt(port_T1):feed_H='6.70949430829798mm' feed_W='19.1203039643544mm' line_H='5.75997192297128mm' line_W='8.6940824610126mm' smaLine_X='1.10534989471114mm' smaLine_Y='8.17148350474563mm' stub_H='3.49543748283334mm' stub_W='1.6977752006592mm' [Curve117]"	
+
+
+
+
+
+
+
+
+
+-line_H/2-2.5*diodePad_size ,feed_W+line_W+4.5*diodePad_size +2*diodeRLC_Y -0.2mm  +smaLine_Y ,0.1mm
+ 	
+-line_H/2+2.5*diodePad_size ,feed_W+line_W+4.5*diodePad_size +2*diodeRLC_Y -0.2mm  +smaLine_Y ,0.1mm
 
 
 

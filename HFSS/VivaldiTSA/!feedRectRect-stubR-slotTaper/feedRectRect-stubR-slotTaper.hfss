@@ -4318,7 +4318,7 @@ $begin 'AnsoftProject'
 					MinimumPasses=1
 					MinimumConvergedPasses=1
 					PercentRefinement=30
-					IsEnabled=true
+					IsEnabled=false
 					BasisOrder=1
 					UseIterativeSolver=false
 					DoLambdaRefine=true
@@ -4527,8 +4527,6 @@ $begin 'AnsoftProject'
 		$begin 'PortFieldDisplay'
 			$begin 'PortFieldDisplay'
 				ScaleFactor=5
-				Solution='TEST : LastAdaptive'
-				Frequency='1.8GHz'
 			$end 'PortFieldDisplay'
 		$end 'PortFieldDisplay'
 		$begin 'FieldsReporter'
@@ -4538,8 +4536,6 @@ $begin 'AnsoftProject'
 			$begin 'PlotDefaults'
 				Default_SolutionId=14503
 				Default_PlotFolder='Automatic'
-				Default_Phase='0deg'
-				Default_Freq='0.8GHz'
 			$end 'PlotDefaults'
 			$begin 'FieldsPlotManagerID'
 				NextUniqueID=54
@@ -4620,7 +4616,6 @@ $begin 'AnsoftProject'
 					ID=14457
 					Name='AdaptivePass'
 					$begin 'SimDataExtractor'
-						SimValue('VSWRt(port1_T1)', 1, 90, false, SimValueID=14544, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Pass'
@@ -4668,71 +4663,6 @@ $begin 'AnsoftProject'
 								Increment=0.0872664625997165
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='s'
-								Column='1.353mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='rate'
-								Column='53'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='TL'
-								Column='83mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='ext'
-								Column='1mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='subT'
-								Column='0.8mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='copperThickness'
-								Column='0.05mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='slotL'
-								Column='49.239mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_W'
-								Column='0.875mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feedOffset_X'
-								Column='4.32558mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_addon_L'
-								Column='0.5244mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_L'
-								Column='7.36765mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_SMA_W'
-								Column='0.75155mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='stubR_R'
-								Column='15.211mm'
-								Units='mm'
-							$end 'Sweep'
 						$end 'Sweeps'
 						IsPortOnly=false
 					$end 'SimDataExtractor'
@@ -4741,7 +4671,6 @@ $begin 'AnsoftProject'
 					ID=14458
 					Name='LastAdaptive'
 					$begin 'SimDataExtractor'
-						SimValue('VSWRt(port1_T1)', 1, 90, false, SimValueID=14543, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Freq'
@@ -4784,71 +4713,6 @@ $begin 'AnsoftProject'
 								Increment=0.0872664625997165
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='s'
-								Column='1.353mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='rate'
-								Column='53'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='TL'
-								Column='83mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='ext'
-								Column='1mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='subT'
-								Column='0.8mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='copperThickness'
-								Column='0.05mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='slotL'
-								Column='49.239mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_W'
-								Column='0.875mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feedOffset_X'
-								Column='4.32558mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_addon_L'
-								Column='0.5244mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_L'
-								Column='7.36765mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_SMA_W'
-								Column='0.75155mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='stubR_R'
-								Column='15.211mm'
-								Units='mm'
-							$end 'Sweep'
 						$end 'Sweeps'
 						IsPortOnly=false
 					$end 'SimDataExtractor'
@@ -4857,7 +4721,7 @@ $begin 'AnsoftProject'
 					ID=14459
 					Name='Sweep'
 					$begin 'SimDataExtractor'
-						SimValue('VSWRt(port1_T1)', 1, 90, false, SimValueID=14499, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('VSWRt(port1_T1)', 1, 90, false, SimValueID=14579, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'PostprocessSweep'
 								Variable='Freq'
@@ -4982,7 +4846,6 @@ $begin 'AnsoftProject'
 					ID=14501
 					Name='AdaptivePass'
 					$begin 'SimDataExtractor'
-						SimValue('VSWRt(port1_T1)', 1, 90, false, SimValueID=14546, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Pass'
@@ -5030,71 +4893,6 @@ $begin 'AnsoftProject'
 								Increment=0.0872664625997165
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='s'
-								Column='1.353mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='rate'
-								Column='53'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='TL'
-								Column='83mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='ext'
-								Column='1mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='subT'
-								Column='0.8mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='copperThickness'
-								Column='0.05mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='slotL'
-								Column='49.239mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_W'
-								Column='0.875mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feedOffset_X'
-								Column='4.32558mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_addon_L'
-								Column='0.5244mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_L'
-								Column='7.36765mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='feed_SMA_W'
-								Column='0.75155mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='stubR_R'
-								Column='15.211mm'
-								Units='mm'
-							$end 'Sweep'
 						$end 'Sweeps'
 						IsPortOnly=false
 					$end 'SimDataExtractor'
@@ -5103,7 +4901,6 @@ $begin 'AnsoftProject'
 					ID=14502
 					Name='LastAdaptive'
 					$begin 'SimDataExtractor'
-						SimValue('VSWRt(port1_T1)', 1, 90, false, SimValueID=14545, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Freq'
@@ -5219,11 +5016,8 @@ $begin 'AnsoftProject'
 					ID=14503
 					Name='Sweep'
 					$begin 'SimDataExtractor'
-						SimValue('VSWRt(port1_T1)', 1, 90, false, SimValueID=14547, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Mag_E', 1, 154, false, SimValueID=14564, 3, 0, 2, 0, false, false, 10674, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Mag_E', 1, 154, false, SimValueID=14566, 3, 0, 2, 0, false, false, 10735, 1, 0, 1, 1, '', 0, 0)
-						SimValue('rETotal', 1, 67, false, SimValueID=14582, 0, 0, 2, 0, false, false, 0, 1, 0, 1, 1, '', 0, 0)
-						SimValue('GainTotal', 1, 90, true, SimValueID=14583, 0, 0, 2, 0, false, false, 0, 1, 0, 1, 1, '', 0, 0)
+						SimValue('VSWRt(port1_T1)', 1, 90, false, SimValueID=14580, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('GainTotal', 1, 90, true, SimValueID=14581, 0, 0, 2, 0, false, false, 0, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Freq'
@@ -5390,7 +5184,7 @@ $begin 'AnsoftProject'
 				IntrinsicVarVals=''
 			$end 'Setup_0'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR446C66881615025681285.tmp'
+		CacheHeaderFile='HDR32DB368416164993556.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		$begin 'Instance'
@@ -5399,7 +5193,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						'3D Modeler'(Editor3d(View(WindowPos(3, -1, -1, -8, -30, 2, -1, 960, 722), OrientationMatrix(-0.0142173655331135, -0.000143217155709863, 0.00105183571577072, 0, -8.56245096656494e-005, 0.0142337223514915, 0.000779023801442236, 0, -0.00105858454480767, 0.00077061855699867, -0.0141954319551587, 0, 0.730677247047424, -4.55676174163818, -5.30726194381714, 1, 0, -0.950893342494965, 3.96170783042908, -6.26379060745239, -3.4604127407074, -11.8456735610962, 22.4257392883301), Drawings[5: 'FR4', 'Box1', 'plain', 'port1', 'feed'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -8, -30, 2, -1, 825, 459), OrientationMatrix(-0.0142173655331135, -0.000143217155709863, 0.00105183571577072, 0, -8.56245096656494e-005, 0.0142337223514915, 0.000779023801442236, 0, -0.00105858454480767, 0.00077061855699867, -0.0141954319551587, 0, 0.730677247047424, -4.55676174163818, -5.30726194381714, 1, 0, -0.828505754470825, 3.83931994438171, -6.26379060745239, -3.46041250228882, -11.8456439971924, 22.4257106781006), Drawings[5: 'FR4', 'Box1', 'plain', 'port1', 'feed'], 'View Data'('Render Mode'=1, 'Show Ruler'=1), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -5667,7 +5461,7 @@ $begin 'AnsoftProject'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
 									ID=104
-									VersionID=1798
+									VersionID=1800
 									Name='GainTotal'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -5794,7 +5588,7 @@ $begin 'AnsoftProject'
 						NextUniqueID=106
 						MoveBackwards=false
 						$begin 'NextVersID'
-							NextUniqueID=1799
+							NextUniqueID=1801
 							MoveBackwards=false
 						$end 'NextVersID'
 					$end 'ReportManager'
@@ -7776,6 +7570,30 @@ $begin 'AnsoftProject'
 																	ModifyPosition=false
 																$end 'OverlayLayoutAttribute'
 															$end 'Dock_0'
+															$begin 'Dock_1'
+																$begin 'OverlayLayoutAttribute'
+																	$begin 'BoundingRect'
+																		Top=5000
+																		Left=0
+																		Bottom=10000
+																		Right=10000
+																	$end 'BoundingRect'
+																	ModifySize=false
+																	ModifyPosition=false
+																$end 'OverlayLayoutAttribute'
+															$end 'Dock_1'
+															$begin 'Dock_2'
+																$begin 'OverlayLayoutAttribute'
+																	$begin 'BoundingRect'
+																		Top=0
+																		Left=0
+																		Bottom=5000
+																		Right=10000
+																	$end 'BoundingRect'
+																	ModifySize=false
+																	ModifyPosition=false
+																$end 'OverlayLayoutAttribute'
+															$end 'Dock_2'
 														$end 'DockableOverlayLayoutAttribute'
 													$end 'SubMapItem'
 												$end 'MainMapItem'
@@ -7880,11 +7698,11 @@ $begin 'AnsoftProject'
 									$begin 'Scale3DSettings'
 										unit=90
 										m_nLevels=15
-										minvalue=0.0652940292554764
-										maxvalue=2.71158331228094
+										minvalue=0
+										maxvalue=1
 										log=false
-										IntrinsicMin=0.0652940292554764
-										IntrinsicMax=2.71158331228094
+										IntrinsicMin=0
+										IntrinsicMax=1
 										LimitFieldValuePrecision=false
 										FieldValuePrecisionDigits=4
 										ScaleType=0
@@ -7912,33 +7730,13 @@ $begin 'AnsoftProject'
 							ReportID=102
 							$begin 'WindowInfoList'
 								$begin 'Report2D'
-									$begin 'ViewInfo'
-										$begin 'WrapperView'
-											ID(78)
-										$end 'WrapperView'
-										$begin 'WrapperDoc'
-											HiddenDrawings()
-											$begin 'DispType'
-												PlotType=1
-												$begin 'CurveMed'
-													$begin 'MedCamera'
-														$begin 'svrc'
-															svid=4
-															view(78, cam(XYCam(false, true, true, true, -0.222738906741142, 1.4511137008667, -0.295707046985626, 1.37814593315125, 0, 1, 0, 1, 0, -1.21769278717884e+034)))
-														$end 'svrc'
-													$end 'MedCamera'
-												$end 'CurveMed'
-											$end 'DispType'
-										$end 'WrapperDoc'
-										WindowPos(WindowPos(5, -1, -1, -8, -30, 0, 0, 1149, 498))
-									$end 'ViewInfo'
 								$end 'Report2D'
 							$end 'WindowInfoList'
 						$end 'test'
 						$begin '3D Polar Plot 1'
 							ReportID=105
 							$begin 'WindowInfoList'
-								R3DWindowPos(Editor3d(View(WindowPos(5, -1, -1, -8, -30, 25, 25, 1178, 527), OrientationMatrix(-0.470512002706528, -0.0121848620474339, 0.146709054708481, 0, 0.14698688685894, -0.0115309907123446, 0.470441937446594, 0, -0.00819434598088264, 0.492720544338226, 0.0146373677998781, 0, 0.121368125081062, -0.0888135731220245, -5.66295289993286, 1, 0, -2.4630434513092, 2.4630434513092, -1, 1, 0.539476871490479, 10.7864284515381), Drawings[1: 'GainTotal'])))
+								R3DWindowPos(Editor3d(View(WindowPos(3, -1, -1, -8, -30, 125, 125, 802, 439), OrientationMatrix(-0.15590238571167, -0.249999970197678, 0.395284682512283, 0, 0.46770715713501, -0.0833333283662796, 0.13176155090332, 0, 0, 0.416666626930237, 0.263523131608963, 0, 0, 0, -5.74868297576904, 1, 0, -1.78913033008575, 1.78913033008575, -1, 1, 0.625207901000977, 10.8721580505371), Drawings[1: 'GainTotal'])))
 							$end 'WindowInfoList'
 						$end '3D Polar Plot 1'
 					$end 'ReportsWindowInfoList'
@@ -8068,7 +7866,7 @@ hGNLsB4v8AF/iLxhY/D7wHoV7rusX/AIa+GWk6t4q8T3tjpV5rmrlNY8aeIdXW5SXWriFPqagAooooA\
 		DesignName='HFSSDesign1'
 		Notes=''
 		Factory='HFSS'
-		IsSolved=true
+		IsSolved=false
 		'Nominal Setups'[2: 'OPTI', 'TEST']
 		'Optimetrics Setups'[0:]
 		'Optimetrics Experiment Types'[0:]

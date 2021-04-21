@@ -1,0 +1,131 @@
+/* WWW.ORCINUS.RU функции для сайта */
+
+// Функция загрузки текстовых файлов...
+function load_div(url, id_div)
+{
+ var xmlhttp;
+ try {xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");} catch (e) {try {xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");} catch (E) {xmlhttp = false;}} if (!xmlhttp && typeof XMLHttpRequest!='undefined') { xmlhttp = new XMLHttpRequest(); }
+ xmlhttp.open('GET', url, true);
+ xmlhttp.onreadystatechange = function() {if (xmlhttp.readyState == 4) {if(xmlhttp.status == 200) {document.getElementById(id_div).innerHTML = xmlhttp.responseText;} else {document.getElementById('div_comments').innerHTML = '<p><b>Ошибка загрузки: </b>' + xmlhttp.statusText + '</p>';}}};
+ xmlhttp.send(null);
+}
+
+
+// Самодельная функция Лайтбокса...
+$(document).ready(function(){
+  $('a.lightbox').click(function(e) {
+    /* $('body').css('overflow-y', 'hidden'); // hide scrollbars! */
+    
+    $('<div id="lightbox_overlay"></div>')
+      /*.css('top', $(document).scrollTop())*/
+      .css('opacity', '0')
+      .animate({'opacity': '0.5'}, 'slow')
+      .appendTo('body');
+      
+    $('<div id="lightbox"></div>')
+      .hide()
+      .appendTo('body');
+      
+    $('<img>')
+      .attr('src', $(this).attr('href'))
+      .load(function() {
+        positionLightboxImage();
+      })
+      .click(function() {
+        removeLightbox();
+      })
+      .appendTo('#lightbox');
+    
+    return false;
+  });
+});
+
+function positionLightboxImage() {
+  var top = ($(window).height() - $('#lightbox').height()) / 2;
+  var left = ($(window).width() - $('#lightbox').width()) / 2;
+  $('#lightbox')
+    .css({
+      'top': top /*+ $(document).scrollTop()*/,
+      'left': left
+    })
+    .fadeIn();
+}
+
+function removeLightbox() {
+  $('#lightbox_overlay, #lightbox')
+    .fadeOut('slow', function() {
+      $(this).remove();
+      /* $('body').css('overflow-y', 'auto'); // show scrollbars!*/
+    });
+}
+
+// Скрипт для плавающего меню.
+var h_hght = 75; // высота шапки
+var h_mrg = 0;    // отступ когда шапка уже не видна
+                 
+$(function(){
+    var elem = $('#menubar');
+    var top = $(this).scrollTop();
+     
+    if(top > h_hght){
+        elem.css('top', h_mrg);
+    }           
+     
+    $(window).scroll(function(){
+        top = $(this).scrollTop();
+         
+        if (top+h_mrg < h_hght) {
+            elem.css('top', (h_hght-top));
+        } else {
+            elem.css('top', h_mrg);
+        }
+    });
+});
+
+// Скрипт для вывода кнопочки вверх.
+$(document).ready(function(){
+ $("#upbutton").hide();
+ $(function () {
+ $(window).scroll(function () {
+ if ($(this).scrollTop() > 400) {
+  $('#upbutton').fadeIn();
+  } else {
+  $('#upbutton').fadeOut();
+ }
+});
+$('#upbutton').click(function () {
+ $('body,html').animate({
+ scrollTop: 0
+ }, 400);
+return false;
+});
+});
+});
+
+// Функция для перехвата кнопочек CTRL+стрелка
+document.onkeydown = NavigateThrough;
+function NavigateThrough (event)
+{
+ if (!document.getElementById) return;
+ if (window.event) event = window.event;
+ if (event.ctrlKey)
+   {
+    var link = null;
+    var href = null;
+    switch (event.keyCode ? event.keyCode : event.which ? event.which : null)
+      {
+       case 0x25:
+        link = document.getElementById ('page_previous');
+        break;
+       case 0x27:
+        link = document.getElementById ('page_next');
+        break;
+      }
+    if (link) document.location = link.href;
+   }
+}
+
+
+
+
+

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="bootstrap.min.css">
+
+        <script src="jquery-3.2.1.slim.min.js"></script>
+        <script src="bootstrap.bundle.min.js"></script>
+        <script src="Chart.bundle.min.js"></script>
+        <script src="serial.js"></script>
+        <script src="chart.js"></script>
+
+        <title>SWRJS</title>
+    </head>
+    <body>
+        <style type="text/css">
+            html, body {
+                overflow-y: visible;
+            }
+        </style>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <form class="form-inline">
+                        <select id="serial_i_list" class="form-control my-2" style="width: 140px;" ></select>
+                        <span id="serial_i_btn_openclose" class="btn btn-light my-2">open port</span>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <b>DUT (device under test)</b><br>                    
+                    <input type="checkbox" id="putSerialData_to_portDUT"> put serial data here                     
+                    <textarea id="portDUT" class="form-control"></textarea>
+                </div>
+                <div class="col">
+                    <b>Correction by short\open, 50R</b><br>
+                    <input type="checkbox" id="putSerialData_to_portCorrection"> put serial data here
+                    <textarea id="portCorrection" class="form-control"></textarea>
+                </div>
+                <div class="col">
+                    <b>SWR=1 at 50R (reference)</b><br>
+                    <input type="checkbox" id="putSerialData_to_portReference"> put serial data here
+                    <textarea id="portReference" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form class="form-inline my-4">
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">FREQ_FROM MHz</div>
+                            </div>
+                            <input id="freq_from" type="number" class="form-control" value="400" style="width: 90px;" />
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">FREQ_TO MHz</div>
+                            </div>
+                            <input id="freq_to" type="number" class="form-control" value="500" style="width: 90px;" />
+                        </div>
+                        <div class="form-check mb-2 mr-sm-2">
+                            <input class="form-check-input" type="checkbox" id="isUsePortCorrection">
+                            <label class="form-check-label" for="inlineFormCheck">
+                                use port correction
+                            </label>
+                        </div>
+                        <span class="btn btn-danger mb-2" id="btn_sweep">SWEEP</span>
+                        <span class="btn btn-success mb-2 ml-2" id="btn_draw">DRAW</span>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="chart-container" style="position: relative; height: 500px;"> <!-- style="position: relative; height: 300px;" -->
+                        <canvas id="chart_portDUT"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="chart-container" style="position: relative; height: 500px;"> <!-- style="position: relative; height: 300px;" -->
+                        <canvas id="chart_portCorrection"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>   <!-- container -->
+
+
+    </body>
+</html>

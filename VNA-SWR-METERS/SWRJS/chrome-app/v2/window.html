@@ -13,18 +13,17 @@
 
         <title>SWRJS</title>
     </head>
-    <body>
-        <style type="text/css">
-            html, body {
-                overflow-y: visible;
-            }
-        </style>
+    <body>        
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
                     <form class="form-inline">
-                        <select id="serial_i_list" class="form-control my-2" style="width: 140px;" ></select>
-                        <span id="serial_i_btn_openclose" class="btn btn-light my-2">open port</span>
+                        <select id="serial_i_list" class="form-control my-2 mx-1" style="width: 140px;" ></select>
+                        <select id="serial_i_list_bitrate" class="form-control my-2 mx-1" style="width: 140px;" >
+                            <option value="115200" selected>115200</option>
+                            <option value="57600">57600</option>
+                        </select>
+                        <span id="serial_i_btn_openclose" class="btn btn-light my-2 mx-1">open port</span>
                     </form>
                 </div>
             </div>
@@ -35,12 +34,12 @@
                     <textarea id="portDUT" class="form-control"></textarea>
                 </div>
                 <div class="col">
-                    <b>Correction by short\open, 50R</b><br>
+                    <b>Correction</b><br>
                     <input type="checkbox" id="putSerialData_to_portCorrection"> put serial data here
                     <textarea id="portCorrection" class="form-control"></textarea>
                 </div>
                 <div class="col">
-                    <b>SWR=1 at 50R (reference)</b><br>
+                    <b>SWR (reference)</b><br>
                     <input type="checkbox" id="putSerialData_to_portReference"> put serial data here
                     <textarea id="portReference" class="form-control"></textarea>
                 </div>
@@ -52,13 +51,13 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">FREQ_FROM MHz</div>
                             </div>
-                            <input id="freq_from" type="number" class="form-control" value="400" style="width: 90px;" />
+                            <input id="freq_from" type="number" class="form-control" value="5000" style="width: 90px;" />
                         </div>
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">FREQ_TO MHz</div>
                             </div>
-                            <input id="freq_to" type="number" class="form-control" value="500" style="width: 90px;" />
+                            <input id="freq_to" type="number" class="form-control" value="6000" style="width: 90px;" />
                         </div>
                         <div class="form-check mb-2 mr-sm-2">
                             <input class="form-check-input" type="checkbox" id="isUsePortCorrection">
@@ -86,9 +85,6 @@
                     </div>
                 </div>
             </div>
-
         </div>   <!-- container -->
-
-
     </body>
 </html>

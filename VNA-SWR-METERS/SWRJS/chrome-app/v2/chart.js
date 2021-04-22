@@ -30,6 +30,7 @@ function btn_draw() {
         chart_portDUT_draw();
         chart_portCorrection_draw();
     });
+    $('#btn_sweep').show();
 }
 
 function portReference_fill() {

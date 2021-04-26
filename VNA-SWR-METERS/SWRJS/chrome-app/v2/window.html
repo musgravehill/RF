@@ -31,19 +31,12 @@
                 <div class="col" title="device under test">
                     <b>DUT 1</b><br>                    
                     <input type="checkbox" id="putDataDUT_1"> put data here                     
-                    <textarea id="dataDUT_1" class="form-control">100;200;0;
-101;205;0;
-102;212;0;
-103;208;0;
-                    </textarea>
+                    <textarea id="dataDUT_1" class="form-control"></textarea>
                 </div>
                 <div class="col" title="device under test">
                     <b>DUT 2</b><br>                    
                     <input type="checkbox" id="putDataDUT_2"> put data here                     
-                    <textarea id="dataDUT_2" class="form-control">100;300;0;
-101;305;0;
-102;312;0;
-103;308;0;</textarea>
+                    <textarea id="dataDUT_2" class="form-control"></textarea>
                 </div>
                 <div class="col" title="device under test">
                     <b>DUT 3</b><br>                    
@@ -63,15 +56,12 @@
                 <div class="col">
                     <b>Correction</b><br>
                     <input type="checkbox" id="putDataCorrection"> put data here
-                    <textarea id="dataCorrection" class="form-control">100;10;0;
-101;15;0;
-102;22;0;
-103;18;0;</textarea>
+                    <textarea id="dataCorrection" class="form-control"></textarea>
                 </div>                
             </div>
             <div class="row">
                 <div class="col">
-                    <form class="form-inline my-4">
+                    <form class="form-inline mt-4">
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">FREQ_FROM MHz</div>
@@ -97,7 +87,8 @@
             </div>
 
             <div class="row">
-                <div class="col">                    
+                <div class="col">     
+                    <input placeholder="info about" type="text" class="form-control" style="width: 100%;">
                     <div class="chart-container" style="position: relative; height: 500px;"> <!-- style="position: relative; height: 300px;" -->
                         <canvas id="chart_DUT"></canvas>
                     </div>

@@ -2,26 +2,23 @@
 var SERIAL_connectionId;
 var SERIAL_stringReceived = '';
 
-var SERIAL_opts = {
-    bitrate: 115200,
-    dataBits: 'eight',
-    parityBit: 'no',
-    stopBits: 'one'
-};
-
 document.addEventListener('DOMContentLoaded', function () {
     SERIAL_init();
     btn_sweep();
 });
 
-
-
 function SERIAL_init() {
+    let SERIAL_opts = {
+        bitrate: 115200,
+        dataBits: 'eight',
+        parityBit: 'no',
+        stopBits: 'one'
+    };
+
     chrome.serial.getDevices(function (devices) {
         let i;
         for (i = 0; i < devices.length; i++) {
             $('#serial_i_list').append('<option value="' + devices[i].path + '">' + devices[i].path + '</option>');
-            //console.log(devices[i].path);
         }
     });
 
@@ -34,12 +31,10 @@ function SERIAL_init() {
                 SERIAL_connectionId = info.connectionId;
                 console.log(info);
                 $("#serial_i_btn_openclose").html("close port");
-                //console.log('Connection opened with id: ' + SERIAL_connectionId + ', Bitrate: ' + info.bitrate);
             });
         } else {
             chrome.serial.disconnect(SERIAL_connectionId, function (result) {
                 $("#serial_i_btn_openclose").html("open port");
-                //console.log('Connection with id: ' + SERIAL_connectionId + ' closed');
             });
         }
         $(this).data("portIsOpen", !portIsOpen);
@@ -78,6 +73,9 @@ function SERIAL_onDataReceivedReady() {
     }
     if ($("#putDataDUT_5").prop('checked')) {
         $('#dataDUT_5').val($('#dataDUT_5').val() + SERIAL_stringReceived);
+    }
+    if ($("#putDataDUT_6").prop('checked')) {
+        $('#dataDUT_6').val($('#dataDUT_6').val() + SERIAL_stringReceived);
     }
 
     if ($("#putDataCorrection").prop('checked')) {
@@ -120,22 +118,23 @@ function btn_sweep() {
         if ($("#putDataDUT_5").prop('checked')) {
             $('#dataDUT_5').val('');
         }
+        if ($("#putDataDUT_6").prop('checked')) {
+            $('#dataDUT_6').val('');
+        }
 
         if ($("#putDataCorrection").prop('checked')) {
             $('#dataCorrection').val('');
         }
 
-        freq_from = parseInt($('#freq_from').val()); //MHz
-        freq_to = parseInt($('#freq_to').val()); //MHz
+        freq_from = parseInt($('#freq_from').val()) || 0; //MHz
+        freq_to = parseInt($('#freq_to').val()) || 0; //MHz
 
         let command = '[' + freq_from + ';' + freq_to + ';]' + "\r\n";
-        //console.log(command);
         chrome.serial.send(SERIAL_connectionId, convertStringToArrayBuffer(command), SERIAL_callback_onSend);
     });
 }
 
 function SERIAL_callback_onSend() {
-    //console.log('send');
     $('#btn_sweep').show();
 }
 

@@ -7,6 +7,7 @@ var dataDUT_2 = [];
 var dataDUT_3 = [];
 var dataDUT_4 = [];
 var dataDUT_5 = [];
+var dataDUT_6 = [];
 
 var freq_from = 0; //MHz
 var freq_to = 0; //MHz
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function btn_draw() {
     $('#btn_draw').click(function () {
-        freq_from = parseInt($('#freq_from').val()); //MHz
+        freq_from = parseInt($('#freq_from').val()) || 0; //MHz
         freq_to = parseInt($('#freq_to').val()); //MHz
         isUseCorrection = $("#isUseCorrection").prop('checked');
 
@@ -35,8 +36,6 @@ function btn_draw() {
     });
     $('#btn_sweep').show();
 }
-
-
 
 function DUT_fill() {
     let res, ar, tmp, freq, volt;
@@ -95,6 +94,17 @@ function DUT_fill() {
             dataDUT_5[freq] = volt;
         }
     });
+    
+    res = $('#dataDUT_6').val();
+    ar = res.split('\n');
+    $(ar).each(function (i, item) {
+        tmp = item.split(';');
+        freq = parseInt(tmp[0]) || 0;
+        volt = parseInt(tmp[1]) || 0;
+        if (freq > 0 && volt > 0) {
+            dataDUT_6[freq] = volt;
+        }
+    });
 }
 
 function correction_fill() {
@@ -110,24 +120,24 @@ function correction_fill() {
         }
     });
 }
+
 function calc_correction_coefs() {
     let i;
     let dataCorrection_freqsRange = [];
     for (i = freq_from; i <= freq_to; i++) {
-        if (dataCorrection[i]) {
+        if (typeof dataCorrection[i] !== 'undefined') {
             dataCorrection_freqsRange.push(dataCorrection[i]);
         }
     }
     let dataCorrection_freqsRange_min = Math.min.apply(null, dataCorrection_freqsRange);
     for (i = freq_from; i <= freq_to; i++) {
-        if (dataCorrection[i]) {
+        if (typeof dataCorrection[i] !== 'undefined') {
             correction_coefs[i] = dataCorrection_freqsRange_min / dataCorrection[i];
         }
     }
 }
 
-function chart_DUT_draw() {
-    //dataDUT_1
+function chart_DUT_draw() {    
     let i;
     let dataLabels = [];
     let dataY_dataDUT_1 = [];
@@ -135,6 +145,7 @@ function chart_DUT_draw() {
     let dataY_dataDUT_3 = [];
     let dataY_dataDUT_4 = [];
     let dataY_dataDUT_5 = [];
+    let dataY_dataDUT_6 = [];
     let dataY_dataCorrection = [];
     for (i = freq_from; i <= freq_to; i++) {
         let dataLabelIsPushed = false;
@@ -143,7 +154,7 @@ function chart_DUT_draw() {
             if (pointVal > 0) {
                 if (!dataLabelIsPushed) {
                     dataLabels.push(i);
-                    dataLabelIsPushed=true;
+                    dataLabelIsPushed = true;
                 }
                 if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
                     dataY_dataCorrection.push(Math.round(dataCorrection[i] * correction_coefs[i]));
@@ -158,7 +169,7 @@ function chart_DUT_draw() {
             if (pointVal > 0) {
                 if (!dataLabelIsPushed) {
                     dataLabels.push(i);
-                    dataLabelIsPushed=true;
+                    dataLabelIsPushed = true;
                 }
                 if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
                     dataY_dataDUT_1.push(Math.round(dataDUT_1[i] * correction_coefs[i]));
@@ -167,13 +178,13 @@ function chart_DUT_draw() {
                 }
             }
         }
-        
+
         if (typeof dataDUT_2[i] !== 'undefined') {
             let pointVal = parseInt(dataDUT_2[i]) || 0;
             if (pointVal > 0) {
                 if (!dataLabelIsPushed) {
                     dataLabels.push(i);
-                    dataLabelIsPushed=true;
+                    dataLabelIsPushed = true;
                 }
                 if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
                     dataY_dataDUT_2.push(Math.round(dataDUT_2[i] * correction_coefs[i]));
@@ -182,13 +193,13 @@ function chart_DUT_draw() {
                 }
             }
         }
-        
+
         if (typeof dataDUT_3[i] !== 'undefined') {
             let pointVal = parseInt(dataDUT_3[i]) || 0;
             if (pointVal > 0) {
                 if (!dataLabelIsPushed) {
                     dataLabels.push(i);
-                    dataLabelIsPushed=true;
+                    dataLabelIsPushed = true;
                 }
                 if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
                     dataY_dataDUT_3.push(Math.round(dataDUT_3[i] * correction_coefs[i]));
@@ -197,13 +208,13 @@ function chart_DUT_draw() {
                 }
             }
         }
-        
+
         if (typeof dataDUT_4[i] !== 'undefined') {
             let pointVal = parseInt(dataDUT_4[i]) || 0;
             if (pointVal > 0) {
                 if (!dataLabelIsPushed) {
                     dataLabels.push(i);
-                    dataLabelIsPushed=true;
+                    dataLabelIsPushed = true;
                 }
                 if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
                     dataY_dataDUT_4.push(Math.round(dataDUT_4[i] * correction_coefs[i]));
@@ -212,13 +223,13 @@ function chart_DUT_draw() {
                 }
             }
         }
-        
+
         if (typeof dataDUT_5[i] !== 'undefined') {
             let pointVal = parseInt(dataDUT_5[i]) || 0;
             if (pointVal > 0) {
                 if (!dataLabelIsPushed) {
                     dataLabels.push(i);
-                    dataLabelIsPushed=true;
+                    dataLabelIsPushed = true;
                 }
                 if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
                     dataY_dataDUT_5.push(Math.round(dataDUT_5[i] * correction_coefs[i]));
@@ -227,12 +238,26 @@ function chart_DUT_draw() {
                 }
             }
         }
+        
+        if (typeof dataDUT_6[i] !== 'undefined') {
+            let pointVal = parseInt(dataDUT_6[i]) || 0;
+            if (pointVal > 0) {
+                if (!dataLabelIsPushed) {
+                    dataLabels.push(i);
+                    dataLabelIsPushed = true;
+                }
+                if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
+                    dataY_dataDUT_6.push(Math.round(dataDUT_6[i] * correction_coefs[i]));
+                } else {
+                    dataY_dataDUT_6.push(dataDUT_6[i]);
+                }
+            }
+        }
 
     }
 
     if (chart_DUT) {
         chart_DUT.destroy();
-        //alert('destroy');
     }
 
     let ctx = document.getElementById('chart_DUT').getContext('2d');
@@ -241,7 +266,6 @@ function chart_DUT_draw() {
         data: {
             labels: dataLabels,
             datasets: [
-                
                 {
                     label: 'DUT 1',
                     fill: false,
@@ -291,6 +315,16 @@ function chart_DUT_draw() {
                     pointStyle: 'circle',
                     radius: 1,
                     data: dataY_dataDUT_5
+                },
+                {
+                    label: 'DUT 6',
+                    fill: false,
+                    backgroundColor: '#e1eb34',
+                    borderWidth: 3,
+                    borderColor: '#e1eb34',
+                    pointStyle: 'circle',
+                    radius: 1,
+                    data: dataY_dataDUT_6
                 },
                 {
                     label: 'Correction',

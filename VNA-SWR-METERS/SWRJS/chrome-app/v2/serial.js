@@ -64,15 +64,24 @@ var SERIAL_callback_onReceive = function (info) {
 chrome.serial.onReceive.addListener(SERIAL_callback_onReceive);
 
 function SERIAL_onDataReceivedReady() {
-    console.log(SERIAL_stringReceived);
-    if ($("#putSerialData_to_portDUT").prop('checked')) {
-        $('#portDUT').val($('#portDUT').val() + SERIAL_stringReceived);
+    if ($("#putDataDUT_1").prop('checked')) {
+        $('#dataDUT_1').val($('#dataDUT_1').val() + SERIAL_stringReceived);
     }
-    if ($("#putSerialData_to_portCorrection").prop('checked')) {
-        $('#portCorrection').val($('#portCorrection').val() + SERIAL_stringReceived);
+    if ($("#putDataDUT_2").prop('checked')) {
+        $('#dataDUT_2').val($('#dataDUT_2').val() + SERIAL_stringReceived);
     }
-    if ($("#putSerialData_to_portReference").prop('checked')) {
-        $('#portReference').val($('#portReference').val() + SERIAL_stringReceived);
+    if ($("#putDataDUT_3").prop('checked')) {
+        $('#dataDUT_3').val($('#dataDUT_3').val() + SERIAL_stringReceived);
+    }
+    if ($("#putDataDUT_4").prop('checked')) {
+        $('#dataDUT_4').val($('#dataDUT_4').val() + SERIAL_stringReceived);
+    }
+    if ($("#putDataDUT_5").prop('checked')) {
+        $('#dataDUT_5').val($('#dataDUT_5').val() + SERIAL_stringReceived);
+    }
+
+    if ($("#putDataCorrection").prop('checked')) {
+        $('#dataCorrection').val($('#dataCorrection').val() + SERIAL_stringReceived);
     }
 }
 
@@ -96,27 +105,37 @@ function btn_sweep() {
     $('#btn_sweep').click(function () {
         $(this).hide();
 
-        if ($("#putSerialData_to_portDUT").prop('checked')) {
-            $('#portDUT').val('');
+        if ($("#putDataDUT_1").prop('checked')) {
+            $('#dataDUT_1').val('');
         }
-        if ($("#putSerialData_to_portCorrection").prop('checked')) {
-            $('#portCorrection').val('');
+        if ($("#putDataDUT_2").prop('checked')) {
+            $('#dataDUT_2').val('');
         }
-        if ($("#putSerialData_to_portReference").prop('checked')) {
-            $('#portReference').val('');
+        if ($("#putDataDUT_3").prop('checked')) {
+            $('#dataDUT_3').val('');
+        }
+        if ($("#putDataDUT_4").prop('checked')) {
+            $('#dataDUT_4').val('');
+        }
+        if ($("#putDataDUT_5").prop('checked')) {
+            $('#dataDUT_5').val('');
+        }
+
+        if ($("#putDataCorrection").prop('checked')) {
+            $('#dataCorrection').val('');
         }
 
         freq_from = parseInt($('#freq_from').val()); //MHz
         freq_to = parseInt($('#freq_to').val()); //MHz
 
         let command = '[' + freq_from + ';' + freq_to + ';]' + "\r\n";
-        console.log(command);
+        //console.log(command);
         chrome.serial.send(SERIAL_connectionId, convertStringToArrayBuffer(command), SERIAL_callback_onSend);
     });
 }
 
 function SERIAL_callback_onSend() {
-    console.log('send');
+    //console.log('send');
     $('#btn_sweep').show();
 }
 

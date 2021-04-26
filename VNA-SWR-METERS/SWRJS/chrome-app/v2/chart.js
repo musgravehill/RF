@@ -1,18 +1,20 @@
 
-var portCorrection_values = []; //input values from device
-var portCorrection_correction_coef = []; //coefficient for corrction
+var dataCorrection = [];
+var correction_coefs = [];
 
-var portDUT_values = []; //input values from device
-
-var portReference_values = []; //input values from device SWR=1, 1.5, 2, 3 etc
+var dataDUT_1 = [];
+var dataDUT_2 = [];
+var dataDUT_3 = [];
+var dataDUT_4 = [];
+var dataDUT_5 = [];
 
 var freq_from = 0; //MHz
 var freq_to = 0; //MHz
 
-var isUsePortCorrection = false;
+var isUseCorrection = false;
 
-var chart_portDUT = false;
-var chart_portCorrection = false;
+var chart_DUT = false;
+var chart_correction = false;
 
 document.addEventListener('DOMContentLoaded', function () {
     btn_draw();
@@ -22,125 +24,283 @@ function btn_draw() {
     $('#btn_draw').click(function () {
         freq_from = parseInt($('#freq_from').val()); //MHz
         freq_to = parseInt($('#freq_to').val()); //MHz
-        isUsePortCorrection = $("#isUsePortCorrection").prop('checked');
-        portCorrection_fill();
-        portCorrection_calc_correction_coef();
-        portDUT_fill();
-        portReference_fill();
-        chart_portDUT_draw();
-        chart_portCorrection_draw();
+        isUseCorrection = $("#isUseCorrection").prop('checked');
+
+        correction_fill();
+        calc_correction_coefs();
+        DUT_fill();
+
+        chart_DUT_draw();
+        chart_correction_draw();
     });
     $('#btn_sweep').show();
 }
 
-function portReference_fill() {
-    var res = $('#portReference').val();
-    var ar = res.split('\n');
-    var tmp, freq, volt;
+
+
+function DUT_fill() {
+    let res, ar, tmp, freq, volt;
+
+    res = $('#dataDUT_1').val();
+    ar = res.split('\n');
     $(ar).each(function (i, item) {
         tmp = item.split(';');
-        freq = parseInt(tmp[0]);
-        volt = parseInt(tmp[1]);
+        freq = parseInt(tmp[0]) || 0;
+        volt = parseInt(tmp[1]) || 0;
         if (freq > 0 && volt > 0) {
-            //console.log('f=' + freq + ' v=' + volt);
-            portReference_values[freq] = volt;
+            dataDUT_1[freq] = volt;
+        }
+    });
+
+    res = $('#dataDUT_2').val();
+    ar = res.split('\n');
+    $(ar).each(function (i, item) {
+        tmp = item.split(';');
+        freq = parseInt(tmp[0]) || 0;
+        volt = parseInt(tmp[1]) || 0;
+        if (freq > 0 && volt > 0) {
+            dataDUT_2[freq] = volt;
+        }
+    });
+
+    res = $('#dataDUT_3').val();
+    ar = res.split('\n');
+    $(ar).each(function (i, item) {
+        tmp = item.split(';');
+        freq = parseInt(tmp[0]) || 0;
+        volt = parseInt(tmp[1]) || 0;
+        if (freq > 0 && volt > 0) {
+            dataDUT_3[freq] = volt;
+        }
+    });
+
+    res = $('#dataDUT_4').val();
+    ar = res.split('\n');
+    $(ar).each(function (i, item) {
+        tmp = item.split(';');
+        freq = parseInt(tmp[0]) || 0;
+        volt = parseInt(tmp[1]) || 0;
+        if (freq > 0 && volt > 0) {
+            dataDUT_4[freq] = volt;
+        }
+    });
+
+    res = $('#dataDUT_5').val();
+    ar = res.split('\n');
+    $(ar).each(function (i, item) {
+        tmp = item.split(';');
+        freq = parseInt(tmp[0]) || 0;
+        volt = parseInt(tmp[1]) || 0;
+        if (freq > 0 && volt > 0) {
+            dataDUT_5[freq] = volt;
         }
     });
 }
 
-function portDUT_fill() {
-    var res = $('#portDUT').val();
-    var ar = res.split('\n');
-    var tmp, freq, volt;
+function correction_fill() {
+    let res = $('#dataCorrection').val();
+    let ar = res.split('\n');
+    let tmp, freq, volt;
     $(ar).each(function (i, item) {
         tmp = item.split(';');
-        freq = parseInt(tmp[0]);
-        volt = parseInt(tmp[1]);
+        freq = parseInt(tmp[0]) || 0;
+        volt = parseInt(tmp[1]) || 0;
         if (freq > 0 && volt > 0) {
-            //console.log('f=' + freq + ' v=' + volt);
-            portDUT_values[freq] = volt;
+            dataCorrection[freq] = volt;
         }
     });
 }
-
-function portCorrection_fill() {
-    var res = $('#portCorrection').val();
-    var ar = res.split('\n');
-    var tmp, freq, volt;
-    $(ar).each(function (i, item) {
-        tmp = item.split(';');
-        freq = parseInt(tmp[0]);
-        volt = parseInt(tmp[1]);
-        if (freq > 0 && volt > 0) {
-            //console.log('f=' + freq + ' v=' + volt);
-            portCorrection_values[freq] = volt;
-        }
-    });
-}
-function portCorrection_calc_correction_coef() {
-    var i;
-    var portCorrection_values_freqsRange = [];
+function calc_correction_coefs() {
+    let i;
+    let dataCorrection_freqsRange = [];
     for (i = freq_from; i <= freq_to; i++) {
-        if (portCorrection_values[i]) {
-            portCorrection_values_freqsRange.push(portCorrection_values[i]);
+        if (dataCorrection[i]) {
+            dataCorrection_freqsRange.push(dataCorrection[i]);
         }
     }
-    var portCorrection_values_freqsRange_min = Math.min.apply(null, portCorrection_values_freqsRange);
+    let dataCorrection_freqsRange_min = Math.min.apply(null, dataCorrection_freqsRange);
     for (i = freq_from; i <= freq_to; i++) {
-        if (portCorrection_values[i]) {
-            portCorrection_correction_coef[i] = portCorrection_values_freqsRange_min / portCorrection_values[i];
+        if (dataCorrection[i]) {
+            correction_coefs[i] = dataCorrection_freqsRange_min / dataCorrection[i];
         }
     }
 }
 
-function chart_portDUT_draw() {
-    var i;
-    var dataLabels = [];
-    var dataY_portDUT_values = [];
-    var dataY_portReference_values = [];
+function chart_DUT_draw() {
+    //dataDUT_1
+    let i;
+    let dataLabels = [];
+    let dataY_dataDUT_1 = [];
+    let dataY_dataDUT_2 = [];
+    let dataY_dataDUT_3 = [];
+    let dataY_dataDUT_4 = [];
+    let dataY_dataDUT_5 = [];
+    let dataY_dataCorrection = [];
     for (i = freq_from; i <= freq_to; i++) {
-        if (portDUT_values[i]) {
-            dataLabels.push(i);
-            if (isUsePortCorrection && portCorrection_correction_coef[i]) {
-                dataY_portDUT_values.push(Math.round(portDUT_values[i] * portCorrection_correction_coef[i]));
-                dataY_portReference_values.push(Math.round(portReference_values[i] * portCorrection_correction_coef[i]));
-            } else {
-                dataY_portDUT_values.push(portDUT_values[i]);
-                dataY_portReference_values.push(portReference_values[i]);
+        let dataLabelIsPushed = false;
+        if (typeof dataCorrection[i] !== 'undefined') {
+            let pointVal = parseInt(dataCorrection[i]) || 0;
+            if (pointVal > 0) {
+                if (!dataLabelIsPushed) {
+                    dataLabels.push(i);
+                    dataLabelIsPushed=true;
+                }
+                if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
+                    dataY_dataCorrection.push(Math.round(dataCorrection[i] * correction_coefs[i]));
+                } else {
+                    dataY_dataCorrection.push(dataCorrection[i]);
+                }
             }
         }
+
+        if (typeof dataDUT_1[i] !== 'undefined') {
+            let pointVal = parseInt(dataDUT_1[i]) || 0;
+            if (pointVal > 0) {
+                if (!dataLabelIsPushed) {
+                    dataLabels.push(i);
+                    dataLabelIsPushed=true;
+                }
+                if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
+                    dataY_dataDUT_1.push(Math.round(dataDUT_1[i] * correction_coefs[i]));
+                } else {
+                    dataY_dataDUT_1.push(dataDUT_1[i]);
+                }
+            }
+        }
+        
+        if (typeof dataDUT_2[i] !== 'undefined') {
+            let pointVal = parseInt(dataDUT_2[i]) || 0;
+            if (pointVal > 0) {
+                if (!dataLabelIsPushed) {
+                    dataLabels.push(i);
+                    dataLabelIsPushed=true;
+                }
+                if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
+                    dataY_dataDUT_2.push(Math.round(dataDUT_2[i] * correction_coefs[i]));
+                } else {
+                    dataY_dataDUT_2.push(dataDUT_2[i]);
+                }
+            }
+        }
+        
+        if (typeof dataDUT_3[i] !== 'undefined') {
+            let pointVal = parseInt(dataDUT_3[i]) || 0;
+            if (pointVal > 0) {
+                if (!dataLabelIsPushed) {
+                    dataLabels.push(i);
+                    dataLabelIsPushed=true;
+                }
+                if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
+                    dataY_dataDUT_3.push(Math.round(dataDUT_3[i] * correction_coefs[i]));
+                } else {
+                    dataY_dataDUT_3.push(dataDUT_3[i]);
+                }
+            }
+        }
+        
+        if (typeof dataDUT_4[i] !== 'undefined') {
+            let pointVal = parseInt(dataDUT_4[i]) || 0;
+            if (pointVal > 0) {
+                if (!dataLabelIsPushed) {
+                    dataLabels.push(i);
+                    dataLabelIsPushed=true;
+                }
+                if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
+                    dataY_dataDUT_4.push(Math.round(dataDUT_4[i] * correction_coefs[i]));
+                } else {
+                    dataY_dataDUT_4.push(dataDUT_4[i]);
+                }
+            }
+        }
+        
+        if (typeof dataDUT_5[i] !== 'undefined') {
+            let pointVal = parseInt(dataDUT_5[i]) || 0;
+            if (pointVal > 0) {
+                if (!dataLabelIsPushed) {
+                    dataLabels.push(i);
+                    dataLabelIsPushed=true;
+                }
+                if (isUseCorrection && typeof correction_coefs[i] !== 'undefined') {
+                    dataY_dataDUT_5.push(Math.round(dataDUT_5[i] * correction_coefs[i]));
+                } else {
+                    dataY_dataDUT_5.push(dataDUT_5[i]);
+                }
+            }
+        }
+
     }
 
-    if (chart_portDUT) {
-        chart_portDUT.destroy();
+    if (chart_DUT) {
+        chart_DUT.destroy();
         //alert('destroy');
     }
 
-    var ctx = document.getElementById('chart_portDUT').getContext('2d');
-    chart_portDUT = new Chart(ctx, {
+    let ctx = document.getElementById('chart_DUT').getContext('2d');
+    chart_DUT = new Chart(ctx, {
         type: 'line',
         data: {
             labels: dataLabels,
             datasets: [
+                
                 {
-                    label: 'portDUT',
+                    label: 'DUT 1',
                     fill: false,
-                    backgroundColor: '#ff2600',
+                    backgroundColor: '#ff0000',
                     borderWidth: 3,
-                    borderColor: '#ff2600',
+                    borderColor: '#ff0000',
                     pointStyle: 'circle',
                     radius: 1,
-                    data: dataY_portDUT_values
+                    data: dataY_dataDUT_1
                 },
                 {
-                    label: 'portReference',
+                    label: 'DUT 2',
                     fill: false,
-                    backgroundColor: '#0026ff',
+                    backgroundColor: '#1a75ff',
                     borderWidth: 3,
-                    borderColor: '#0026ff',
+                    borderColor: '#1a75ff',
                     pointStyle: 'circle',
                     radius: 1,
-                    data: dataY_portReference_values
+                    data: dataY_dataDUT_2
+                },
+                {
+                    label: 'DUT 3',
+                    fill: false,
+                    backgroundColor: '#00e600',
+                    borderWidth: 3,
+                    borderColor: '#00e600',
+                    pointStyle: 'circle',
+                    radius: 1,
+                    data: dataY_dataDUT_3
+                },
+                {
+                    label: 'DUT 4',
+                    fill: false,
+                    backgroundColor: '#ff9900',
+                    borderWidth: 3,
+                    borderColor: '#ff9900',
+                    pointStyle: 'circle',
+                    radius: 1,
+                    data: dataY_dataDUT_4
+                },
+                {
+                    label: 'DUT 5',
+                    fill: false,
+                    backgroundColor: '#ff00ff',
+                    borderWidth: 3,
+                    borderColor: '#ff00ff',
+                    pointStyle: 'circle',
+                    radius: 1,
+                    data: dataY_dataDUT_5
+                },
+                {
+                    label: 'Correction',
+                    fill: false,
+                    backgroundColor: '#000033',
+                    borderWidth: 3,
+                    borderColor: '#000033',
+                    pointStyle: 'circle',
+                    radius: 1,
+                    data: dataY_dataCorrection
                 }
             ]
         },
@@ -175,38 +335,41 @@ function chart_portDUT_draw() {
         }
     });
 }
-function chart_portCorrection_draw() {
-    var i;
-    var dataLabels = [];
-    var dataY_portCorrection_values = [];
+function chart_correction_draw() {
+    let i;
+    let dataLabels = [];
+    let dataY_dataCorrection = [];
     for (i = freq_from; i <= freq_to; i++) {
-        if (portCorrection_values[i]) {
-            dataLabels.push(i);
-            dataY_portCorrection_values.push(portCorrection_values[i]);
+        if (typeof dataCorrection[i] !== 'undefined') {
+            let pointVal = parseInt(dataCorrection[i]) || 0;
+            if (pointVal > 0) {
+                dataLabels.push(i);
+                dataY_dataCorrection.push(pointVal);
+            }
         }
     }
 
 
-    if (chart_portCorrection) {
-        chart_portCorrection.destroy();
+    if (chart_correction) {
+        chart_correction.destroy();
         //alert('destroy');
     }
 
-    var ctx = document.getElementById('chart_portCorrection').getContext('2d');
-    chart_portCorrection = new Chart(ctx, {
+    let ctx = document.getElementById('chart_correction').getContext('2d');
+    chart_correction = new Chart(ctx, {
         type: 'line',
         data: {
             labels: dataLabels,
             datasets: [
                 {
-                    label: 'portCorrection',
+                    label: 'Correction',
                     fill: false,
                     backgroundColor: '#1a7200',
                     borderWidth: 3,
                     borderColor: '#1a7200',
                     pointStyle: 'circle',
                     radius: 2,
-                    data: dataY_portCorrection_values
+                    data: dataY_dataCorrection
                 },
             ]
         },

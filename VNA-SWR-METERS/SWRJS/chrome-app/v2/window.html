@@ -28,21 +28,46 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <b>DUT (device under test)</b><br>                    
-                    <input type="checkbox" id="putSerialData_to_portDUT"> put serial data here                     
-                    <textarea id="portDUT" class="form-control"></textarea>
+                <div class="col" title="device under test">
+                    <b>DUT 1</b><br>                    
+                    <input type="checkbox" id="putDataDUT_1"> put data here                     
+                    <textarea id="dataDUT_1" class="form-control">100;200;0;
+101;205;0;
+102;212;0;
+103;208;0;
+                    </textarea>
+                </div>
+                <div class="col" title="device under test">
+                    <b>DUT 2</b><br>                    
+                    <input type="checkbox" id="putDataDUT_2"> put data here                     
+                    <textarea id="dataDUT_2" class="form-control">100;300;0;
+101;305;0;
+102;312;0;
+103;308;0;</textarea>
+                </div>
+                <div class="col" title="device under test">
+                    <b>DUT 3</b><br>                    
+                    <input type="checkbox" id="putDataDUT_3"> put data here                     
+                    <textarea id="dataDUT_3" class="form-control"></textarea>
+                </div>
+                <div class="col" title="device under test">
+                    <b>DUT 4</b><br>                    
+                    <input type="checkbox" id="putDataDUT_4"> put data here                     
+                    <textarea id="dataDUT_4" class="form-control"></textarea>
+                </div>
+                <div class="col" title="device under test">
+                    <b>DUT 5</b><br>                    
+                    <input type="checkbox" id="putDataDUT_4"> put data here                     
+                    <textarea id="dataDUT_5" class="form-control"></textarea>
                 </div>
                 <div class="col">
                     <b>Correction</b><br>
-                    <input type="checkbox" id="putSerialData_to_portCorrection"> put serial data here
-                    <textarea id="portCorrection" class="form-control"></textarea>
-                </div>
-                <div class="col">
-                    <b>SWR (reference)</b><br>
-                    <input type="checkbox" id="putSerialData_to_portReference"> put serial data here
-                    <textarea id="portReference" class="form-control"></textarea>
-                </div>
+                    <input type="checkbox" id="putDataCorrection"> put data here
+                    <textarea id="dataCorrection" class="form-control">100;10;0;
+101;15;0;
+102;22;0;
+103;18;0;</textarea>
+                </div>                
             </div>
             <div class="row">
                 <div class="col">
@@ -60,9 +85,9 @@
                             <input id="freq_to" type="number" class="form-control" value="6000" style="width: 90px;" />
                         </div>
                         <div class="form-check mb-2 mr-sm-2">
-                            <input class="form-check-input" type="checkbox" id="isUsePortCorrection">
+                            <input class="form-check-input" type="checkbox" id="isUseCorrection">
                             <label class="form-check-label" for="inlineFormCheck">
-                                use port correction
+                                use correction
                             </label>
                         </div>
                         <span class="btn btn-danger mb-2" id="btn_sweep">SWEEP</span>
@@ -72,16 +97,16 @@
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col">                    
                     <div class="chart-container" style="position: relative; height: 500px;"> <!-- style="position: relative; height: 300px;" -->
-                        <canvas id="chart_portDUT"></canvas>
+                        <canvas id="chart_DUT"></canvas>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col">                    
                     <div class="chart-container" style="position: relative; height: 500px;"> <!-- style="position: relative; height: 300px;" -->
-                        <canvas id="chart_portCorrection"></canvas>
+                        <canvas id="chart_correction"></canvas>
                     </div>
                 </div>
             </div>
